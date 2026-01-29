@@ -3,7 +3,7 @@ import Slider from "../Slider/Slider";
 
 const Home = () => {
     return (
-        <div>
+        <div className="mt-16">
             <Slider />
             <About />
         </div>

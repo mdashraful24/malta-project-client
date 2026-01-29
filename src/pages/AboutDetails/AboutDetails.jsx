@@ -11,7 +11,7 @@ const AboutDetails = () => {
     }, []);
 
     return (
-        <section className="container mx-auto px-4 py-16">
+        <section className="container mx-auto px-4 py-16 mt-10">
 
             {/* Hero Header */}
             <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
@@ -26,7 +26,7 @@ const AboutDetails = () => {
 
             {/* Story Section with Elegant Design */}
             <div className="relative mb-24 lg:mb-36">
-                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
+                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-7 pt-14 lg:pt-20 order-2 lg:order-1">
                         <div className="mb-6 md:mb-8">
                             <h2 className="text-3xl sm:text-4xl font-light mb-4 md:mb-6">

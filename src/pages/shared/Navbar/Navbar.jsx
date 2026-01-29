@@ -1,6 +1,11 @@
 import { NavLink } from "react-router";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isScrolling, setIsScrolling] = useState(false);
+
     const links = (
         <>
             <li>
@@ -37,8 +42,7 @@ const Navbar = () => {
                 <NavLink
                     to="/auth"
                     className={({ isActive }) =>
-                        `hidden lg:block text-lg py-0.5 ${isActive ? "text-orange-700 font-medium" : "border"
-                        }`
+                        `hidden lg:block text-lg py-0.5 ${isActive ? "text-orange-700 font-medium" : ""}`
                     }
                 >
                     Login
@@ -47,8 +51,65 @@ const Navbar = () => {
         </>
     );
 
+    useEffect(() => {
+        let scrollTimer;
+
+        const controlNavbar = () => {
+            const currentScrollY = window.scrollY;
+
+            // Clear previous timer
+            clearTimeout(scrollTimer);
+
+            // User is scrolling
+            setIsScrolling(true);
+
+            // If scrolling down and not at top, hide navbar
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false);
+            }
+            // If scrolling up, show navbar
+            else if (currentScrollY < lastScrollY) {
+                setIsVisible(true);
+            }
+
+            // Update last scroll position
+            setLastScrollY(currentScrollY);
+
+            // Set a timer to show navbar when scrolling stops
+            scrollTimer = setTimeout(() => {
+                setIsVisible(true);
+                setIsScrolling(false);
+            }, 150); // 150ms delay after scrolling stops
+        };
+
+        // Throttle the scroll event for better performance
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    controlNavbar();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(scrollTimer);
+        };
+    }, [lastScrollY]);
+
     return (
-        <div className="bg-base-100 shadow-md">
+        <div
+            className={`bg-base-100 shadow-md fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible
+                    ? 'translate-y-0'
+                    : '-translate-y-full'
+                } ${isScrolling ? 'shadow-sm' : 'shadow-md'
+                }`}
+        >
             <div className="navbar container mx-auto px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -85,7 +146,14 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end lg:hidden">
-                    <a className="btn">Login</a>
+                    <NavLink
+                        to="/auth"
+                        className={({ isActive }) =>
+                            `btn ${isActive ? "text-orange-700 font-medium" : ""}`
+                        }
+                    >
+                        Login
+                    </NavLink>
                 </div>
             </div>
         </div>
