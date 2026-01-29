@@ -1,7 +1,17 @@
-const Highlight = () => {
-    return (
-        <div className="container mx-auto pb-20 px-4">
+import { useNavigate } from "react-router";
 
+const Highlight = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/highlight');
+    };
+
+    return (
+        <div
+            className="container mx-auto pb-20 px-4 cursor-pointer"
+            onClick={handleClick}
+        >
             {/* Header */}
             <div className="mb-12 text-center">
                 <h2 className="text-4xl font-bold">
@@ -15,7 +25,7 @@ const Highlight = () => {
             {/* Cards */}
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
+                <div className="group rounded-2xl bg-gradient-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
                         01
                     </div>
@@ -27,7 +37,7 @@ const Highlight = () => {
                     </p>
                 </div>
 
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
+                <div className="group rounded-2xl bg-gradient-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
                         02
                     </div>
@@ -39,7 +49,7 @@ const Highlight = () => {
                     </p>
                 </div>
 
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
+                <div className="group rounded-2xl bg-gradient-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
                     <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
                         03
                     </div>
