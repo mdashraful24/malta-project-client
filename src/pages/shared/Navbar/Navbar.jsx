@@ -40,7 +40,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/auth"
+                    to="/auth/login"
                     className={({ isActive }) =>
                         `hidden lg:block text-lg py-0.5 ${isActive ? "text-orange-700 font-medium" : ""}`
                     }
@@ -147,7 +147,7 @@ const Navbar = () => {
 
                 <div className="navbar-end lg:hidden">
                     <NavLink
-                        to="/auth"
+                        to="/auth/login"
                         className={({ isActive }) =>
                             `btn ${isActive ? "text-orange-700 font-medium" : ""}`
                         }
