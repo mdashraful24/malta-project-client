@@ -6,6 +6,7 @@ import HighlightShowcase from "../pages/HighlightShowcase/HighlightShowcase";
 import Error from "../pages/shared/Error/Error";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/auth/Login/Login";
+import SignUp from "../pages/auth/SignUp/SignUp";
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +22,8 @@ export const router = createBrowserRouter([
         path: "auth",
         Component: AuthLayout,
         children: [
-            { path: "login", Component: Login }
+            { path: "login", Component: Login },
+            { path: "register", Component: SignUp },
         ]
     },
     {
