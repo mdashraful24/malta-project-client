@@ -122,7 +122,7 @@ const AboutDetails = () => {
                             <p className="text-primary font-medium mb-3 md:mb-4 text-sm md:text-base">{member.role}</p>
                             <p className="text-gray-600 text-sm md:text-base">{member.description}</p>
                             <div className="mt-4 md:mt-6">
-                                <div className="hidden lg:block w-12 h-0.5 bg-gray-200 mx-auto group-hover:w-24 group-hover:bg-primary transition-all duration-300"></div>
+                                <div className="hidden lg:block w-12 h-0.5 mx-auto group-hover:w-24 group-hover:bg-primary transition-all duration-300"></div>
                             </div>
                         </div>
                     </div>
