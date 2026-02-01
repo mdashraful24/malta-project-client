@@ -1,66 +1,131 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import img from "../../../assets/img/fresh-orange-fruit.jpg";
+
+const projects = [
+    {
+        id: 1,
+        title: "Fresh Orange Delivery",
+        description: "Premium quality oranges delivered fresh to your doorstep with guaranteed same-day delivery",
+        image: img,
+        category: "Food & Beverage"
+    },
+    {
+        id: 2,
+        title: "Eco Farming Solutions",
+        description: "Sustainable farming practices",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800",
+        category: "Agriculture"
+    },
+    {
+        id: 3,
+        title: "Urban Garden Design",
+        description: "Transforming urban spaces into green havens with innovative vertical gardening solutions and sustainable materials",
+        image: "https://images.unsplash.com/photo-1417733403748-83bbc7c05140?auto=format&fit=crop&w=800",
+        category: "Design"
+    },
+    {
+        id: 4,
+        title: "Organic Produce Market",
+        description: "Connecting organic farmers with local communities through our innovative platform",
+        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800",
+        category: "Retail"
+    },
+    {
+        id: 5,
+        title: "Farm to Table Initiative",
+        description: "Reducing food miles, increasing freshness",
+        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800",
+        category: "Sustainability"
+    },
+    {
+        id: 6,
+        title: "Agricultural Tech Hub",
+        description: "Innovative technology solutions for modern farmers including IoT sensors and AI-powered analytics",
+        image: img,
+        category: "Technology"
+    }
+];
 
 const Highlight = () => {
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    const handleSeeMore = () => {
         navigate('/highlight');
     };
 
+    const handleCardClick = (id) => {
+        navigate(`/highlight/${id}`);
+    };
+
     return (
-        <div
-            className="container mx-auto pb-20 px-4 cursor-pointer"
-            onClick={handleClick}
-        >
+        <div className="container mx-auto pb-20 px-4">
             {/* Header */}
             <div className="mb-12 text-center">
-                <h2 className="text-5xl lg:text-6xl font-bold">
-                    Why teams choose us
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">
+                    Highlights of our project
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                    Powerful features designed to help you move faster and work smarter.
+                    Explore our portfolio of successful projects and innovative solutions.
                 </p>
             </div>
 
-            {/* Cards */}
+            {/* Project Cards Grid - All cards same height */}
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {projects.map((project) => (
+                    <div
+                        key={project.id}
+                        // onClick={() => handleCardClick(project.id)}
+                        className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl"
+                    >
+                        {/* Project Image - Fixed height */}
+                        <div className="relative h-48 md:h-56 overflow-hidden">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            {/* Category Badge */}
+                            <div className="absolute top-4 left-4">
+                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium text-gray-800 rounded-full">
+                                    {project.category}
+                                </span>
+                            </div>
+                        </div>
 
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
-                        01
+                        {/* Project Content - Flex grow for consistent height */}
+                        <div className="flex flex-col grow p-6">
+                            <div className="flex items-start justify-between mb-3">
+                                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors line-clamp-1">
+                                    {project.title}
+                                </h3>
+                                <div className="text-2xl font-bold text-gray-300">0{project.id}</div>
+                            </div>
+                            <p className="text-gray-600 leading-relaxed line-clamp-3 grow">
+                                {project.description}
+                            </p>
+                            {/* View Details Button */}
+                            {/* <div className="flex items-center text-orange-600 font-medium group-hover:underline mt-4">
+                                View Details
+                                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div> */}
+                        </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                        Clean Architecture
-                    </h3>
-                    <p className="mt-3 text-gray-600 leading-relaxed">
-                        Well-structured components that are easy to scale and maintain over time.
-                    </p>
-                </div>
+                ))}
+            </div>
 
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
-                        02
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                        Lightning Fast
-                    </h3>
-                    <p className="mt-3 text-gray-600 leading-relaxed">
-                        Optimized performance with utility-first styling and modern tooling.
-                    </p>
-                </div>
-
-                <div className="group rounded-2xl bg-linear-to-br from-indigo-50 to-white p-4 md:p-6 lg:p-8 shadow-sm ring-1 ring-gray-200 transition hover:shadow-lg">
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 font-bold">
-                        03
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                        Consistent UI
-                    </h3>
-                    <p className="mt-3 text-gray-600 leading-relaxed">
-                        Design systems that ensure consistency across your entire product.
-                    </p>
-                </div>
-
+            {/* See More Button */}
+            <div className="mt-10 text-end">
+                <Link
+                    to={"/highlight"}
+                    className="inline-flex items-center px-4 py-3 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition-all duration-300 hover:shadow-lg hover:cursor-pointer"
+                >
+                    View All Projects
+                    <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </Link>
             </div>
         </div>
     );

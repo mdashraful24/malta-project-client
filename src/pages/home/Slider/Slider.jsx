@@ -111,75 +111,70 @@ const Slider = () => {
                             ))}
                         </div>
 
-                        {/* Content Container */}
-                        <div className="relative z-20 h-full flex flex-col justify-end p-8 md:p-12 lg:p-16">
-                            {/* Text Content */}
-                            <div className="max-w-2xl mx-auto parallax-item" data-speed="0.3">
-                                {/* <div className="flex items-center gap-3 mb-4">
-                                    <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
-                                    <span className="text-amber-300 font-semibold tracking-wider uppercase text-sm">
-                                        {slideContent[index].subtitle}
-                                    </span>
-                                </div> */}
-
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        {/* Content Container - CENTERED */}
+                        <div className="relative z-20 h-full flex flex-col items-center justify-center p-8 md:p-12 lg:p-16">
+                            {/* Text Content - Centered */}
+                            <div className="max-w-2xl text-center parallax-item" data-speed="0.3">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                                     {slideContent[index].title}
-                                    <span className="block text-transparent bg-clip-text bg-linear-to-r from-amber-300 to-orange-400 mt-2">
-                                        Premium Experience
-                                    </span>
                                 </h1>
-
-                                <p className="text-gray-200 text-lg md:text-xl mb-8 leading-relaxed max-w-xl">
+                                <div className="text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-linear-to-r from-amber-300 to-orange-400 font-semibold mb-6">
+                                    Premium Experience
+                                </div>
+                                <p className="text-gray-200 text-lg md:text-xl mb-10 leading-relaxed max-w-xl mx-auto">
                                     {slideContent[index].description}
                                 </p>
                             </div>
 
-                            {/* Action Buttons - Glass Morphism */}
-                            <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 z-30 parallax-item" data-speed="0.5">
+                            {/* Action Buttons - Glass Morphism - Centered */}
+                            <div className="flex flex-row justify-center items-center gap-4 md:gap-6 z-30 parallax-item mb-12" data-speed="0.5">
                                 <a
                                     href="/monitor"
-                                    className="group relative overflow-hidden bg-linear-to-r from-blue-600/90 to-blue-700/90 backdrop-blur-sm border border-blue-400/30 text-white font-semibold p-3 md:py-4 md:px-6 rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:from-blue-500/90 hover:to-blue-600/90 flex items-center justify-center gap-3 min-w-45"
+                                    className="group relative overflow-hidden bg-linear-to-r from-blue-600/90 to-blue-700/90 backdrop-blur-sm border border-blue-400/30 text-white font-semibold p-3 rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:from-blue-500/90 hover:to-blue-600/90 flex items-center justify-center gap-3 min-w-32 md:min-w-40"
                                 >
                                     <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                    <Monitor className="w-5 h-5" />
+                                    <Monitor className="w-5 h-5 shrink-0" />
                                     <span className="relative">Monitor</span>
-                                    <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                                    {/* <ChevronRight className="absolute right-4 w-0 h-5 group-hover:w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" /> */}
                                 </a>
 
                                 <a
                                     href="/auth/login"
-                                    className="group relative overflow-hidden bg-linear-to-r from-emerald-600/90 to-emerald-700/90 backdrop-blur-sm border border-emerald-400/30 text-white font-semibold p-3 md:py-4 md:px-6 rounded-xl shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-[1.02] hover:from-emerald-500/90 hover:to-emerald-600/90 flex items-center justify-center gap-3 min-w-45"
+                                    className="group relative overflow-hidden bg-linear-to-r from-emerald-600/90 to-emerald-700/90 backdrop-blur-sm border border-emerald-400/30 text-white font-semibold p-3 rounded-xl shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-[1.02] hover:from-emerald-500/90 hover:to-emerald-600/90 flex items-center justify-center gap-3 min-w-32 md:min-w-40"
                                 >
                                     <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                    <LogIn className="w-5 h-5" />
+                                    <LogIn className="w-5 h-5 shrink-0" />
                                     <span className="relative">Login</span>
-                                    <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                                    {/* <ChevronRight className="absolute right-4 w-0 h-5 group-hover:w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" /> */}
                                 </a>
                             </div>
 
-                            {/* Decorative Line */}
-                            <div className="h-px aria-hidden:bg-linear-to-r from-transparent via-white/30 to-transparent w-full max-w-2xl mx-auto mt-12 mb-4"></div>
+                            {/* Decorative Line & Indicators - Positioned at bottom */}
+                            <div className="absolute bottom-8 left-0 right-0 px-8 md:px-12 lg:px-16">
+                                {/* Decorative Line */}
+                                {/* <div className="h-px bg-linear-to-r from-transparent via-white/30 to-transparent w-full mb-4"></div> */}
 
-                            {/* Slide Indicator - Custom */}
-                            <div className="flex items-center justify-between">
-                                <div className="flex gap-2">
-                                    {images.map((_, idx) => (
-                                        <button
-                                            key={idx}
-                                            onClick={() => handleSlideChange(idx)}
-                                            className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx
-                                                ? 'w-8 bg-linear-to-r from-amber-400 to-orange-400'
-                                                : 'w-4 bg-white/40 hover:bg-white/60'
-                                                }`}
-                                            aria-label={`Go to slide ${idx + 1}`}
-                                        />
-                                    ))}
-                                </div>
+                                {/* Slide Indicator - Custom */}
+                                <div className="flex items-center justify-between">
+                                    <div className="flex gap-2">
+                                        {images.map((_, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => handleSlideChange(idx)}
+                                                className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx
+                                                    ? 'w-8 bg-linear-to-r from-amber-400 to-orange-400'
+                                                    : 'w-4 bg-white/40 hover:bg-white/60'
+                                                    }`}
+                                                aria-label={`Go to slide ${idx + 1}`}
+                                            />
+                                        ))}
+                                    </div>
 
-                                <div className="text-white/60 text-sm font-medium">
-                                    <span className="text-white">{currentSlide + 1}</span>
-                                    <span className="mx-2">/</span>
-                                    <span>{images.length}</span>
+                                    <div className="text-white/60 text-sm font-medium">
+                                        <span className="text-white">{currentSlide + 1}</span>
+                                        <span className="mx-2">/</span>
+                                        <span>{images.length}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +185,7 @@ const Slider = () => {
             {/* Custom Navigation Arrows */}
             <button
                 onClick={() => setCurrentSlide((currentSlide - 1 + images.length) % images.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 transform hover:scale-110 group/arrow opacity-0 group-hover:opacity-100"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 transform hover:scale-110 group/arrow opacity-0 group-hover:opacity-100 cursor-pointer"
                 aria-label="Previous slide"
             >
                 <ChevronLeft className="w-6 h-6 group-hover/arrow:-translate-x-1 transition-transform duration-300" />
@@ -198,21 +193,11 @@ const Slider = () => {
 
             <button
                 onClick={() => setCurrentSlide((currentSlide + 1) % images.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 transform hover:scale-110 group/arrow opacity-0 group-hover:opacity-100"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 transform hover:scale-110 group/arrow opacity-0 group-hover:opacity-100 cursor-pointer"
                 aria-label="Next slide"
             >
                 <ChevronRight className="w-6 h-6 group-hover/arrow:translate-x-1 transition-transform duration-300" />
             </button>
-
-            {/* Premium Badge */}
-            {/* <div className="absolute top-6 right-6 z-30">
-                <div className="bg-linear-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-2xl shadow-amber-500/30 backdrop-blur-sm border border-amber-400/30 animate-pulse">
-                    <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4" />
-                        <span>Premium</span>
-                    </div>
-                </div>
-            </div> */}
 
             {/* Bottom Gradient */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black/50 to-transparent pointer-events-none"></div>
