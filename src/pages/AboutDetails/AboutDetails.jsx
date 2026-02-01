@@ -5,14 +5,13 @@ import team2 from "../../assets/img/fresh-orange-fruit.jpg";
 import team3 from "../../assets/img/fresh-orange-fruit.jpg";
 
 const AboutDetails = () => {
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <section className="container mx-auto px-4 py-16 mt-10">
-
+        <section className="container mx-auto px-4 lg:px-0 py-16 mt-10">
             {/* Hero Header */}
             <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-5 tracking-tight leading-tight">
@@ -26,8 +25,8 @@ const AboutDetails = () => {
 
             {/* Story Section with Elegant Design */}
             <div className="relative mb-24 lg:mb-36">
-                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div className="lg:col-span-7 pt-14 lg:pt-20 order-2 lg:order-1">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    <div className="lg:col-span-7 pt-14 lg:pt-0 order-2 lg:order-1">
                         <div className="mb-6 md:mb-8">
                             <h2 className="text-3xl sm:text-4xl font-light mb-4 md:mb-6">
                                 Our <span className="font-bold">Journey</span> of Innovation
@@ -65,20 +64,20 @@ const AboutDetails = () => {
                         </div>
                     </div>
                     <div className="lg:col-span-5 relative order-1 lg:order-2">
-                        <div className="overflow-hidden rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-2xl lg:transform lg:translate-x-8">
+                        <div className="overflow-hidden rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-none lg:transform lg:-translate-y-4">
                             <img
                                 src={img}
                                 alt="Our story"
-                                className="w-full h-64 sm:h-80 md:h-96 lg:h-125 xl:h-150 object-cover transform hover:scale-105 transition-transform duration-700"
+                                className="w-full h-64 sm:h-80 md:h-96 lg:h-125 object-cover transform transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
+                            <div className="block lg:hidden absolute inset-0 bg-linear-to-t from-black/20 to-transparent rounded-2xl"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Team Section */}
-            <div className="text-center mb-12 lg:mb-20">
+            <div className="text-center mb-12 lg:mb-20 px-4 lg:px-0">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 md:mb-6">
                     Meet Our <span className="font-bold">Members</span>
                 </h2>
@@ -87,7 +86,7 @@ const AboutDetails = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-24 lg:mb-32">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-24 lg:mb-32 px-4 lg:px-0">
                 {[
                     {
                         name: "Johnathan Doe",
@@ -130,9 +129,9 @@ const AboutDetails = () => {
             </div>
 
             {/* Mission & Values */}
-            <div className="relative py-16 lg:py-20 overflow-hidden">
+            <div className="relative py-16 lg:py-20 overflow-hidden px-4 lg:px-0">
                 <div className="absolute inset-0 bg-linear-to-br from-gray-900 to-black rounded-3xl"></div>
-                <div className="relative max-w-6xl mx-auto px-4">
+                <div className="relative px-4">
                     <div className="text-center text-white mb-12 md:mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 md:mb-8 leading-tight">
                             Our Core <span className="font-bold">Mission</span>
