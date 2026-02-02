@@ -59,17 +59,17 @@ const Chart = () => {
                 <h2 className="text-xl font-bold">Analytics</h2>
 
                 {/* Chart Type Selector */}
-                <div className="flex gap-2 mt-2 md:mt-0">
+                <div className="flex gap-2">
                     {['composed', 'line', 'bar', 'area'].map((type) => (
                         <button
                             key={type}
                             onClick={() => setChartType(type)}
-                            className={`px-3 py-1 text-sm rounded-full capitalize transition-colors ${chartType === type
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            className={`px-2 py-1 text-sm rounded-full capitalize transition-all backdrop-blur-sm ${chartType === type
+                                ? 'bg-linear-to-r from-blue-500/30 to-purple-500/30 text-gray-800 border border-white/40'
+                                : 'bg-white/20 text-gray-700 hover:bg-white/30 border border-white/30'
                                 }`}
                         >
-                            {type} Chart
+                            {type}
                         </button>
                     ))}
                 </div>
