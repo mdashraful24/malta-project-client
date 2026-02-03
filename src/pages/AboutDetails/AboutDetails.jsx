@@ -17,7 +17,7 @@ const AboutDetails = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-5 tracking-tight leading-tight">
                     About Us
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+                <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
                     Where passion meets precision, creating meaningful impact through
                     innovative solutions and unwavering dedication to quality.
                 </p>
@@ -34,12 +34,12 @@ const AboutDetails = () => {
                             <div className="w-16 h-0.5 bg-primary mb-6 md:mb-8"></div>
                         </div>
                         <div className="space-y-4 md:space-y-6">
-                            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                            <p className="md:text-lg leading-relaxed">
                                 Founded on principles of excellence and integrity, we have
                                 evolved into a beacon of innovation, serving discerning
                                 clients who value both quality and purpose.
                             </p>
-                            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                            <p className="md:text-lg leading-relaxed">
                                 Our commitment to sustainable practices and transparent
                                 operations sets new industry standards, while our focus
                                 on continuous improvement ensures we remain at the
@@ -50,15 +50,15 @@ const AboutDetails = () => {
                             <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 justify-center lg:justify-start">
                                 <div className="text-center lg:text-left">
                                     <p className="text-2xl sm:text-3xl font-bold text-primary">10+</p>
-                                    <p className="text-gray-600 text-xs sm:text-sm uppercase tracking-widest mt-1">Years Experience</p>
+                                    <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">Years Experience</p>
                                 </div>
                                 <div className="text-center lg:text-left">
                                     <p className="text-2xl sm:text-3xl font-bold text-primary">500+</p>
-                                    <p className="text-gray-600 text-xs sm:text-sm uppercase tracking-widest mt-1">Global Clients</p>
+                                    <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">Global Clients</p>
                                 </div>
                                 <div className="text-center lg:text-left">
                                     <p className="text-2xl sm:text-3xl font-bold text-primary">99%</p>
-                                    <p className="text-gray-600 text-xs sm:text-sm uppercase tracking-widest mt-1">Satisfaction Rate</p>
+                                    <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">Satisfaction Rate</p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ const AboutDetails = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 md:mb-6">
                     Meet Our <span className="font-bold">Members</span>
                 </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg px-4">
+                <p className="max-w-2xl mx-auto md:text-lg px-4">
                     A dedicated team of visionaries committed to excellence and innovation.
                 </p>
             </div>
@@ -118,8 +118,8 @@ const AboutDetails = () => {
                         </div>
                         <div className="text-center px-2 sm:px-0">
                             <h3 className="text-xl sm:text-2xl font-bold mb-2">{member.name}</h3>
-                            <p className="text-primary font-medium mb-3 md:mb-4 text-sm md:text-base">{member.role}</p>
-                            <p className="text-gray-600 text-sm md:text-base">{member.description}</p>
+                            <p className="text-primary font-medium mb-3">{member.role}</p>
+                            <p>{member.description}</p>
                             <div className="mt-4 md:mt-6">
                                 <div className="hidden lg:block w-12 h-0.5 mx-auto group-hover:w-24 group-hover:bg-primary transition-all duration-300"></div>
                             </div>
@@ -152,7 +152,7 @@ const AboutDetails = () => {
                             <div key={index} className="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-6 md:p-8 border border-white/10 hover:border-primary/30 transition-all duration-300">
                                 <div className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">0{index + 1}</div>
                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{value.title}</h3>
-                                <p className="text-gray-300 text-sm md:text-base">{value.desc}</p>
+                                <p className="text-gray-300">{value.desc}</p>
                             </div>
                         ))}
                     </div>

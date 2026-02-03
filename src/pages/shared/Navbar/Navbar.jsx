@@ -16,10 +16,10 @@ const Navbar = () => {
         <NavLink
             to={item.path}
             className={({ isActive }) => `
-                relative px-4 py-2 font-medium transition-colors duration-300
+                relative px-4 py-2 transition-colors duration-300
                 ${isActive
-                    ? 'text-orange-600'
-                    : 'hover:text-orange-600'
+                    ? 'text-orange-600 font-bold'
+                    : 'hover:text-orange-600 font-semibold'
                 }
             `}
         >
@@ -69,7 +69,7 @@ const Navbar = () => {
                             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
                             aria-label="Toggle menu"
                         >
-                            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 {isMobileMenuOpen ? (
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 ) : (
@@ -91,10 +91,10 @@ const Navbar = () => {
                                         to={item.path}
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className={({ isActive }) => `
-                                            py-3 px-4 rounded-lg text-base font-medium transition-all duration-200
+                                            py-3 px-4 rounded-lg transition-all duration-200
                                             ${isActive
-                                                ? 'bg-orange-50 text-orange-600 border-r-4 border-orange-600'
-                                                : 'hover:bg-gray-50 hover:text-orange-600 hover:pl-6'
+                                                ? 'bg-orange-50 text-orange-600 font-bold border-r-4 border-orange-600'
+                                                : 'font-semibold hover:bg-gray-50 hover:text-orange-600 hover:pl-6'
                                             }
                                         `}
                                     >

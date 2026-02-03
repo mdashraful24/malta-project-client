@@ -106,11 +106,11 @@ const HighlightShowcase = () => {
     return (
         <div className="container mx-auto px-4 py-16 mt-10">
             {/* Header */}
-            <div className="mb-12 text-center">
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-medium mb-4 md:mb-5 tracking-tight leading-tight">
+            <div className="mb-12 md:mb-16 text-center">
+                <h1 className="text-3xl md:text-5xl font-semibold mb-4 md:mb-5 tracking-tight leading-tight">
                     Highlights of our project
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
                     Explore our complete portfolio of innovative projects and solutions
                 </p>
             </div>
@@ -141,12 +141,12 @@ const HighlightShowcase = () => {
                         {/* Project Content */}
                         <div className="flex flex-col grow p-6">
                             <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors line-clamp-1">
+                                <h3 className="text-xl font-semibold group-hover:text-orange-600 transition-colors line-clamp-1">
                                     {project.title}
                                 </h3>
                                 <div className="text-2xl font-bold text-gray-300">0{project.id}</div>
                             </div>
-                            <p className="text-gray-600 leading-relaxed line-clamp-2 grow">
+                            <p className="leading-relaxed line-clamp-2 grow">
                                 {project.description}
                             </p>
 

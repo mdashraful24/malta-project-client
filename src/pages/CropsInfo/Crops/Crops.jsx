@@ -177,7 +177,7 @@ const Crops = () => {
 
                             {/* For upcoming cards, show only Upcoming overlay */}
                             {!card.clickable ? (
-                                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
+                                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center rounded-lg z-10">
                                     <div className="text-center p-6">
                                         <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-yellow-100 rounded-full">
                                             <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -185,7 +185,7 @@ const Crops = () => {
                                             </svg>
                                         </div>
                                         <span className="text-xl font-bold text-yellow-700">Upcoming</span>
-                                        <p className="text-gray-600 text-sm mt-1">Available Soon</p>
+                                        <p className="text-sm mt-1">Available Soon</p>
                                     </div>
                                 </div>
                             ) : (
@@ -197,8 +197,8 @@ const Crops = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-500">Variety</p>
-                                                <p className="text-gray-800">{card.variety}</p>
+                                                <p className="text-sm font-medium text-gray-600">Variety</p>
+                                                <p>{card.variety}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -210,8 +210,8 @@ const Crops = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-500">Planting Date</p>
-                                                <p className="text-gray-800">{card.plantingDate}</p>
+                                                <p className="text-sm font-medium text-gray-600">Planting Date</p>
+                                                <p>{card.plantingDate}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -223,8 +223,8 @@ const Crops = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-500">Harvest Date</p>
-                                                <p className="text-gray-800">{card.harvestDate}</p>
+                                                <p className="text-sm font-medium text-gray-600">Harvest Date</p>
+                                                <p>{card.harvestDate}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -235,7 +235,7 @@ const Crops = () => {
                             {card.clickable && (
                                 <div className="mt-auto pt-4 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-500">Status</span>
+                                        <span className="text-sm text-gray-600">Status</span>
                                         <div className="flex items-center">
                                             <div className={`w-2 h-2 ${getStatusColor(card.status).dot} rounded-full mr-2 ${card.status === 'growing' ? 'animate-pulse' : ''}`}></div>
                                             <span className={`text-sm font-medium ${getStatusColor(card.status).text}`}>
@@ -250,7 +250,7 @@ const Crops = () => {
                             {card.clickable && (
                                 <div className="mt-3 pt-3 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs text-gray-500">Click to view details</span>
+                                        <span className="text-xs text-gray-600">Click to view details</span>
                                         <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                                         </svg>

@@ -77,7 +77,7 @@ const Slider = () => {
                 className="relative z-10"
             >
                 {images.map((image, index) => (
-                    <div key={index} className="relative h-125 md:h-150 lg:h-175 overflow-hidden">
+                    <div key={index} className="relative h-130 md:h-150 lg:h-180 overflow-hidden">
                         {/* Background Image with Overlay */}
                         <div className="absolute inset-0">
                             <img

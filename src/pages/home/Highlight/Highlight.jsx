@@ -60,11 +60,11 @@ const Highlight = () => {
     return (
         <div className="container mx-auto pb-20 px-4">
             {/* Header */}
-            <div className="mb-12 text-center">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">
+            <div className="mb-12 md:mb-16 text-center">
+                <h2 className="text-3xl md:text-5xl font-semibold capitalize">
                     Highlights of our project
                 </h2>
-                <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="mt-4 md:mt-7 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
                     Explore our portfolio of successful projects and innovative solutions.
                 </p>
             </div>
@@ -95,12 +95,12 @@ const Highlight = () => {
                         {/* Project Content - Flex grow for consistent height */}
                         <div className="flex flex-col grow p-6">
                             <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors line-clamp-1">
+                                <h3 className="text-xl font-semibold group-hover:text-orange-600 transition-colors line-clamp-1">
                                     {project.title}
                                 </h3>
                                 <div className="text-2xl font-bold text-gray-300">0{project.id}</div>
                             </div>
-                            <p className="text-gray-600 leading-relaxed line-clamp-3 grow">
+                            <p className="leading-relaxed line-clamp-3 grow">
                                 {project.description}
                             </p>
                             {/* View Details Button */}

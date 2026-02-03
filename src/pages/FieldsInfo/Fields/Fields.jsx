@@ -93,7 +93,7 @@ const Fields = () => {
                 <h1 className="text-3xl lg:text-5xl font-medium tracking-tight leading-tight">
                     Farm Field Monitoring System
                 </h1>
-                <p className="text-gray-600 text-lg mt-2">Real-time monitoring of agricultural fields</p>
+                <p className="text-lg leading-relaxed mt-2">Real-time monitoring of agricultural fields</p>
             </div>
 
             {/* Cards Grid */}
@@ -134,7 +134,7 @@ const Fields = () => {
 
                             {/* For upcoming cards, show only Upcoming overlay */}
                             {!card.clickable ? (
-                                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center rounded-xl z-10">
+                                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center rounded-lg z-10">
                                     <div className="text-center p-6">
                                         <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-yellow-100 rounded-full">
                                             <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +142,7 @@ const Fields = () => {
                                             </svg>
                                         </div>
                                         <span className="text-xl font-bold text-yellow-700">Upcoming</span>
-                                        <p className="text-gray-600 text-sm mt-1">Available Soon</p>
+                                        <p className="text-sm mt-1">Available Soon</p>
                                     </div>
                                 </div>
                             ) : (
@@ -155,8 +155,8 @@ const Fields = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-500">Location</p>
-                                                <p className="text-gray-800">{card.location}</p>
+                                                <p className="text-sm font-medium text-gray-600">Location</p>
+                                                <p>{card.location}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -168,8 +168,8 @@ const Fields = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-500">Current Crop</p>
-                                                <p className="text-gray-800">{card.cropName}</p>
+                                                <p className="text-sm font-medium text-gray-600">Current Crop</p>
+                                                <p>{card.cropName}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@ const Fields = () => {
                             {card.clickable && (
                                 <div className="mt-auto pt-4 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-500">Status</span>
+                                        <span className="text-sm text-gray-600">Status</span>
                                         <div className="flex items-center">
                                             <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
                                             <span className="text-sm font-medium text-green-600">Active</span>
@@ -193,7 +193,7 @@ const Fields = () => {
                             {card.clickable && (
                                 <div className="mt-3 pt-3 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs text-gray-500">Click to view details</span>
+                                        <span className="text-xs text-gray-600">Click to view details</span>
                                         <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                                         </svg>
