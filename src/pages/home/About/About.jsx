@@ -47,11 +47,11 @@ const About = () => {
                     {/* CTA Button */}
                     <Link
                         to="/about"
-                        className="group inline-flex items-center gap-4 font-medium text-lg hover:text-orange-600 transition-colors duration-300"
+                        className="group inline-flex items-center gap-4 font-medium text-lg hover:text-green-600 transition-colors duration-300"
                     >
                         <span className="relative">
                             Discover Our Journey
-                            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
                         </span>
                         <ChevronRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
                     </Link>

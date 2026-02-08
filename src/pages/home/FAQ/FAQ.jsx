@@ -97,7 +97,7 @@ const FAQ = () => {
                                 onClick={() => toggleFAQ(index)}
                             >
                                 <div className="flex items-center space-x-4">
-                                    <div className="text-blue-500">
+                                    <div className="text-green-500">
                                         {faq.icon}
                                     </div>
                                     <h3 className="text-lg font-semibold">
@@ -119,7 +119,7 @@ const FAQ = () => {
                                     : 'max-h-0 opacity-0 overflow-hidden'
                                     }`}
                             >
-                                <div className="pl-6 border-l-2 border-blue-400">
+                                <div className="pl-6 border-l-2 border-green-400">
                                     <p className="text-gray-700 leading-relaxed">
                                         {faq.answer}
                                     </p>

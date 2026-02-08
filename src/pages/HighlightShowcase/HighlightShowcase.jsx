@@ -121,7 +121,7 @@ const HighlightShowcase = () => {
                     <div
                         key={project.id}
                         // onClick={() => navigate(`/highlight/${project.id}`)}
-                        className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-lg"
+                        className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-200 hover:ring-green-400 transition-all duration-300 hover:shadow-lg"
                     >
                         {/* Project Image */}
                         <div className="relative h-48 md:h-56 overflow-hidden">
@@ -141,17 +141,17 @@ const HighlightShowcase = () => {
                         {/* Project Content */}
                         <div className="flex flex-col grow p-6">
                             <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-semibold group-hover:text-orange-600 transition-colors line-clamp-1">
+                                <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors line-clamp-1">
                                     {project.title}
                                 </h3>
-                                <div className="text-2xl font-bold text-gray-300">0{project.id}</div>
+                                <div className="text-2xl font-bold text-green-100 group-hover:text-green-400 transition-colors">0{project.id}</div>
                             </div>
                             <p className="leading-relaxed line-clamp-2 grow">
                                 {project.description}
                             </p>
 
                             {/* View Details Button */}
-                            {/* <div className="flex items-center text-orange-600 font-medium group-hover:underline mt-4">
+                            {/* <div className="flex items-center text-green-600 font-medium group-hover:underline mt-4">
                                 View Details
                                 <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

@@ -1,3 +1,4 @@
+import { Droplets } from "lucide-react";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router";
 
@@ -18,14 +19,14 @@ const Navbar = () => {
             className={({ isActive }) => `
                 relative px-4 py-2 transition-colors duration-300
                 ${isActive
-                    ? 'text-orange-600 font-bold'
-                    : 'hover:text-orange-600 font-semibold'
+                    ? 'text-green-600 font-bold'
+                    : 'hover:text-green-600 font-semibold'
                 }
             `}
         >
             {item.label}
             <span className={`
-                absolute left-1/2 bottom-0 h-0.5 bg-orange-600 
+                absolute left-1/2 bottom-0 h-0.5 bg-green-600 
                 transition-all duration-300 ease-out
                 ${location.pathname === item.path
                     ? 'w-4/5 -translate-x-1/2 opacity-100'
@@ -43,13 +44,13 @@ const Navbar = () => {
                         {/* Logo - Left */}
                         <div className="flex items-center">
                             <NavLink to="/" className="flex items-center space-x-3 group">
-                                <div className="w-10 h-10 bg-linear-to-br from-orange-500 to-orange-600 
+                                <div className="w-10 h-10 bg-linear-to-br from-green-500 to-green-600 
                                     rounded-xl flex items-center justify-center shadow-md 
                                     group-hover:shadow-lg transition-shadow duration-300">
-                                    <span className="text-white font-bold text-xl">M</span>
+                                    <Droplets className="w-8 h-8 text-white" />
                                 </div>
-                                <span className="text-2xl font-bold tracking-tight">
-                                    Malta
+                                <span className="text-2xl md:text-3xl font-bold text-green-600 tracking-tight">
+                                    Smart Irrigation
                                 </span>
                             </NavLink>
                         </div>
@@ -93,8 +94,8 @@ const Navbar = () => {
                                         className={({ isActive }) => `
                                             py-3 px-4 rounded-lg transition-all duration-200
                                             ${isActive
-                                                ? 'bg-orange-50 text-orange-600 font-bold border-r-4 border-orange-600'
-                                                : 'font-semibold hover:bg-gray-50 hover:text-orange-600 hover:pl-6'
+                                                ? 'bg-green-50 text-green-600 font-bold border-r-4 border-green-600'
+                                                : 'font-semibold hover:bg-gray-50 hover:text-green-600 hover:pl-6'
                                             }
                                         `}
                                     >

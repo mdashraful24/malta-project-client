@@ -67,7 +67,7 @@ const AboutDetails = () => {
                             <h2 className="text-3xl sm:text-4xl font-light mb-4 md:mb-6">
                                 Our <span className="font-bold">Journey</span> of Innovation
                             </h2>
-                            <div className="w-16 h-0.5 bg-primary mb-6 md:mb-8"></div>
+                            <div className="w-16 h-0.5 bg-green-600 mb-6 md:mb-8"></div>
                         </div>
                         <div className="space-y-4 md:space-y-6">
                             <p className="md:text-lg leading-relaxed">
@@ -84,10 +84,10 @@ const AboutDetails = () => {
                         </div>
 
                         {/* CountUp Statistics */}
-                        <div ref={ref} className="mt-8 pt-6 md:pt-8 border-t border-gray-100">
+                        <div ref={ref} className="mt-8 pt-6 md:pt-8">
                             <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 justify-center lg:justify-start">
                                 <div className="text-center lg:text-left">
-                                    <p className="text-2xl sm:text-3xl font-bold text-primary">
+                                    <p className="text-2xl sm:text-3xl font-bold text-green-600">
                                         {isInView ? (
                                             <CountUp
                                                 start={0}
@@ -100,7 +100,7 @@ const AboutDetails = () => {
                                     <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">Years Experience</p>
                                 </div>
                                 <div className="text-center lg:text-left">
-                                    <p className="text-2xl sm:text-3xl font-bold text-primary">
+                                    <p className="text-2xl sm:text-3xl font-bold text-green-600">
                                         {isInView ? (
                                             <CountUp
                                                 start={0}
@@ -113,7 +113,7 @@ const AboutDetails = () => {
                                     <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">Global Clients</p>
                                 </div>
                                 <div className="text-center lg:text-left">
-                                    <p className="text-2xl sm:text-3xl font-bold text-primary">
+                                    <p className="text-2xl sm:text-3xl font-bold text-green-600">
                                         {isInView ? (
                                             <CountUp
                                                 start={0}
@@ -202,7 +202,7 @@ const AboutDetails = () => {
                                     {member.social.map((platform, i) => (
                                         <button
                                             key={i}
-                                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-300 transform hover:scale-110"
+                                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors duration-100 transform hover:scale-110 cursor-pointer"
                                             aria-label={`${platform} profile`}
                                         >
                                             <span className="text-sm font-semibold">
@@ -216,10 +216,10 @@ const AboutDetails = () => {
                             {/* Content */}
                             <div className="p-6">
                                 <div className="mb-3">
-                                    <h3 className="text-xl sm:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                                    <h3 className="text-xl sm:text-2xl font-bold group-hover:text-green-600 transition-colors duration-300">
                                         {member.name}
                                     </h3>
-                                    <p className="text-primary font-semibold mt-1">{member.role}</p>
+                                    <p className="text-green-600 font-semibold mt-1">{member.role}</p>
                                 </div>
 
                                 <p className="leading-relaxed">
@@ -229,7 +229,7 @@ const AboutDetails = () => {
 
                             {/* Corner Accent */}
                             <div className="absolute top-0 right-0 w-16 h-16">
-                                <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </div>
                         </div>
                     ))}
@@ -257,8 +257,8 @@ const AboutDetails = () => {
                             { title: "Integrity", desc: "Building trust through transparency and ethical practices." },
                             { title: "Excellence", desc: "Delivering superior quality in every aspect of our work." }
                         ].map((value, index) => (
-                            <div key={index} className="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-6 md:p-8 border border-white/10 hover:border-primary/30 transition-all duration-300">
-                                <div className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">0{index + 1}</div>
+                            <div key={index} className="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-6 md:p-8 border border-white/10 hover:border-green-400/30 transition-all duration-300">
+                                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-3 md:mb-4">0{index + 1}</div>
                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{value.title}</h3>
                                 <p className="text-gray-300">{value.desc}</p>
                             </div>

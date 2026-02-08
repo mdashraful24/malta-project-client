@@ -162,7 +162,7 @@ const Slider = () => {
                                                 key={idx}
                                                 onClick={() => handleSlideChange(idx)}
                                                 className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx
-                                                    ? 'w-8 bg-linear-to-r from-amber-400 to-orange-400'
+                                                    ? 'w-8 bg-linear-to-r from-amber-400 to-green-400'
                                                     : 'w-4 bg-white/40 hover:bg-white/60'
                                                     }`}
                                                 aria-label={`Go to slide ${idx + 1}`}

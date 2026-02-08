@@ -1,0 +1,272 @@
+ABOUT SECTION
+
+import { Link } from "react-router";
+import img from "../../../assets/img/fresh-orange-fruit.jpg";
+import { ChevronRight, Droplets, Cloud, Leaf } from "lucide-react";
+
+const About = () => {
+    return (
+        <div className="container mx-auto px-4 py-24 lg:py-30">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+                {/* Image Side - Premium styling */}
+                <div className="relative group">
+                    <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl before:absolute before:inset-0 before:bg-linear-to-br before:from-transparent before:via-transparent before:to-green-900/10 before:z-10">
+                        <img
+                            src={img}
+                            alt="Smart irrigation system monitoring crops"
+                            className="w-full h-100 md:h-115 object-cover object-center transform transition-all duration-700 group-hover:scale-105"
+                        />
+                        {/* Subtle gradient overlay */}
+                        <div className="absolute inset-0 bg-linear-to-t from-green-900/10 via-transparent to-transparent"></div>
+                    </div>
+
+                    {/* Feature badges */}
+                    {/* <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+                        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg border border-green-100">
+                            <Droplets className="w-4 h-4 text-green-600" />
+                            <span className="text-sm font-medium">Water Efficient</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg border border-green-100">
+                            <Cloud className="w-4 h-4 text-blue-600" />
+                            <span className="text-sm font-medium">Weather Smart</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg border border-green-100">
+                            <Leaf className="w-4 h-4 text-emerald-600" />
+                            <span className="text-sm font-medium">Crop Health</span>
+                        </div>
+                    </div> */}
+                </div>
+
+                {/* Content Side - Elegant typography */}
+                <div className="lg:pl-8 text-center lg:text-left">
+                    {/* Heading */}
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium mb-6">
+                        <Droplets className="w-4 h-4" />
+                        Smart Agriculture Solutions
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                        Transforming Irrigation with
+                        <span className="text-green-600 block mt-2">Intelligent Technology</span>
+                    </h1>
+
+                    {/* Content */}
+                    <div className="space-y-6 mb-8">
+                        <p className="text-lg lg:text-xl leading-relaxed">
+                            Our smart irrigation system combines IoT sensors, weather data, and AI algorithms
+                            to optimize water usage and increase crop yields. We help farmers conserve up to
+                            50% of water while improving agricultural productivity.
+                        </p>
+                        <p className="text-lg lg:text-xl leading-relaxed">
+                            Through real-time monitoring and automated control, we ensure every drop counts.
+                            Our system adapts to soil conditions, crop requirements, and weather forecasts
+                            to deliver precise irrigation when and where it's needed.
+                        </p>
+
+                        {/* Stats */}
+                        {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6">
+                            <div className="text-center">
+                                <div className="text-3xl font-bold text-green-600">50%</div>
+                                <div className="text-sm text-gray-600">Water Savings</div>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-3xl font-bold text-green-600">30%</div>
+                                <div className="text-sm text-gray-600">Yield Increase</div>
+                            </div>
+                            <div className="text-center md:col-span-1 col-span-2">
+                                <div className="text-3xl font-bold text-green-600">24/7</div>
+                                <div className="text-sm text-gray-600">Monitoring</div>
+                            </div>
+                        </div> */}
+                    </div>
+
+                    {/* CTA Button */}
+                    <Link
+                        to="/about"
+                        className="group inline-flex items-center gap-4 font-medium text-lg hover:text-green-600 transition-colors duration-300"
+                    >
+                        <span className="relative">
+                            Discover Our Journey
+                            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                        </span>
+                        <ChevronRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default About;
+
+
+HIGHLIGHT SECTION
+
+import { Link, useNavigate } from "react-router";
+import img from "../../../assets/img/fresh-orange-fruit.jpg";
+import { Droplets, Cloud, Cpu, BarChart3, Wifi, Zap } from "lucide-react";
+
+const projects = [
+{
+id: 1,
+title: "Precision Drip Irrigation",
+description: "AI-powered drip irrigation system that reduces water usage by 60% while increasing crop yield by 25%",
+image: img,
+category: "Water Optimization",
+icon: Droplets,
+stats: { waterSaved: "60%", yieldIncrease: "25%" }
+},
+{
+id: 2,
+title: "Soil Moisture Monitoring",
+description: "Wireless sensor network providing real-time soil moisture data across thousands of acres",
+image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800",
+category: "Sensor Network",
+icon: Wifi,
+stats: { accuracy: "98%", coverage: "10,000+ acres" }
+},
+{
+id: 3,
+title: "Weather Integration System",
+description: "Smart integration with weather APIs to adjust irrigation schedules based on forecasts",
+image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800",
+category: "Weather Smart",
+icon: Cloud,
+stats: { forecastAccuracy: "95%", responseTime: "5 mins" }
+},
+{
+id: 4,
+title: "AI Crop Health Analysis",
+description: "Machine learning algorithms that analyze crop health and optimize irrigation patterns",
+image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800",
+category: "AI Technology",
+icon: Cpu,
+stats: { detectionRate: "99%", diseasesPrevented: "50+" }
+},
+{
+id: 5,
+title: "Energy-Efficient Pump Control",
+description: "Solar-powered pump automation that reduces energy consumption by 40%",
+image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800",
+category: "Energy Saving",
+icon: Zap,
+stats: { energySaved: "40%", solarPowered: "100%" }
+},
+{
+id: 6,
+title: "Farm Analytics Dashboard",
+description: "Comprehensive dashboard showing water usage, crop health, and irrigation efficiency metrics",
+image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800",
+category: "Data Analytics",
+icon: BarChart3,
+stats: { dataPoints: "1M+/day", reports: "Real-time" }
+}
+];
+
+const Highlight = () => {
+const navigate = useNavigate();
+
+const handleSeeMore = () => {
+navigate('/projects');
+};
+
+const handleCardClick = (id) => {
+navigate(`/projects/${id}`);
+};
+
+return (
+<div className="container mx-auto pb-20 px-4">
+    {/* Header */}
+    <div className="mb-12 md:mb-16 text-center">
+        <div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium mb-6">
+            <Droplets className="w-4 h-4" />
+            Our Smart Solutions
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold capitalize">
+            Highlights Irrigation
+            <span className="text-green-600 block mt-2">Project</span>
+        </h2>
+        <p className="mt-4 md:mt-7 text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
+            Discover our innovative smart irrigation solutions that are transforming agriculture worldwide.
+        </p>
+    </div>
+
+    {/* Project Cards Grid - All cards same height */}
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => {
+        const Icon = project.icon;
+        return (
+        <div key={project.id} // onClick={()=> handleCardClick(project.id)}
+            className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-100
+            transition-all duration-300 hover:shadow-xl hover:ring-green-200"
+            >
+            {/* Project Image - Fixed height */}
+            <div className="relative h-48 md:h-56 overflow-hidden">
+                <img src={project.image} alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                    <span
+                        className="px-3 py-2 bg-white/90 backdrop-blur-sm text-sm font-medium text-gray-800 rounded-full flex items-center gap-2">
+                        <Icon className="w-4 h-4" />
+                        {project.category}
+                    </span>
+                </div>
+                {/* Stats overlay */}
+                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg">
+                    <div className="text-xs text-gray-600 font-medium">
+                        {Object.entries(project.stats).map(([key, value]) => (
+                        <div key={key} className="flex items-center gap-1">
+                            <span className="text-green-600 font-bold">{value}</span>
+                            <span className="text-gray-500">{key}</span>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Project Content - Flex grow for consistent height */}
+            <div className="flex flex-col grow p-6">
+                <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors line-clamp-1">
+                        {project.title}
+                    </h3>
+                    <div className="text-2xl font-bold text-green-200 group-hover:text-green-300 transition-colors">
+                        0{project.id}</div>
+                </div>
+                <p className="leading-relaxed line-clamp-3 grow text-gray-600">
+                    {project.description}
+                </p>
+                {/* View Details Button */}
+                {/* <div className="flex items-center text-green-600 font-medium group-hover:text-green-700 mt-4">
+                    <span className="border-b border-transparent group-hover:border-green-600 transition-all">
+                        View Case Study
+                    </span>
+                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div> */}
+            </div>
+        </div>
+        );
+        })}
+    </div>
+
+    {/* See More Button */}
+    <div className="mt-12 text-end">
+        <Link to="/highlight"
+            className="inline-flex items-center p-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 hover:shadow-xl active:scale-95 transition-all duration-200 transform">
+        Explore Others
+        <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+        </Link>
+    </div>
+</div>
+);
+};
+
+export default Highlight;
