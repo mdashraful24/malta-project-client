@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import CountUp from 'react-countup';
+import { useTranslation } from 'react-i18next';
 import Chart from '../Chart/Chart';
 import Marquee from '../Marquee/Marquee';
 
@@ -40,57 +41,58 @@ const useInView = () => {
 const WeatherStation = () => {
     const [currentTime, setCurrentTime] = useState('10:40:24');
     const [ref, isInView] = useInView();
+    const { t } = useTranslation();
 
     // Stats data with glass effect 
     const statsData = [
         {
             id: 1,
-            title: "Temp",
+            title: t('weather.temp'),
             value: 22,
             unit: "°C",
             icon: "🌡️",
             color: "blue",
-            change: "+1°C from yesterday",
+            change: t('weather.tempChange'),
             bgColor: "bg-white/10",
             borderColor: "border-gray-200 hover:border-white/20",
             glowColor: "from-blue-500/20 to-blue-400/10"
         },
         {
             id: 2,
-            title: "Humidity",
+            title: t('weather.humidity'),
             value: 68,
             unit: "%",
             icon: "💧",
             color: "green",
-            change: "Comfortable range",
+            change: t('weather.humidityStatus'),
             bgColor: "bg-white/10",
             borderColor: "border-gray-200 hover:border-white/20",
             glowColor: "from-green-500/20 to-green-400/10"
         },
         {
             id: 3,
-            title: "Soil",
+            title: t('weather.soil'),
             value: 45,
             unit: "%",
             icon: "🌱",
             color: "amber",
-            change: "Optimal moisture",
+            change: t('weather.soilStatus'),
             bgColor: "bg-white/10",
             borderColor: "border-gray-200 hover:border-white/20",
             glowColor: "from-amber-500/20 to-amber-400/10"
         },
         {
             id: 4,
-            title: "Rain",
+            title: t('weather.rain'),
             value: 3,
             unit: "%",
             icon: "🌧️",
             color: "cyan",
-            change: "NO rain today",
+            change: t('weather.rainStatus'),
             bgColor: "bg-white/10",
             borderColor: "border-gray-200 hover:border-white/20",
             glowColor: "from-cyan-500/20 to-cyan-400/10",
-            status: "NO"
+            status: t('weather.noRain')
         }
     ];
 
@@ -110,12 +112,12 @@ const WeatherStation = () => {
             {/* Header */}
             <header className="mb-4 sm:mb-6 md:mb-8">
                 <div>
-                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Weather Station</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{t('weather.station')}</h1>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mt-1 sm:mt-2">
                         <div className="flex items-center">
                             <span className="inline-block w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse mr-1.5 sm:mr-2"></span>
                             <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">
-                                Auto refresh 5s • Online • Ashulia/Birulia/Dhaka
+                                {t('weather.refresh')}
                             </span>
                         </div>
                     </div>

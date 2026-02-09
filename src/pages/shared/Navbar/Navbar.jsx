@@ -1,16 +1,20 @@
 import { Droplets } from "lucide-react";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router";
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
+    const { t, i18n } = useTranslation();
+    const lang = i18n.language || 'bn';
+
     const navItems = [
-        { path: "/", label: "Home" },
-        { path: "/about", label: "About" },
-        { path: "/highlight", label: "Highlight" },
-        { path: "/auth/login", label: "Login" }
+        { path: "/", label: t('nav.home') },
+        { path: "/about", label: t('nav.about') },
+        { path: "/highlight", label: t('nav.highlight') },
+        { path: "/auth/login", label: t('nav.login') }
     ];
 
     const NavItem = ({ item }) => (
@@ -39,9 +43,9 @@ const Navbar = () => {
     return (
         <>
             <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3">
-                <div className="container mx-auto pl-4 pr-2 mb:pl-4">
+                <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between">
-                        {/* Logo - Left */}
+                        {/* LEFT SIDE: Logo + Brand Name */}
                         <div className="flex items-center">
                             <NavLink to="/" className="flex items-center space-x-3 group">
                                 <div className="w-10 h-10 bg-linear-to-br from-green-500 to-green-600 
@@ -49,35 +53,69 @@ const Navbar = () => {
                                     group-hover:shadow-lg transition-shadow duration-300">
                                     <Droplets className="w-8 h-8 text-white" />
                                 </div>
-                                <span className="text-2xl md:text-3xl font-bold text-green-600 tracking-tight">
-                                    Smart Irrigation
+                                <span className="text-2xl lg:text-3xl font-bold text-green-600 tracking-tight">
+                                    {t('brand')}
                                 </span>
                             </NavLink>
                         </div>
 
-                        {/* Desktop Nav Items - Right */}
+                        {/* RIGHT SIDE: Desktop Navigation + Language Toggle */}
                         <div className="hidden md:flex items-center space-x-1">
-                            {navItems.map((item, index) => (
-                                <div key={item.path} className="group relative">
-                                    <NavItem item={item} />
-                                </div>
-                            ))}
+                            {/* Navigation Links */}
+                            <div className="flex items-center">
+                                {navItems.map((item, index) => (
+                                    <div key={item.path} className="group relative">
+                                        <NavItem item={item} />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Language Toggle */}
+                            <div className="ml-2">
+                                <button
+                                    onClick={() => {
+                                        const newLang = lang === 'bn' ? 'en' : 'bn';
+                                        i18n.changeLanguage(newLang);
+                                        localStorage.setItem('lang', newLang);
+                                    }}
+                                    className="px-2 py-1 border border-gray-400 rounded-md text-sm font-semibold hover:bg-linear-to-br from-green-500 to-green-600 hover:text-white"
+                                    aria-label="Toggle language"
+                                >
+                                    {lang === 'bn' ? 'EN' : 'বাংলা'}
+                                </button>
+                            </div>
                         </div>
 
-                        {/* Mobile Menu Button */}
-                        <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                            aria-label="Toggle menu"
-                        >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                {isMobileMenuOpen ? (
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                ) : (
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                )}
-                            </svg>
-                        </button>
+                        {/* RIGHT SIDE: Mobile Menu Button */}
+                        <div className="flex md:hidden items-center space-x-2">
+                            {/* Mobile Language Toggle */}
+                            <button
+                                onClick={() => {
+                                    const newLang = lang === 'bn' ? 'en' : 'bn';
+                                    i18n.changeLanguage(newLang);
+                                    localStorage.setItem('lang', newLang);
+                                }}
+                                className="px-2 py-1 border border-gray-400 rounded-md text-sm font-semibold"
+                                aria-label="Toggle language mobile"
+                            >
+                                {lang === 'bn' ? 'EN' : 'বাংলা'}
+                            </button>
+
+                            {/* Mobile Menu Button */}
+                            <button
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                aria-label="Toggle menu"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    {isMobileMenuOpen ? (
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    ) : (
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                    )}
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

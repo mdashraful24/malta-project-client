@@ -1,0 +1,319 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "highlight": "Highlight",
+    "login": "Login"
+  },
+  "brand": "Smart Irrigation",
+  "footer": {
+    "company": "ACME Industries Ltd.",
+    "tagline": "Providing reliable tech since 1992",
+    "copyright": "Copyright © {{year}} - All rights reserved"
+  },
+  "about": {
+    "title": "About Us",
+    "p1": "We blend creativity with cutting-edge technology to build solutions that deliver measurable results. Our approach combines strategic thinking with meticulous craftsmanship.",
+    "p2": "Each project represents an opportunity to create something meaningful—elegant, modern, and purpose-driven solutions designed to make a lasting impact.",
+    "cta": "Discover Our Journey"
+  },
+  "highlight": {
+    "title": "Highlights of our project",
+    "subtitle": "Explore our portfolio of successful projects and innovative solutions.",
+    "viewAll": "View All Highlights"
+  },
+  "login": {
+    "welcome": "Welcome to Smart Irrigation",
+    "signin": "Sign in",
+    "signinButton": "Sign in",
+    "signing": "Signing in...",
+    "email": "Email Address",
+    "password": "Password",
+    "createAccount": "Create an account",
+    "noAccount": "Don't have an account?"
+  },
+  "errors": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordShort": "Password must be at least 6 characters",
+    "fullNameRequired": "Full name is required",
+    "fullNameShort": "Full name must be at least 2 characters",
+    "passwordMin8": "Password must be at least 8 characters",
+    "passwordComplex": "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+    "confirmPassword": "Please confirm your password",
+    "passwordsMismatch": "Passwords do not match"
+  },
+  "signup": {
+    "title": "Create Your Irrigation Account",
+    "subtitle": "Get started with smart water management",
+    "fullName": "Full Name",
+    "createButton": "Create Account",
+    "creating": "Creating Account...",
+    "already": "Already have an account?",
+    "signIn": "Sign in",
+    "created": "Account created successfully! Welcome to Smart Irrigation System",
+    "pw_length": "At least 8 characters",
+    "pw_upper": "One uppercase letter",
+    "pw_lower": "One lowercase letter",
+    "pw_number": "One number",
+    "passwordsMatch": "Passwords match",
+    "confirmPassword": "Confirm Password"
+  },
+  "misc": {
+    "backToHome": "Back to Home"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our smart irrigation system",
+    "items": [
+      {
+        "question": "What is a smart irrigation system and how does it work?",
+        "answer": "Our smart irrigation system uses advanced sensors, weather data, and AI algorithms to optimize watering schedules. The system monitors soil moisture levels, weather forecasts, and plant needs in real-time, automatically adjusting watering to deliver the perfect amount of water exactly when your plants need it."
+      },
+      {
+        "question": "How much water can I save with this system?",
+        "answer": "Most customers save 30-50% on their water usage. Our system eliminates overwatering by providing precise irrigation based on actual plant needs and environmental conditions. You'll see significant reductions in your water bill while maintaining a healthier landscape."
+      },
+      {
+        "question": "Is the system difficult to install?",
+        "answer": "Our irrigation system is designed for easy DIY installation. Most homeowners complete setup in 2-3 hours with our step-by-step guide. For those who prefer professional installation, we offer certified installer services in most areas."
+      },
+      {
+        "question": "Can I control the system remotely?",
+        "answer": "Yes! Our mobile app allows you to control and monitor your irrigation system from anywhere. Adjust schedules, check soil moisture levels, receive alerts, and view watering history right from your smartphone."
+      },
+      {
+        "question": "What happens during rain or extreme weather?",
+        "answer": "Our system automatically pauses watering when rain is detected or forecasted. It resumes normal operation once conditions improve, ensuring you never waste water irrigating during or right after rainfall."
+      },
+      {
+        "question": "Will this system work for different types of plants?",
+        "answer": "Absolutely! Our system supports customizable zones for different plant types. You can create separate watering schedules for lawns, flower beds, vegetable gardens, and shrubs, each with optimized watering patterns."
+      },
+      {
+        "question": "What's included in the basic package?",
+        "answer": "The starter kit includes: smart controller, 6 soil moisture sensors, weather sensor, WiFi hub, mobile app access, and all necessary installation components. Additional zones and sensors can be added as needed."
+      },
+      {
+        "question": "Is there a warranty?",
+        "answer": "We offer a 3-year comprehensive warranty on all components. Our customer support team is available 7 days a week to help with any questions or technical issues."
+      }
+    ]
+  },
+  "slider": {
+    "slides": [
+      {
+        "title": "Fresh Orange Delight",
+        "subtitle": "Premium Quality Fruits",
+        "description": "Experience the freshest oranges harvested daily from our sustainable farms"
+      },
+      {
+        "title": "Organic Farming",
+        "subtitle": "100% Natural Process",
+        "description": "Grown with care using only organic methods for maximum flavor"
+      },
+      {
+        "title": "Direct Delivery",
+        "subtitle": "From Farm to Table",
+        "description": "Get your fresh fruits delivered directly to your doorstep"
+      }
+    ],
+    "monitor": "Monitor",
+    "login": "Login"
+  },
+  "error404": {
+    "title": "Oops! The page you're looking for doesn't exist.",
+    "desc": "It might have been moved, deleted, or the URL could be incorrect.",
+    "goBack": "Go Back",
+    "code": "404"
+  },
+  "aboutDetails": {
+    "title": "About Us",
+    "lead": "Where passion meets precision, creating meaningful impact through innovative solutions and unwavering dedication to quality.",
+    "journeyTitle": "Our Journey of Innovation",
+    "journeyP1": "Founded on principles of excellence and integrity, we have evolved into a beacon of innovation, serving discerning clients who value both quality and purpose.",
+    "journeyP2": "Our commitment to sustainable practices and transparent operations sets new industry standards, while our focus on continuous improvement ensures we remain at the forefront of our field.",
+    "stats": {
+      "years": "Years Experience",
+      "clients": "Global Clients",
+      "satisfaction": "Satisfaction Rate"
+    },
+    "teamTitle": "Meet Our Expert Team",
+    "teamLead": "A dedicated team of visionaries committed to excellence and innovation.",
+    "missionTitle": "Our Core Mission",
+    "missionDesc": "To redefine industry standards through exceptional craftsmanship, innovative thinking, and unwavering commitment to building lasting relationships based on trust and mutual success.",
+    "values": [
+      { "title": "Innovation", "desc": "Pushing boundaries through continuous research and development." },
+      { "title": "Integrity", "desc": "Building trust through transparency and ethical practices." },
+      { "title": "Excellence", "desc": "Delivering superior quality in every aspect of our work." }
+    ]
+  },
+  "crops": {
+    "title": "Crops",
+    "location": "Location",
+    "weatherStation": "Weather Station",
+    "cropName": "Crop Name",
+    "variety": "Variety",
+    "plantingDate": "Planting Date",
+    "harvestDate": "Harvest Date",
+    "status": "Status",
+    "clickDetails": "Click to view details",
+    "upcoming": "Upcoming",
+    "availableSoon": "Available Soon",
+    "growing": "Growing",
+    "harvested": "Harvested"
+  },
+  "fields": {
+    "title": "Farm Field Monitoring System",
+    "subtitle": "Real-time monitoring of agricultural fields",
+    "location": "Location",
+    "area": "Area",
+    "crop": "Crop",
+    "status": "Status",
+    "clickToView": "Click to view crops",
+    "active": "Active",
+    "clickDetails": "Click to view details",
+    "currentCrop": "Current Crop",
+    "upcoming": "Upcoming",
+    "availableSoon": "Available Soon"
+  },
+  "cropDetails": {
+    "crop": "Crop",
+    "soilMoisture": "Soil Moisture",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "systemStatus": "System Status",
+    "optimal": "OPTIMAL",
+    "online": "ONLINE",
+    "offline": "OFFLINE",
+    "allSystemsActive": "All Systems Active",
+    "systemOffline": "System Offline",
+    "soilMoistureGrid": "Soil Moisture Grid",
+    "moistureLevels": "Real-time moisture levels across field sections",
+    "nodes": "Nodes",
+    "temperatureZones": "Temperature Zones",
+    "ambientTemp": "Ambient temperature monitoring",
+    "temperatureSensors": "Sensors",
+    "humidityLevels": "Humidity Levels",
+    "atmosphericHumidity": "Atmospheric humidity monitoring",
+    "humiditySensors": "Sensors",
+    "high": "High",
+    "low": "Low",
+    "aboveOptimal": "Above Optimal",
+    "belowOptimal": "Below Optimal",
+    "withinRange": "Within Range",
+    "highHumidity": "High Humidity",
+    "lowHumidity": "Low Humidity",
+    "optimalRange": "Optimal Range"
+  },
+  "weather": {
+    "station": "Weather Station",
+    "refresh": "Auto refresh 5s • Online • Ashulia/Birulia/Dhaka",
+    "temp": "Temp",
+    "humidity": "Humidity",
+    "soil": "Soil",
+    "rain": "Rain",
+    "tempChange": "+1°C from yesterday",
+    "humidityStatus": "Comfortable range",
+    "soilStatus": "Optimal moisture",
+    "rainStatus": "NO rain today",
+    "noRain": "NO",
+    "temperature": "Temperature",
+    "soilMoisture": "Soil Moisture",
+    "windSpeed": "Wind Speed",
+    "rainfall": "Rainfall",
+    "feelsLike": "Feels Like",
+    "upcoming": "Coming Soon",
+    "viewProjects": "View All Projects"
+  },
+  "chart": {
+    "title": "Soil Moisture Chart",
+    "temperature": "Temperature",
+    "moisture": "Moisture",
+    "humidity": "Humidity"
+  },
+  "highlight_showcase": {
+    "title": "Highlights of our project",
+    "subtitle": "Explore our complete portfolio of innovative projects and solutions",
+    "projects": [
+      {
+        "id": 1,
+        "title": "Fresh Orange Delivery",
+        "description": "Premium quality oranges delivered fresh to your doorstep with guaranteed same-day delivery",
+        "category": "Food & Beverage",
+        "features": ["24-hour delivery", "Organic certification", "Farm-direct pricing"]
+      },
+      {
+        "id": 2,
+        "title": "Eco Farming Solutions",
+        "description": "Sustainable farming practices for modern agriculture",
+        "category": "Agriculture",
+        "features": ["Water conservation", "Natural pest control", "Soil monitoring"]
+      },
+      {
+        "id": 3,
+        "title": "Urban Garden Design",
+        "description": "Transforming urban spaces into green havens with innovative vertical gardening solutions",
+        "category": "Design",
+        "features": ["Vertical gardens", "Space optimization", "Maintenance plans"]
+      },
+      {
+        "id": 4,
+        "title": "Organic Produce Market",
+        "description": "Connecting organic farmers with local communities through our innovative platform",
+        "category": "Retail",
+        "features": ["Direct farmer access", "Quality assurance", "Transparent pricing"]
+      },
+      {
+        "id": 5,
+        "title": "Farm to Table Initiative",
+        "description": "Reducing food miles, increasing freshness for restaurants and hotels",
+        "category": "Sustainability",
+        "features": ["Local sourcing", "Waste reduction", "Quality tracking"]
+      },
+      {
+        "id": 6,
+        "title": "Agricultural Tech Hub",
+        "description": "Innovative technology solutions for modern farmers",
+        "category": "Technology",
+        "features": ["IoT sensors", "AI analytics", "Automated systems"]
+      },
+      {
+        "id": 7,
+        "title": "Hydroponic Systems",
+        "description": "Advanced soil-less farming systems for urban agriculture",
+        "category": "Technology",
+        "features": ["Water efficient", "Year-round production", "Space saving"]
+      },
+      {
+        "id": 8,
+        "title": "Food Waste Reduction",
+        "description": "Technology solutions to minimize food waste in supply chains",
+        "category": "Sustainability",
+        "features": ["AI prediction", "Inventory optimization", "Community redistribution"]
+      },
+      {
+        "id": 9,
+        "title": "Farm Equipment Rental",
+        "description": "Modern farming equipment rental service for small farmers",
+        "category": "Agriculture",
+        "features": ["Affordable access", "Modern equipment", "Maintenance included"]
+      }
+    ]
+  },
+  "marquee": {
+    "notices": [
+      { "id": 1, "title": "Rain Alert", "body": "Rain probability decreasing tomorrow" },
+      { "id": 2, "title": "Soil Update", "body": "Soil moisture optimal for winter crops" },
+      { "id": 3, "title": "Temperature Alert", "body": "Temperature stable within seasonal range" },
+      { "id": 4, "title": "Humidity Update", "body": "Humidity levels normal for this season" },
+      { "id": 5, "title": "Weather Alert", "body": "No precipitation expected for next 48 hours" },
+      { "id": 6, "title": "Device Update", "body": "ESP32 battery at 87% - optimal condition" },
+      { "id": 7, "title": "Connection Alert", "body": "Connection stable - 5s refresh rate active" },
+      { "id": 8, "title": "Sensor Update", "body": "Soil sensors reading accurately" },
+      { "id": 9, "title": "Temperature Range", "body": "Daily temperature: 18°C to 25°C" },
+      { "id": 10, "title": "Wind Update", "body": "Wind speed: 12 km/h from Northwest" }
+    ]
+  }
+}

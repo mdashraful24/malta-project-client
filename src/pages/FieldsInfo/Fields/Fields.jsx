@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const Fields = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const [hoveredCard, setHoveredCard] = useState(null);
 
     useEffect(() => {
@@ -91,9 +93,9 @@ const Fields = () => {
             {/* Project Name Header */}
             <div className="mb-8">
                 <h1 className="text-3xl lg:text-5xl font-medium tracking-tight leading-tight">
-                    Farm Field Monitoring System
+                    {t('fields.title')}
                 </h1>
-                <p className="text-lg leading-relaxed mt-2">Real-time monitoring of agricultural fields</p>
+                <p className="text-lg leading-relaxed mt-2">{t('fields.subtitle')}</p>
             </div>
 
             {/* Cards Grid */}
@@ -141,8 +143,8 @@ const Fields = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
                                         </div>
-                                        <span className="text-xl font-bold text-yellow-700">Upcoming</span>
-                                        <p className="text-sm mt-1">Available Soon</p>
+                                        <span className="text-xl font-bold text-yellow-700">{t('fields.upcoming')}</span>
+                                        <p className="text-sm mt-1">{t('fields.availableSoon')}</p>
                                     </div>
                                 </div>
                             ) : (
@@ -155,7 +157,7 @@ const Fields = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">Location</p>
+                                                <p className="text-sm font-medium text-gray-600">{t('fields.location')}</p>
                                                 <p>{card.location}</p>
                                             </div>
                                         </div>
@@ -168,7 +170,7 @@ const Fields = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">Current Crop</p>
+                                                <p className="text-sm font-medium text-gray-600">{t('fields.currentCrop')}</p>
                                                 <p>{card.cropName}</p>
                                             </div>
                                         </div>
@@ -180,10 +182,10 @@ const Fields = () => {
                             {card.clickable && (
                                 <div className="mt-auto pt-4 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-600">Status</span>
+                                        <span className="text-sm text-gray-600">{t('fields.status')}</span>
                                         <div className="flex items-center">
                                             <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                                            <span className="text-sm font-medium text-green-600">Active</span>
+                                            <span className="text-sm font-medium text-green-600">{t('fields.active')}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +195,7 @@ const Fields = () => {
                             {card.clickable && (
                                 <div className="mt-3 pt-3 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs text-gray-600">Click to view details</span>
+                                        <span className="text-xs text-gray-600">{t('fields.clickDetails')}</span>
                                         <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                                         </svg>

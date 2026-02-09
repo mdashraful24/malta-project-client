@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import img from "../../../assets/img/fresh-orange-fruit.jpg";
+import { useTranslation } from 'react-i18next';
 
 const projects = [
     {
@@ -48,6 +49,7 @@ const projects = [
 
 const Highlight = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const handleSeeMore = () => {
         navigate('/highlight');
@@ -62,10 +64,10 @@ const Highlight = () => {
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold capitalize">
-                    Highlights of our project
+                    {t('highlight.title')}
                 </h2>
                 <p className="mt-4 md:mt-7 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
-                    Explore our portfolio of successful projects and innovative solutions.
+                    {t('highlight.subtitle')}
                 </p>
             </div>
 
@@ -121,7 +123,7 @@ const Highlight = () => {
                     to={"/highlight"}
                     className="inline-flex items-center px-4 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:cursor-pointer"
                 >
-                    View All Projects
+                    {t('highlight.viewAll')}
                     <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

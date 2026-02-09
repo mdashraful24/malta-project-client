@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { Eye, EyeOff, Droplets } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
+    const { t } = useTranslation();
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -34,15 +37,15 @@ const Login = () => {
         const newErrors = {};
 
         if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
+            newErrors.email = t('errors.emailRequired');
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address";
+            newErrors.email = t('errors.emailInvalid');
         }
 
         if (!formData.password) {
-            newErrors.password = "Password is required";
+            newErrors.password = t('errors.passwordRequired');
         } else if (formData.password.length < 6) {
-            newErrors.password = "Password must be at least 6 characters";
+            newErrors.password = t('errors.passwordShort');
         }
 
         return newErrors;
@@ -59,8 +62,8 @@ const Login = () => {
             console.log("Form submitted:", formData);
 
             // Simulate API call delay
-            setTimeout(() => {
-                alert("Login successful! Welcome to Smart Irrigation System");
+                setTimeout(() => {
+                alert(t('login.welcome'));
                 setIsSubmitting(false);
                 // Reset form after successful login
                 setFormData({ email: "", password: "" });
@@ -78,10 +81,10 @@ const Login = () => {
                 <div className="text-center mb-8">
                     <Link to="/" className="inline-flex items-center gap-2">
                         <Droplets className="w-8 h-8 text-green-600" />
-                        <span className="text-3xl font-bold text-green-600">Smart Irrigation</span>
+                        <span className="text-3xl font-bold text-green-600">{t('brand')}</span>
                     </Link>
-                    <h1 className="mt-4 text-2xl font-bold">Welcome to Smart Irrigation</h1>
-                    <p className="mt-2">Sign in to access your irrigation dashboard</p>
+                    <h1 className="mt-4 text-2xl font-bold">{t('login.welcome')}</h1>
+                    <p className="mt-2">{t('login.signin')}</p>
                 </div>
 
                 {/* Login Form */}
@@ -90,7 +93,7 @@ const Login = () => {
                         {/* Email Field */}
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium mb-1">
-                                Email Address
+                                {t('login.email')}
                             </label>
                             <input
                                 type="email"
@@ -99,7 +102,7 @@ const Login = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="admin@irrigation.com"
-                                className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-500' : 'border-gray-300'
                                     }`}
                                 disabled={isSubmitting}
                             />
@@ -111,7 +114,7 @@ const Login = () => {
                         {/* Password Field */}
                         <div>
                             <label htmlFor="password" className="block text-sm font-medium mb-1">
-                                Password
+                                {t('login.password')}
                             </label>
                             <div className="relative">
                                 <input
@@ -121,7 +124,7 @@ const Login = () => {
                                     value={formData.password}
                                     onChange={handleChange}
                                     placeholder="••••••••"
-                                    className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.password ? 'border-red-500' : 'border-gray-300'
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.password ? 'border-red-500' : 'border-gray-300'
                                         }`}
                                     disabled={isSubmitting}
                                 />
@@ -167,21 +170,21 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`w-full mt-4 py-3 px-4 rounded-lg font-medium text-white transition duration-200 shadow-md ${isSubmitting
+                            className={`w-full mt-4 py-2.5 px-4 rounded-lg font-medium text-white transition duration-200 shadow-md ${isSubmitting
                                 ? 'bg-green-400 cursor-not-allowed'
                                 : 'bg-green-600 hover:bg-green-700 hover:shadow-lg active:scale-95'
                                 }`}
                         >
                             {isSubmitting ? (
-                                <span className="flex items-center justify-center">
+                                    <span className="flex items-center justify-center">
                                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
-                                    Signing in...
+                                    {t('login.signing')}
                                 </span>
                             ) : (
-                                'Sign in'
+                                t('login.signinButton')
                             )}
                         </button>
                     </form>
@@ -189,12 +192,12 @@ const Login = () => {
                     {/* Sign Up Link */}
                     <div className="mt-6 text-center">
                         <p className="text-sm">
-                            Don't have an account?{' '}
+                            {t('login.noAccount')}{' '}
                             <Link
                                 to="/auth/register"
                                 className="font-semibold text-green-600 hover:text-green-700"
                             >
-                                Create an account
+                                {t('login.createAccount')}
                             </Link>
                         </p>
                     </div>

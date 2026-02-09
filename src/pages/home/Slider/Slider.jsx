@@ -2,32 +2,22 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useState, useEffect } from "react";
 import { Monitor, LogIn, ChevronRight, ChevronLeft, Sparkles } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 import img1 from "../../../assets/img/fresh-orange-fruit.jpg";
 import img2 from "../../../assets/img/fresh-orange-fruit.jpg";
 import img3 from "../../../assets/img/fresh-orange-fruit.jpg";
 
 const Slider = () => {
+    const { t } = useTranslation();
     const images = [img1, img2, img3];
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
 
-    const slideContent = [
-        {
-            title: "Fresh Orange Delight",
-            subtitle: "Premium Quality Fruits",
-            description: "Experience the freshest oranges harvested daily from our sustainable farms"
-        },
-        {
-            title: "Organic Farming",
-            subtitle: "100% Natural Process",
-            description: "Grown with care using only organic methods for maximum flavor"
-        },
-        {
-            title: "Direct Delivery",
-            subtitle: "From Farm to Table",
-            description: "Get your fresh fruits delivered directly to your doorstep"
-        }
+    const slideContent = t('slider.slides', { returnObjects: true }) || [
+        { title: '', subtitle: '', description: '' },
+        { title: '', subtitle: '', description: '' },
+        { title: '', subtitle: '', description: '' }
     ];
 
     const handleSlideChange = (index) => {
@@ -132,13 +122,13 @@ const Slider = () => {
 
             {/* Fixed Action Buttons - Glass Morphism - Centered */}
             <div className="absolute left-1/2 transform -translate-x-1/2 bottom-32 lg:bottom-60 z-30 flex flex-row justify-center items-center gap-4 md:gap-6">
-                <a
+                    <a
                     href="/all-fields"
                     className="group relative overflow-hidden bg-linear-to-r from-blue-600/90 to-blue-700/90 backdrop-blur-sm border border-blue-400/30 text-white font-semibold p-3 rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:from-blue-500/90 hover:to-blue-600/90 flex items-center justify-center gap-3 min-w-32 md:min-w-40"
                 >
                     <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <Monitor className="w-5 h-5 shrink-0" />
-                    <span className="relative">Monitor</span>
+                    <span className="relative">{t('slider.monitor')}</span>
                 </a>
 
                 <a
@@ -147,7 +137,7 @@ const Slider = () => {
                 >
                     <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <LogIn className="w-5 h-5 shrink-0" />
-                    <span className="relative">Login</span>
+                    <span className="relative">{t('slider.login')}</span>
                 </a>
             </div>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     LineChart,
     Line,
@@ -16,6 +17,7 @@ import {
 } from 'recharts';
 
 const Chart = () => {
+    const { t } = useTranslation();
     // Chart data
     const chartData = [
         { month: 'Jan', soil: 45, rain: 1200, temp: 22, hum: 68 },
@@ -91,7 +93,7 @@ const Chart = () => {
                             <Bar
                                 yAxisId="left"
                                 dataKey="rain"
-                                name="Rainfall (mm)"
+                                name={`Rainfall (${t('chart.humidity')})`}
                                 fill="#0ea5e9"
                                 opacity={0.8}
                             />
@@ -99,7 +101,7 @@ const Chart = () => {
                                 yAxisId="right"
                                 type="monotone"
                                 dataKey="temp"
-                                name="Temperature (°C)"
+                                name={`${t('chart.temperature')} (°C)`}
                                 stroke="#ef4444"
                                 strokeWidth={2}
                                 dot={{ r: 4 }}
@@ -109,7 +111,7 @@ const Chart = () => {
                                 yAxisId="right"
                                 type="monotone"
                                 dataKey="soil"
-                                name="Soil Moisture (%)"
+                                name={`${t('chart.moisture')} (%)`}
                                 stroke="#22c55e"
                                 strokeWidth={2}
                                 strokeDasharray="5 5"

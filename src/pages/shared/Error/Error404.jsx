@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 
 const Error404 = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white px-4">
             <motion.div
@@ -16,15 +19,15 @@ const Error404 = () => {
                     transition={{ delay: 0.2 }}
                     className="text-7xl font-extrabold tracking-tight"
                 >
-                    404
+                    {t('error404.code')}
                 </motion.h1>
 
                 <p className="mt-4 text-lg text-slate-300">
-                    Oops! The page you’re looking for doesn’t exist.
+                    {t('error404.title')}
                 </p>
 
                 <p className="mt-2 text-sm text-slate-400">
-                    It might have been moved, deleted, or the URL could be incorrect.
+                    {t('error404.desc')}
                 </p>
 
                 <div className="mt-8 flex justify-center gap-4">
@@ -39,7 +42,7 @@ const Error404 = () => {
                         onClick={() => window.history.back()}
                         className="px-6 py-3 rounded-xl border border-slate-500 text-slate-200 hover:bg-slate-700 transition"
                     >
-                        Go Back
+                        {t('error404.goBack')}
                     </button>
                 </div>
             </motion.div>

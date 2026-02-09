@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 import { Droplets, Thermometer, Cloud, Zap, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 // Custom hook for checking if element is in viewport
 const useInView = () => {
@@ -39,6 +40,7 @@ const useInView = () => {
 const CropDetails = () => {
     const [powerOn, setPowerOn] = useState(true);
     const [ref, isInView] = useInView();
+    const { t } = useTranslation();
 
     const fieldName = "North Field";
     const cropName = "Cucumber";
@@ -97,11 +99,11 @@ const CropDetails = () => {
                                 <Droplets className="w-5 h-5 text-amber-600" />
                             </div>
                             <div className="text-xs font-medium px-2.5 py-1 bg-amber-50 text-amber-700 rounded-full">
-                                OPTIMAL
+                                {t('cropDetails.optimal')}
                             </div>
                         </div>
                         <div>
-                            <h3 className="text-sm font-medium mb-1">Soil Moisture</h3>
+                            <h3 className="text-sm font-medium mb-1">{t('cropDetails.soilMoisture')}</h3>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl lg:text-3xl font-bold">
                                     {isInView ? (
@@ -124,11 +126,11 @@ const CropDetails = () => {
                                 <Thermometer className="w-5 h-5 text-red-600" />
                             </div>
                             <div className="text-xs font-medium px-2.5 py-1 bg-red-50 text-red-700 rounded-full">
-                                OPTIMAL
+                                {t('cropDetails.optimal')}
                             </div>
                         </div>
                         <div>
-                            <h3 className="text-sm font-medium mb-1">Temperature</h3>
+                            <h3 className="text-sm font-medium mb-1">{t('cropDetails.temperature')}</h3>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl lg:text-3xl font-bold">
                                     {isInView ? (
@@ -151,11 +153,11 @@ const CropDetails = () => {
                                 <Cloud className="w-5 h-5 text-blue-600" />
                             </div>
                             <div className="text-xs font-medium px-2.5 py-1 bg-blue-50 text-blue-700 rounded-full">
-                                OPTIMAL
+                                {t('cropDetails.optimal')}
                             </div>
                         </div>
                         <div>
-                            <h3 className="text-sm font-medium mb-1">Humidity</h3>
+                            <h3 className="text-sm font-medium mb-1">{t('cropDetails.humidity')}</h3>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl lg:text-3xl font-bold">
                                     {isInView ? (
@@ -178,15 +180,15 @@ const CropDetails = () => {
                                 <Zap className="w-5 h-5 text-purple-600" />
                             </div>
                             <div className={`text-xs font-medium px-2.5 py-1 rounded-full ${powerOn ? 'bg-green-50 text-green-700' : 'bg-gray-100'}`}>
-                                {powerOn ? 'ONLINE' : 'OFFLINE'}
+                                {powerOn ? t('cropDetails.online') : t('cropDetails.offline')}
                             </div>
                         </div>
                         <div>
-                            <h3 className="text-sm font-medium mb-1">System Status</h3>
+                            <h3 className="text-sm font-medium mb-1">{t('cropDetails.systemStatus')}</h3>
                             <div className="flex items-center gap-3">
                                 <div className={`w-3 h-3 rounded-full ${powerOn ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
                                 <span className="text-xl font-bold">
-                                    {powerOn ? 'All Systems Active' : 'System Offline'}
+                                    {powerOn ? t('cropDetails.allSystemsActive') : t('cropDetails.systemOffline')}
                                 </span>
                             </div>
                         </div>
@@ -199,8 +201,8 @@ const CropDetails = () => {
                     <div className="bg-linear-to-b from-gray-50 to-white rounded-2xl p-6 shadow-sm border border-gray-100">
                         <div className="flex items-center justify-between mb-8">
                             <div>
-                                <h3 className="text-xl lg:text-2xl font-semibold mb-2">Soil Moisture Grid</h3>
-                                <p>Real-time moisture levels across field sections</p>
+                                <h3 className="text-xl lg:text-2xl font-semibold mb-2">{t('cropDetails.soilMoistureGrid')}</h3>
+                                <p>{t('cropDetails.moistureLevels')}</p>
                             </div>
                             <div className="px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-sm font-medium border border-amber-200">
                                 {isInView ? (
@@ -208,9 +210,9 @@ const CropDetails = () => {
                                         start={0}
                                         end={15}
                                         duration={2}
-                                        suffix=" Nodes"
+                                        suffix={` ${t('cropDetails.nodes')}`}
                                     />
-                                ) : "0 Nodes"}
+                                ) : `0 ${t('cropDetails.nodes')}`}
                             </div>
                         </div>
 
@@ -243,7 +245,7 @@ const CropDetails = () => {
                                         ></div>
                                     </div>
                                     <div className="text-xs mt-2">
-                                        {sensor.value > 75 ? 'High' : sensor.value < 50 ? 'Low' : 'Optimal'}
+                                        {sensor.value > 75 ? t('cropDetails.high') : sensor.value < 50 ? t('cropDetails.low') : t('cropDetails.withinRange')}
                                     </div>
                                 </div>
                             ))}
@@ -256,8 +258,8 @@ const CropDetails = () => {
                         <div className="bg-linear-to-b from-gray-50 to-white rounded-2xl p-6 shadow-sm border border-gray-100">
                             <div className="flex items-center justify-between mb-6">
                                 <div>
-                                    <h3 className="text-xl lg:text-2xl font-semibold mb-2">Temperature Zones</h3>
-                                    <p>Ambient temperature monitoring</p>
+                                    <h3 className="text-xl lg:text-2xl font-semibold mb-2">{t('cropDetails.temperatureZones')}</h3>
+                                    <p>{t('cropDetails.ambientTemp')}</p>
                                 </div>
                                 <div className="px-3 py-1 bg-red-50 text-red-800 rounded-full text-sm font-medium border border-red-200">
                                     {isInView ? (
@@ -265,9 +267,9 @@ const CropDetails = () => {
                                             start={0}
                                             end={2}
                                             duration={2}
-                                            suffix=" Sensors"
+                                            suffix={` ${t('cropDetails.temperatureSensors')}`}
                                         />
-                                    ) : "0 Sensors"}
+                                    ) : `0 ${t('cropDetails.temperatureSensors')}`}
                                 </div>
                             </div>
 
@@ -293,7 +295,7 @@ const CropDetails = () => {
                                             ) : "0°C"}
                                         </div>
                                         <div className={`text-sm font-medium ${sensor.value > 30 ? 'text-red-600' : sensor.value < 20 ? 'text-blue-600' : 'text-green-600'}`}>
-                                            {sensor.value > 30 ? 'Above Optimal' : sensor.value < 20 ? 'Below Optimal' : 'Within Range'}
+                                            {sensor.value > 30 ? t('cropDetails.aboveOptimal') : sensor.value < 20 ? t('cropDetails.belowOptimal') : t('cropDetails.withinRange')}
                                         </div>
                                     </div>
                                 ))}
@@ -304,8 +306,8 @@ const CropDetails = () => {
                         <div className="bg-linear-to-b from-gray-50 to-white rounded-2xl p-6 shadow-sm border border-gray-100">
                             <div className="flex items-center justify-between mb-6">
                                 <div>
-                                    <h3 className="text-xl lg:text-2xl font-semibold mb-2">Humidity Levels</h3>
-                                    <p>Atmospheric humidity monitoring</p>
+                                    <h3 className="text-xl lg:text-2xl font-semibold mb-2">{t('cropDetails.humidityLevels')}</h3>
+                                    <p>{t('cropDetails.atmosphericHumidity')}</p>
                                 </div>
                                 <div className="px-3 py-1 bg-blue-50 text-blue-800 rounded-full text-sm font-medium border border-blue-200">
                                     {isInView ? (
@@ -313,9 +315,9 @@ const CropDetails = () => {
                                             start={0}
                                             end={2}
                                             duration={2}
-                                            suffix=" Sensors"
+                                            suffix={` ${t('cropDetails.humiditySensors')}`}
                                         />
-                                    ) : "0 Sensors"}
+                                    ) : `0 ${t('cropDetails.humiditySensors')}`}
                                 </div>
                             </div>
 
@@ -340,7 +342,7 @@ const CropDetails = () => {
                                             ) : "0%"}
                                         </div>
                                         <div className={`text-sm font-medium ${sensor.value > 80 ? 'text-red-600' : sensor.value < 40 ? 'text-blue-600' : 'text-green-600'}`}>
-                                            {sensor.value > 80 ? 'High Humidity' : sensor.value < 40 ? 'Low Humidity' : 'Optimal Range'}
+                                            {sensor.value > 80 ? t('cropDetails.highHumidity') : sensor.value < 40 ? t('cropDetails.lowHumidity') : t('cropDetails.optimalRange')}
                                         </div>
                                     </div>
                                 ))}
