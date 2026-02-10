@@ -122,7 +122,7 @@ const HowItWorks = () => {
 
     return (
         <div
-            className="container mx-auto pb-24 lg:pb-30 px-4 overflow-hidden"
+            className="container mx-auto pt-2 pb-24 lg:pb-30 px-4 overflow-hidden"
             ref={containerRef}
             onMouseLeave={handleMouseLeave}
         >
@@ -130,19 +130,19 @@ const HowItWorks = () => {
             <div className="mb-8 lg:mb-16 text-center animate-fade-in">
                 <div className="flex flex-col lg:flex-row justify-between">
                     <div className="text-left">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
                             {t('howItWorks.title')}
                         </h2>
-                        <p className="text-lg lg:text-xl max-w-2xl">
+                        <p className="text-lg lg:text-xl leading-relaxed">
                             {t('howItWorks.subtitle')}
                         </p>
                     </div>
 
                     {/* Mode Toggle */}
                     {/* Large screen Only */}
-                    <div className="hidden lg:flex gap-4 mt-1">
+                    <div className="hidden lg:flex gap-4">
                         <span className="font-bold">
-                            {autoPlay ? 'Auto-slide mode' : 'Hover mode'}
+                            {autoPlay ? t('howItWorks.autoMode') : t('howItWorks.hoverMode')}
                         </span>
                         <button
                             onClick={toggleMode}

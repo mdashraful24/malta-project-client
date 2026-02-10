@@ -101,6 +101,7 @@
       }
     ]
   },
+  "__comment__": "🔴 SLIDER SECTION",
   "slider": {
     "slides": [
       {
@@ -144,9 +145,18 @@
     "missionTitle": "Our Core Mission",
     "missionDesc": "To redefine industry standards through exceptional craftsmanship, innovative thinking, and unwavering commitment to building lasting relationships based on trust and mutual success.",
     "values": [
-      { "title": "Innovation", "desc": "Pushing boundaries through continuous research and development." },
-      { "title": "Integrity", "desc": "Building trust through transparency and ethical practices." },
-      { "title": "Excellence", "desc": "Delivering superior quality in every aspect of our work." }
+      {
+        "title": "Innovation",
+        "desc": "Pushing boundaries through continuous research and development."
+      },
+      {
+        "title": "Integrity",
+        "desc": "Building trust through transparency and ethical practices."
+      },
+      {
+        "title": "Excellence",
+        "desc": "Delivering superior quality in every aspect of our work."
+      }
     ]
   },
   "crops": {
@@ -242,106 +252,157 @@
         "title": "Fresh Orange Delivery",
         "description": "Premium quality oranges delivered fresh to your doorstep with guaranteed same-day delivery",
         "category": "Food & Beverage",
-        "features": ["24-hour delivery", "Organic certification", "Farm-direct pricing"]
+        "features": [
+          "24-hour delivery",
+          "Organic certification",
+          "Farm-direct pricing"
+        ]
       },
       {
         "id": 2,
         "title": "Eco Farming Solutions",
         "description": "Sustainable farming practices for modern agriculture",
         "category": "Agriculture",
-        "features": ["Water conservation", "Natural pest control", "Soil monitoring"]
+        "features": [
+          "Water conservation",
+          "Natural pest control",
+          "Soil monitoring"
+        ]
       },
       {
         "id": 3,
         "title": "Urban Garden Design",
         "description": "Transforming urban spaces into green havens with innovative vertical gardening solutions",
         "category": "Design",
-        "features": ["Vertical gardens", "Space optimization", "Maintenance plans"]
+        "features": [
+          "Vertical gardens",
+          "Space optimization",
+          "Maintenance plans"
+        ]
       },
       {
         "id": 4,
         "title": "Organic Produce Market",
         "description": "Connecting organic farmers with local communities through our innovative platform",
         "category": "Retail",
-        "features": ["Direct farmer access", "Quality assurance", "Transparent pricing"]
+        "features": [
+          "Direct farmer access",
+          "Quality assurance",
+          "Transparent pricing"
+        ]
       },
       {
         "id": 5,
         "title": "Farm to Table Initiative",
         "description": "Reducing food miles, increasing freshness for restaurants and hotels",
         "category": "Sustainability",
-        "features": ["Local sourcing", "Waste reduction", "Quality tracking"]
+        "features": [
+          "Local sourcing",
+          "Waste reduction",
+          "Quality tracking"
+        ]
       },
       {
         "id": 6,
         "title": "Agricultural Tech Hub",
         "description": "Innovative technology solutions for modern farmers",
         "category": "Technology",
-        "features": ["IoT sensors", "AI analytics", "Automated systems"]
+        "features": [
+          "IoT sensors",
+          "AI analytics",
+          "Automated systems"
+        ]
       },
       {
         "id": 7,
         "title": "Hydroponic Systems",
         "description": "Advanced soil-less farming systems for urban agriculture",
         "category": "Technology",
-        "features": ["Water efficient", "Year-round production", "Space saving"]
+        "features": [
+          "Water efficient",
+          "Year-round production",
+          "Space saving"
+        ]
       },
       {
         "id": 8,
         "title": "Food Waste Reduction",
         "description": "Technology solutions to minimize food waste in supply chains",
         "category": "Sustainability",
-        "features": ["AI prediction", "Inventory optimization", "Community redistribution"]
+        "features": [
+          "AI prediction",
+          "Inventory optimization",
+          "Community redistribution"
+        ]
       },
       {
         "id": 9,
         "title": "Farm Equipment Rental",
         "description": "Modern farming equipment rental service for small farmers",
         "category": "Agriculture",
-        "features": ["Affordable access", "Modern equipment", "Maintenance included"]
+        "features": [
+          "Affordable access",
+          "Modern equipment",
+          "Maintenance included"
+        ]
       }
     ]
   },
   "marquee": {
     "notices": [
-      { "id": 1, "title": "Rain Alert", "body": "Rain probability decreasing tomorrow" },
-      { "id": 2, "title": "Soil Update", "body": "Soil moisture optimal for winter crops" },
-      { "id": 3, "title": "Temperature Alert", "body": "Temperature stable within seasonal range" },
-      { "id": 4, "title": "Humidity Update", "body": "Humidity levels normal for this season" },
-      { "id": 5, "title": "Weather Alert", "body": "No precipitation expected for next 48 hours" },
-      { "id": 6, "title": "Device Update", "body": "ESP32 battery at 87% - optimal condition" },
-      { "id": 7, "title": "Connection Alert", "body": "Connection stable - 5s refresh rate active" },
-      { "id": 8, "title": "Sensor Update", "body": "Soil sensors reading accurately" },
-      { "id": 9, "title": "Temperature Range", "body": "Daily temperature: 18°C to 25°C" },
-      { "id": 10, "title": "Wind Update", "body": "Wind speed: 12 km/h from Northwest" }
-    ]
-  },
-  "statistics": {
-    "title": "Smart Farming At A Glance",
-    "subtitle": "Real-time insights into our agricultural platform's impact and reach",
-    "items": [
       {
-        "label": "Active Agricultural Systems",
-        "value": "1,240+",
-        "description": "Connected farms utilizing our platform"
+        "id": 1,
+        "title": "Rain Alert",
+        "body": "Rain probability decreasing tomorrow"
       },
       {
-        "label": "Water Resources Saved",
-        "value": "42.5M",
-        "description": "Gallons conserved annually through optimization"
+        "id": 2,
+        "title": "Soil Update",
+        "body": "Soil moisture optimal for winter crops"
       },
       {
-        "label": "Farmers in Network",
-        "value": "8,500+",
-        "description": "Professional agricultural partners worldwide"
+        "id": 3,
+        "title": "Temperature Alert",
+        "body": "Temperature stable within seasonal range"
       },
       {
-        "label": "Countries Served",
-        "value": "52",
-        "description": "Reaching agricultural communities globally"
+        "id": 4,
+        "title": "Humidity Update",
+        "body": "Humidity levels normal for this season"
+      },
+      {
+        "id": 5,
+        "title": "Weather Alert",
+        "body": "No precipitation expected for next 48 hours"
+      },
+      {
+        "id": 6,
+        "title": "Device Update",
+        "body": "ESP32 battery at 87% - optimal condition"
+      },
+      {
+        "id": 7,
+        "title": "Connection Alert",
+        "body": "Connection stable - 5s refresh rate active"
+      },
+      {
+        "id": 8,
+        "title": "Sensor Update",
+        "body": "Soil sensors reading accurately"
+      },
+      {
+        "id": 9,
+        "title": "Temperature Range",
+        "body": "Daily temperature: 18°C to 25°C"
+      },
+      {
+        "id": 10,
+        "title": "Wind Update",
+        "body": "Wind speed: 12 km/h from Northwest"
       }
     ]
   },
+  "__features__": "🔴 FEATURES SECTION",
   "features": {
     "title": "Powerful Platform Features",
     "subtitle": "Comprehensive tools designed for modern agricultural excellence",
@@ -377,8 +438,9 @@
       }
     ]
   },
+  "__howItWorks__": "🔴 HOW IT WORKS SECTION",
   "howItWorks": {
-    "title": "How Our Smart Irrigation System Works",
+    "title": "How Our System Works",
     "subtitle": "A seamless four-step process to intelligent agricultural management",
     "steps": [
       {
@@ -404,7 +466,9 @@
         "title": "Maximize Results",
         "description": "Increase yield, reduce water usage, and improve sustainability with data-driven farming practices."
       }
-    ]
+    ],
+    "autoMode": "Auto-slide mode",
+    "hoverMode": "Hover mode"
   },
   "cta": {
     "title": "Ready to Transform Your Farm?",

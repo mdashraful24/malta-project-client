@@ -108,10 +108,10 @@ const Slider = () => {
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                                     {slideContent[index].title}
                                 </h1>
-                                <div className="text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-linear-to-r from-amber-300 to-orange-400 font-semibold mb-6">
-                                    Premium Experience
+                                <div className="text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-linear-to-r from-amber-300 to-orange-400 font-semibold mb-4">
+                                    {slideContent[index].subtitle}
                                 </div>
-                                <p className="text-gray-200 text-lg md:text-xl mb-10 leading-relaxed max-w-xl mx-auto">
+                                <p className="text-gray-200 text-lg md:text-2xl mb-10 leading-relaxed">
                                     {slideContent[index].description}
                                 </p>
                             </div>
