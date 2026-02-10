@@ -1,12 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import {
-    Activity,
-    Cloud,
-    Sprout,
-    Smartphone,
-    BarChart3,
-    Bell
-} from 'lucide-react';
+import { Activity, Cloud, Sprout, Smartphone, BarChart3, Bell } from 'lucide-react';
 
 const FeaturesOverview = () => {
     const { t } = useTranslation();
@@ -22,7 +15,7 @@ const FeaturesOverview = () => {
     };
 
     return (
-        <div className="container mx-auto pb-20 px-4">
+        <div className="container mx-auto pb-24 lg:pb-30 px-4">
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold capitalize mb-4">
@@ -40,7 +33,7 @@ const FeaturesOverview = () => {
                     return (
                         <div
                             key={index}
-                            className="group relative flex flex-col rounded-2xl hover:rounded-t-2xl hover:rounded-b-none p-6 bg-white shadow-sm ring-1 ring-gray-100 hover:ring-green-300 hover:shadow-2xl transition-all duration-300"
+                            className="group relative flex flex-col rounded-2xl hover:rounded-t-2xl hover:rounded-b-none p-6 bg-white shadow-sm ring-1 ring-gray-200 hover:ring-green-300 hover:shadow-2xl transition-all duration-300"
                         >
                             {/* Icon Container */}
                             <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-linear-to-br from-green-500 to-green-600 text-white mb-6 group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
@@ -51,7 +44,7 @@ const FeaturesOverview = () => {
                             <h3 className="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors duration-300">
                                 {feature.title}
                             </h3>
-                            <p className="text-gray-700 leading-relaxed grow">
+                            <p className="leading-relaxed grow">
                                 {feature.description}
                             </p>
 

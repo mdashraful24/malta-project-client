@@ -141,7 +141,7 @@ const HowItWorks = () => {
                     {/* Mode Toggle */}
                     {/* Large screen Only */}
                     <div className="hidden lg:flex gap-4 mt-1">
-                        <span className="text-sm font-medium">
+                        <span className="font-bold">
                             {autoPlay ? 'Auto-slide mode' : 'Hover mode'}
                         </span>
                         <button
@@ -159,7 +159,7 @@ const HowItWorks = () => {
 
                     {/* Mobile screen */}
                     <div className="lg:hidden flex items-center justify-center gap-3 mt-6">
-                        <span className="text-sm font-medium">
+                        <span className="font-bold">
                             {autoPlay ? 'Auto-slide mode' : 'Hover mode'}
                         </span>
                         <button
@@ -289,7 +289,7 @@ const HowItWorks = () => {
                                         <div
                                             className={`relative bg-white rounded-2xl p-8 transition-all duration-700 ease-out-expo cursor-pointer ${isActive
                                                 ? 'ring-2 ring-green-300 shadow-2xl'
-                                                : 'ring-1 ring-gray-100 shadow-lg hover:shadow-xl hover:ring-green-200'
+                                                : 'ring-1 ring-gray-200 shadow-lg hover:shadow-xl hover:ring-green-200'
                                                 }`}
                                             onClick={() => setActiveStep(index)}
                                         >

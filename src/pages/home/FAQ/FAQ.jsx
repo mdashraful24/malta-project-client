@@ -35,7 +35,7 @@ const FAQ = () => {
     }, [activeIndex]);
 
     return (
-        <div className="container mx-auto pb-20 px-4">
+        <div className="container mx-auto pb-24 lg:pb-30 px-4">
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
                 <div className="mb-12 md:mb-16 text-center">

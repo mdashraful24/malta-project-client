@@ -63,7 +63,7 @@ const Highlight = () => {
     const projects = t('highlight_showcase.projects', { returnObjects: true }) || [];
 
     return (
-        <div className="container mx-auto pb-20 px-4">
+        <div className="container mx-auto pb-24 lg:pb-30 px-4">
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold capitalize">
