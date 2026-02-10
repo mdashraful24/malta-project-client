@@ -3,6 +3,8 @@ import About from "../About/About";
 import Highlight from "../Highlight/Highlight";
 import Slider from "../Slider/Slider";
 import FAQ from "../FAQ/FAQ";
+import FeaturesOverview from "../FeaturesOverview/FeaturesOverview";
+import HowItWorks from "../HowItWorks/HowItWorks";
 
 const Home = () => {
 
@@ -14,6 +16,8 @@ const Home = () => {
         <div className="mt-16">
             <Slider />
             <About />
+            <FeaturesOverview />
+            <HowItWorks />
             <Highlight />
             <FAQ />
         </div>

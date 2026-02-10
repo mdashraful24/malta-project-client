@@ -315,5 +315,102 @@
       { "id": 9, "title": "Temperature Range", "body": "Daily temperature: 18°C to 25°C" },
       { "id": 10, "title": "Wind Update", "body": "Wind speed: 12 km/h from Northwest" }
     ]
+  },
+  "statistics": {
+    "title": "Smart Farming At A Glance",
+    "subtitle": "Real-time insights into our agricultural platform's impact and reach",
+    "items": [
+      {
+        "label": "Active Agricultural Systems",
+        "value": "1,240+",
+        "description": "Connected farms utilizing our platform"
+      },
+      {
+        "label": "Water Resources Saved",
+        "value": "42.5M",
+        "description": "Gallons conserved annually through optimization"
+      },
+      {
+        "label": "Farmers in Network",
+        "value": "8,500+",
+        "description": "Professional agricultural partners worldwide"
+      },
+      {
+        "label": "Countries Served",
+        "value": "52",
+        "description": "Reaching agricultural communities globally"
+      }
+    ]
+  },
+  "features": {
+    "title": "Powerful Platform Features",
+    "subtitle": "Comprehensive tools designed for modern agricultural excellence",
+    "items": [
+      {
+        "title": "Real-Time Field Monitoring",
+        "description": "Track soil moisture, temperature, and humidity across all field zones with IoT sensors and live dashboards",
+        "icon": "Activity"
+      },
+      {
+        "title": "Weather Integration",
+        "description": "Intelligent weather forecasting and rain detection to optimize irrigation schedules automatically",
+        "icon": "Cloud"
+      },
+      {
+        "title": "Crop Management",
+        "description": "Complete lifecycle tracking from planting to harvest with growth monitoring and yield predictions",
+        "icon": "Sprout"
+      },
+      {
+        "title": "Mobile App Control",
+        "description": "Manage your farm operations from anywhere with our intuitive mobile and web applications",
+        "icon": "Smartphone"
+      },
+      {
+        "title": "Data Analytics",
+        "description": "Advanced analytics and machine learning insights to maximize yield and resource efficiency",
+        "icon": "BarChart3"
+      },
+      {
+        "title": "Smart Alerts",
+        "description": "Instant notifications for critical events, anomalies, and system status changes"
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How Our Smart Irrigation System Works",
+    "subtitle": "A seamless four-step process to intelligent agricultural management",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Register & Setup",
+        "description": "Create your account and connect your IoT sensors. Our step-by-step guide makes installation simple and fast.",
+        "icon": "UserPlus"
+      },
+      {
+        "number": "2",
+        "title": "Monitor Fields",
+        "description": "Track real-time data from your fields including soil moisture, temperature, humidity, and weather conditions.",
+        "icon": "Eye"
+      },
+      {
+        "number": "3",
+        "title": "Optimize Operations",
+        "description": "Let our AI algorithms optimize irrigation schedules based on crop needs, weather forecasts, and soil conditions.",
+        "icon": "Zap"
+      },
+      {
+        "number": "4",
+        "title": "Maximize Results",
+        "description": "Increase yield, reduce water usage, and improve sustainability with data-driven farming practices."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Farm?",
+    "description": "Join thousands of farmers who are already increasing yield and reducing costs with smart irrigation management.",
+    "primaryButton": "Get Started Free",
+    "secondaryButton": "Learn More",
+    "highlight": "No credit card required • Free 30-day trial"
   }
 }
