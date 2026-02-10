@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { UserPlus, Eye, Zap, Target, ChevronDown, Pause, Play } from 'lucide-react';
+import { UserPlus, Eye, Zap, Target, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 const HowItWorks = () => {
@@ -32,7 +32,7 @@ const HowItWorks = () => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    // Auto-slider functionality - REMOVED !isMobile condition
+    // Auto-slider functionality
     useEffect(() => {
         if (autoPlay && steps.length > 0 && !isHovering) {
             intervalRef.current = setInterval(() => {
@@ -43,7 +43,7 @@ const HowItWorks = () => {
         } else {
             clearInterval(intervalRef.current);
         }
-    }, [autoPlay, steps.length, isHovering]); // Removed isMobile
+    }, [autoPlay, steps.length, isHovering]);
 
     // Sync openIndex with activeStep when autoPlay is enabled on mobile
     useEffect(() => {
@@ -105,17 +105,11 @@ const HowItWorks = () => {
     const goToNextStep = () => {
         const nextStep = (activeStep + 1) % steps.length;
         setActiveStep(nextStep);
-        if (isMobile) {
-            setOpenIndex(nextStep);
-        }
     };
 
     const goToPrevStep = () => {
         const prevStep = (activeStep - 1 + steps.length) % steps.length;
         setActiveStep(prevStep);
-        if (isMobile) {
-            setOpenIndex(prevStep);
-        }
     };
 
     // Calculate connector line animation
@@ -128,7 +122,7 @@ const HowItWorks = () => {
 
     return (
         <div
-            className="container mx-auto pb-20 px-4 overflow-hidden"
+            className="container mx-auto pb-24 lg:pb-30 px-4 overflow-hidden"
             ref={containerRef}
             onMouseLeave={handleMouseLeave}
         >
@@ -163,7 +157,7 @@ const HowItWorks = () => {
                         </button>
                     </div>
 
-                    {/* Others screen */}
+                    {/* Mobile screen */}
                     <div className="lg:hidden flex items-center justify-center gap-3 mt-6">
                         <span className="text-sm font-medium">
                             {autoPlay ? 'Auto-slide mode' : 'Hover mode'}
@@ -247,7 +241,7 @@ const HowItWorks = () => {
             </div>
 
             {/* Desktop View - Step by Step */}
-            <div className="hidden lg:block animate-fade-in">
+            <div className="hidden lg:block animate-fade-in max-w-[96%] mx-auto">
                 <div className="relative">
                     {/* Connector Line Container */}
                     <div className="absolute top-24 left-8 right-8 h-1.5">
@@ -305,7 +299,7 @@ const HowItWorks = () => {
                                                     className={`flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-700 ease-out-expo transform ${isActive
                                                         ? 'bg-linear-to-br from-green-500 to-emerald-600 scale-110 shadow-lg'
                                                         : isPast
-                                                            ? 'bg-linear-to-br from-green-400 to-green-500'
+                                                            ? 'bg-linear-to-br from-green-500 to-green-600'
                                                             : 'bg-linear-to-br from-gray-400 to-gray-500'
                                                         }`}
                                                 >
@@ -337,9 +331,9 @@ const HowItWorks = () => {
 
                                             {/* Title */}
                                             <h3
-                                                className={`text-xl font-bold mb-4 transition-colors duration-500 ${isActive
-                                                    ? 'text-green-600'
-                                                    : 'text-gray-900 group-hover:text-green-600'
+                                                className={`text-xl font-bold transition-colors duration-500 ${isActive
+                                                    ? 'text-green-600 mb-4'
+                                                    : ''
                                                     }`}
                                             >
                                                 {step.title}
@@ -353,9 +347,7 @@ const HowItWorks = () => {
                                                         : 'max-h-0 opacity-0 -translate-y-2'
                                                         }`}
                                                 >
-                                                    <p className="leading-relaxed">
-                                                        {step.description}
-                                                    </p>
+                                                    <p>{step.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -365,31 +357,32 @@ const HowItWorks = () => {
                         })}
                     </div>
                 </div>
+            </div>
 
-                {/* Navigation Controls */}
-                <div className="flex justify-center items-center gap-5 mt-12">
+            {/* Navigation Controls */}
+            {autoPlay && !isMobile && (
+                <div className="flex justify-center items-center gap-5 mt-16">
                     <button
                         onClick={goToPrevStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110 disabled:hover:bg-inherit disabled:hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={activeStep === 0}
                     >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
                     {/* Progress Indicators */}
                     <div className="flex flex-col items-center gap-4">
-                        <div className="flex gap-1.5">
+                        <div className="flex gap-1.5 lg:gap-2">
                             {steps.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => {
                                         setActiveStep(i);
-                                        if (isMobile) setOpenIndex(i);
                                     }}
                                     className={`w-3 h-3 rounded-full transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-green-300 ${i === activeStep
-                                        ? 'w-8 bg-green-500'
+                                        ? 'lg:w-8 w-6 bg-green-500'
                                         : i < activeStep
                                             ? 'bg-green-300'
                                             : 'bg-gray-300'
@@ -398,74 +391,22 @@ const HowItWorks = () => {
                                 />
                             ))}
                         </div>
+                        {/* Step Counter - Optional */}
+                        {/* <div className="text-sm text-gray-600 hidden lg:block">
+                        Step {activeStep + 1} of {steps.length}
+                    </div> */}
                     </div>
 
                     <button
                         onClick={goToNextStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110"
+                        className="p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110"
                     >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
-            </div>
-
-            {/* Mobile Mode Toggle and Navigation */}
-            <div className="lg:hidden mt-8">
-                {/* Navigation Controls for Mobile */}
-                <div className="flex justify-center items-center gap-5 mb-6">
-                    <button
-                        onClick={goToPrevStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
-                        disabled={activeStep === 0}
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-
-                    {/* Progress Indicators */}
-                    <div className="flex flex-col items-center gap-4">
-                        <div className="flex gap-1.5">
-                            {steps.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => {
-                                        setActiveStep(i);
-                                        setOpenIndex(i);
-                                    }}
-                                    className={`w-3 h-3 rounded-full transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-green-300 ${i === activeStep
-                                        ? 'w-8 bg-green-500'
-                                        : i < activeStep
-                                            ? 'bg-green-300'
-                                            : 'bg-gray-300'
-                                        }`}
-                                    aria-label={`Go to step ${i + 1}`}
-                                />
-                            ))}
-                        </div>
-                        {/* <div className="text-sm text-gray-600 font-medium">
-                            Step <span className="text-green-600 font-bold">{activeStep + 1}</span> of {steps.length}
-                            {autoPlay && (
-                                <span className="ml-4 text-xs text-green-500">
-                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse inline-block mr-1"></div>
-                                    Auto-playing
-                                </span>
-                            )}
-                        </div> */}
-                    </div>
-
-                    <button
-                        onClick={goToNextStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+            )}
         </div>
     );
 };
