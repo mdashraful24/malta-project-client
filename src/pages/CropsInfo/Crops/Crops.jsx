@@ -124,10 +124,10 @@ const Crops = () => {
 
             {/* Field Name Header */}
             <div className="flex flex-col justify-center items-center pb-10">
-                <h1 className="text-3xl lg:text-5xl font-bold tracking-tight leading-tight">
+                <h1 className="text-3xl lg:text-5xl font-bold tracking-tight leading-tight mb-4">
                     {fieldData.fieldName}
                 </h1>
-                <div className="flex items-center mt-2">
+                <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -146,7 +146,7 @@ const Crops = () => {
                 {cropCards.map((card) => (
                     <div
                         key={card.id}
-                        className={`relative bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border-2 flex flex-col min-h-80 ${card.clickable
+                        className={`relative bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border flex flex-col min-h-80 ${card.clickable
                             ? 'cursor-pointer hover:scale-[1.02]'
                             : 'cursor-default'
                             } ${hoveredCard === card.id
@@ -193,13 +193,13 @@ const Crops = () => {
                             ) : (
                                 <>
                                     {/* Crop Variety */}
-                                    <div className="mb-4 flex-1">
+                                    <div className="mb-4">
                                         <div className="flex items-start">
                                             <svg className="w-5 h-5 mr-2 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">{t('crops.variety')}</p>
+                                                <p className="text-sm font-bold">{t('crops.variety')}</p>
                                                 <p>{card.variety}</p>
                                             </div>
                                         </div>
@@ -212,7 +212,7 @@ const Crops = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">{t('crops.plantingDate')}</p>
+                                                <p className="text-sm font-bold">{t('crops.plantingDate')}</p>
                                                 <p>{card.plantingDate}</p>
                                             </div>
                                         </div>
@@ -225,7 +225,7 @@ const Crops = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">{t('crops.harvestDate')}</p>
+                                                <p className="text-sm font-bold">{t('crops.harvestDate')}</p>
                                                 <p>{card.harvestDate}</p>
                                             </div>
                                         </div>
@@ -249,7 +249,7 @@ const Crops = () => {
                             )}
 
                             {/* Clickable indicator for clickable cards */}
-                            {card.clickable && (
+                            {/* {card.clickable && (
                                 <div className="mt-3 pt-3 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs text-gray-600">{t('crops.clickDetails')}</span>
@@ -258,7 +258,7 @@ const Crops = () => {
                                         </svg>
                                     </div>
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 ))}

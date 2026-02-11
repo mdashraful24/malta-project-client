@@ -1,20 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    LineChart,
-    Line,
-    BarChart,
-    Bar,
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    ComposedChart
-} from 'recharts';
+import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
 
 const Chart = () => {
     const { t } = useTranslation();
@@ -93,7 +79,7 @@ const Chart = () => {
                             <Bar
                                 yAxisId="left"
                                 dataKey="rain"
-                                name={`Rainfall (${t('chart.humidity')})`}
+                                name={t('chart.rainfall')}
                                 fill="#0ea5e9"
                                 opacity={0.8}
                             />
@@ -121,7 +107,7 @@ const Chart = () => {
                                 yAxisId="right"
                                 type="monotone"
                                 dataKey="hum"
-                                name="Humidity (%)"
+                                name={`${t('chart.humidity')} (%)`}
                                 stroke="#8b5cf6"
                                 fill="#8b5cf6"
                                 fillOpacity={0.2}

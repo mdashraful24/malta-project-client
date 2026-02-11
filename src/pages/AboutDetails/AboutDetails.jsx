@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import CountUp from "react-countup";
-import img from "../../assets/img/fresh-orange-fruit.jpg";
+import img from "../../assets/about/img3.png";
 
 // Custom hook for checking if element is in viewport
 const useInView = () => {
@@ -61,7 +61,7 @@ const AboutDetails = () => {
             {/* Story Section with Elegant Design */}
             <div className="relative mb-24 lg:mb-32">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                    <div className="lg:col-span-7 pt-10 lg:pt-0 order-2 lg:order-1">
+                    <div className="lg:col-span-7 order-2 lg:order-1">
                         <div className="mb-6 md:mb-8">
                             <h2 className="text-3xl md:text-5xl">
                                 {t('aboutDetails.journeyTitle')}
@@ -123,11 +123,11 @@ const AboutDetails = () => {
                         </div>
                     </div>
                     <div className="lg:col-span-5 relative order-1 lg:order-2">
-                        <div className="overflow-hidden rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-none lg:transform lg:-translate-y-4">
+                        <div className="overflow-hidden rounded-3xl shadow-xl transform -translate-y-4">
                             <img
                                 src={img}
                                 alt="Our story"
-                                className="w-full h-64 sm:h-80 md:h-96 object-cover transform transition-transform duration-700"
+                                className="w-full h-64 sm:h-80 md:h-96 object-cover transform transition-transform duration-700 lg:hover:scale-105"
                             />
                             <div className="block lg:hidden absolute inset-0 bg-linear-to-t from-black/20 to-transparent rounded-2xl"></div>
                         </div>

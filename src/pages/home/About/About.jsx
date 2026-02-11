@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import img from "../../../assets/img/fresh-orange-fruit.jpg";
+import img from "../../../assets/about/img3.png";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 

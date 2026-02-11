@@ -1,12 +1,12 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useState, useEffect } from "react";
-import { Monitor, LogIn, ChevronRight, ChevronLeft, Sparkles } from "lucide-react";
+import { Monitor, LogIn, ChevronRight, ChevronLeft } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
-import img1 from "../../../assets/img/fresh-orange-fruit.jpg";
-import img2 from "../../../assets/img/fresh-orange-fruit.jpg";
-import img3 from "../../../assets/img/fresh-orange-fruit.jpg";
+import img1 from "../../../assets/slider/img1.jpg";
+import img2 from "../../../assets/slider/img2.jpg";
+import img3 from "../../../assets/slider/img3.png";
 
 const Slider = () => {
     const { t } = useTranslation();

@@ -91,11 +91,11 @@ const Fields = () => {
     return (
         <div className="container mx-auto min-h-screen px-4 py-16 mt-10 mb-5">
             {/* Project Name Header */}
-            <div className="mb-8">
-                <h1 className="text-3xl lg:text-5xl font-medium tracking-tight leading-tight">
+            <div className="mb-12 md:mb-16 text-center">
+                <h1 className="text-3xl lg:text-5xl font-semibold tracking-tight leading-tight mb-4">
                     {t('fields.title')}
                 </h1>
-                <p className="text-lg leading-relaxed mt-2">{t('fields.subtitle')}</p>
+                <p className="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">{t('fields.subtitle')}</p>
             </div>
 
             {/* Cards Grid */}
@@ -103,7 +103,7 @@ const Fields = () => {
                 {fieldCards.map((card) => (
                     <div
                         key={card.id}
-                        className={`relative bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border-2 flex flex-col min-h-80 ${card.clickable
+                        className={`relative bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border flex flex-col min-h-80 ${card.clickable
                             ? 'cursor-pointer hover:scale-[1.02]'
                             : 'cursor-default'
                             } ${hoveredCard === card.id
@@ -150,27 +150,27 @@ const Fields = () => {
                             ) : (
                                 <>
                                     {/* Location (only for active/clickable cards) */}
-                                    <div className="mb-4 flex-1">
+                                    <div className="mb-6">
                                         <div className="flex items-start">
                                             <svg className="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">{t('fields.location')}</p>
+                                                <p className="text-sm font-bold">{t('fields.location')}</p>
                                                 <p>{card.location}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Crop Name (only for active/clickable cards) */}
-                                    <div className="mb-6">
+                                    <div>
                                         <div className="flex items-start">
                                             <svg className="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                                             </svg>
                                             <div className="flex-1">
-                                                <p className="text-sm font-medium text-gray-600">{t('fields.currentCrop')}</p>
+                                                <p className="text-sm font-bold">{t('fields.currentCrop')}</p>
                                                 <p>{card.cropName}</p>
                                             </div>
                                         </div>
@@ -192,7 +192,7 @@ const Fields = () => {
                             )}
 
                             {/* Clickable indicator for first card */}
-                            {card.clickable && (
+                            {/* {card.clickable && (
                                 <div className="mt-3 pt-3 border-t border-gray-100">
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs text-gray-600">{t('fields.clickDetails')}</span>
@@ -201,7 +201,7 @@ const Fields = () => {
                                         </svg>
                                     </div>
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 ))}

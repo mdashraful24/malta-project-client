@@ -8,7 +8,7 @@ const HowItWorks = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const [openIndex, setOpenIndex] = useState(null);
-    const [autoPlay, setAutoPlay] = useState(false);
+    const [autoPlay, setAutoPlay] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
     const containerRef = useRef(null);
     const timeoutRef = useRef(null);
@@ -129,7 +129,7 @@ const HowItWorks = () => {
             {/* Header with Mode Toggle */}
             <div className="mb-8 lg:mb-16 text-center animate-fade-in">
                 <div className="flex flex-col lg:flex-row justify-between">
-                    <div className="text-left">
+                    <div className="text-center lg:text-left">
                         <h2 className="text-4xl md:text-5xl font-bold mb-6">
                             {t('howItWorks.title')}
                         </h2>
@@ -188,7 +188,7 @@ const HowItWorks = () => {
                         <div
                             key={index}
                             className={`rounded-2xl p-4 border-2 transition-all duration-500 ease-out-expo ${isActive
-                                ? 'border-green-300 shadow-lg scale-[1.02]'
+                                ? 'border-green-300 shadow-lg' // scale-[1.02]
                                 : 'border-gray-100 hover:border-green-200'
                                 }`}
                         >
@@ -208,7 +208,7 @@ const HowItWorks = () => {
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-1">
                                                     <span className="inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-bold bg-green-100 text-green-700">
-                                                        Step {step.number}
+                                                        {step.number}
                                                     </span>
                                                     <h3 className="text-lg font-bold">
                                                         {step.title}
@@ -266,7 +266,7 @@ const HowItWorks = () => {
                     </div>
 
                     {/* Steps Container */}
-                    <div className="grid grid-cols-4 gap-8 relative z-10">
+                    <div className="grid grid-cols-4 gap-8 relative z-10 h-82">
                         {steps.map((step, index) => {
                             const IconComponent = iconMap[step.icon] || UserPlus;
                             const isActive = activeStep === index;
@@ -287,7 +287,7 @@ const HowItWorks = () => {
                                         )}
 
                                         <div
-                                            className={`relative bg-white rounded-2xl p-8 transition-all duration-700 ease-out-expo cursor-pointer ${isActive
+                                            className={`relative bg-white rounded-2xl p-6 transition-all duration-700 ease-out-expo cursor-pointer ${isActive
                                                 ? 'ring-2 ring-green-300 shadow-2xl'
                                                 : 'ring-1 ring-gray-200 shadow-lg hover:shadow-xl hover:ring-green-200'
                                                 }`}
@@ -326,7 +326,7 @@ const HowItWorks = () => {
                                             >
                                                 <span className={`w-2 h-2 rounded-full mr-2 transition-all duration-500 ${isActive ? 'bg-green-500' : 'bg-gray-400'
                                                     }`} />
-                                                Step {step.number}
+                                                {step.number}
                                             </div>
 
                                             {/* Title */}
@@ -342,7 +342,7 @@ const HowItWorks = () => {
                                             {/* Description with Smooth Height Transition */}
                                             <div className="overflow-hidden">
                                                 <div
-                                                    className={`transition-all duration-700 ease-out-expo ${isActive
+                                                    className={`transition-all duration-300 ease-out-expo ${isActive
                                                         ? 'max-h-48 opacity-100 translate-y-0'
                                                         : 'max-h-0 opacity-0 -translate-y-2'
                                                         }`}
@@ -360,11 +360,11 @@ const HowItWorks = () => {
             </div>
 
             {/* Navigation Controls */}
-            {autoPlay && !isMobile && (
-                <div className="flex justify-center items-center gap-5 mt-16">
+            {autoPlay && (
+                <div className="flex justify-center items-center gap-5 mt-10 lg:mt-16">
                     <button
                         onClick={goToPrevStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110 disabled:hover:bg-inherit disabled:hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="hidden lg:block p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110 disabled:hover:bg-inherit disabled:hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={activeStep === 0}
                     >
                         <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -399,7 +399,7 @@ const HowItWorks = () => {
 
                     <button
                         onClick={goToNextStep}
-                        className="p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110"
+                        className="hidden lg:block p-2 rounded-full bg-white border border-gray-300 hover:bg-green-500 hover:text-white hover:border-green-400 hover:shadow-md transition-all duration-300 hover:scale-110"
                     >
                         <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

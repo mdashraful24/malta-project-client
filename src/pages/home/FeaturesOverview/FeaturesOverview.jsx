@@ -18,7 +18,7 @@ const FeaturesOverview = () => {
         <div className="container mx-auto pb-24 lg:pb-30 px-4">
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center">
-                <h2 className="text-4xl md:text-5xl font-bold capitalize mb-4">
+                <h2 className="text-4xl md:text-5xl font-bold capitalize mb-6">
                     {t('features.title')}
                 </h2>
                 <p className="text-lg lg:text-xl max-w-2xl mx-auto">

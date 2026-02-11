@@ -112,8 +112,8 @@ const WeatherStation = () => {
             {/* Header */}
             <header className="mb-4 sm:mb-6 md:mb-8">
                 <div>
-                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{t('weather.station')}</h1>
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mt-1 sm:mt-2">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{t('weather.station')}</h1>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
                         <div className="flex items-center">
                             <span className="inline-block w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse mr-1.5 sm:mr-2"></span>
                             <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">

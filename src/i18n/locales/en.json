@@ -175,7 +175,7 @@
     "harvested": "Harvested"
   },
   "fields": {
-    "title": "Farm Field Monitoring System",
+    "title": "Smart Irrigation System",
     "subtitle": "Real-time monitoring of agricultural fields",
     "location": "Location",
     "area": "Area",
@@ -241,14 +241,15 @@
     "title": "Soil Moisture Chart",
     "temperature": "Temperature",
     "moisture": "Moisture",
-    "humidity": "Humidity"
+    "humidity": "Humidity",
+    "rainfall": "Rainfall (%)"
   },
   "highlight_showcase": {
     "title": "Highlights of our project",
     "subtitle": "Explore our complete portfolio of innovative projects and solutions",
     "projects": [
       {
-        "id": 1,
+        "id": "01",
         "title": "Fresh Orange Delivery",
         "description": "Premium quality oranges delivered fresh to your doorstep with guaranteed same-day delivery",
         "category": "Food & Beverage",
@@ -259,7 +260,7 @@
         ]
       },
       {
-        "id": 2,
+        "id": "02",
         "title": "Eco Farming Solutions",
         "description": "Sustainable farming practices for modern agriculture",
         "category": "Agriculture",
@@ -270,7 +271,7 @@
         ]
       },
       {
-        "id": 3,
+        "id": "03",
         "title": "Urban Garden Design",
         "description": "Transforming urban spaces into green havens with innovative vertical gardening solutions",
         "category": "Design",
@@ -281,7 +282,7 @@
         ]
       },
       {
-        "id": 4,
+        "id": "04",
         "title": "Organic Produce Market",
         "description": "Connecting organic farmers with local communities through our innovative platform",
         "category": "Retail",
@@ -292,7 +293,7 @@
         ]
       },
       {
-        "id": 5,
+        "id": "05",
         "title": "Farm to Table Initiative",
         "description": "Reducing food miles, increasing freshness for restaurants and hotels",
         "category": "Sustainability",
@@ -303,7 +304,7 @@
         ]
       },
       {
-        "id": 6,
+        "id": "06",
         "title": "Agricultural Tech Hub",
         "description": "Innovative technology solutions for modern farmers",
         "category": "Technology",
@@ -314,7 +315,7 @@
         ]
       },
       {
-        "id": 7,
+        "id": "07",
         "title": "Hydroponic Systems",
         "description": "Advanced soil-less farming systems for urban agriculture",
         "category": "Technology",
@@ -325,7 +326,7 @@
         ]
       },
       {
-        "id": 8,
+        "id": "08",
         "title": "Food Waste Reduction",
         "description": "Technology solutions to minimize food waste in supply chains",
         "category": "Sustainability",
@@ -336,7 +337,7 @@
         ]
       },
       {
-        "id": 9,
+        "id": "09",
         "title": "Farm Equipment Rental",
         "description": "Modern farming equipment rental service for small farmers",
         "category": "Agriculture",
@@ -444,25 +445,25 @@
     "subtitle": "A seamless four-step process to intelligent agricultural management",
     "steps": [
       {
-        "number": "1",
+        "number": "Step 1",
         "title": "Register & Setup",
         "description": "Create your account and connect your IoT sensors. Our step-by-step guide makes installation simple and fast.",
         "icon": "UserPlus"
       },
       {
-        "number": "2",
+        "number": "Step 2",
         "title": "Monitor Fields",
         "description": "Track real-time data from your fields including soil moisture, temperature, humidity, and weather conditions.",
         "icon": "Eye"
       },
       {
-        "number": "3",
+        "number": "Step 3",
         "title": "Optimize Operations",
         "description": "Let our AI algorithms optimize irrigation schedules based on crop needs, weather forecasts, and soil conditions.",
         "icon": "Zap"
       },
       {
-        "number": "4",
+        "number": "Step 4",
         "title": "Maximize Results",
         "description": "Increase yield, reduce water usage, and improve sustainability with data-driven farming practices."
       }

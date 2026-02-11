@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
-import { Droplets, Thermometer, Cloud, Zap, ChevronRight } from 'lucide-react';
+import { Droplets, Thermometer, Cloud, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 // Custom hook for checking if element is in viewport
@@ -72,21 +72,17 @@ const CropDetails = () => {
         <div className="min-h-screen">
             <div ref={ref} className="container mx-auto px-4 py-16 mt-10 mb-5">
                 {/* Header Section */}
-                <div className="mb-8 text-center lg:text-left">
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <div>
-                            <h1 className="text-3xl lg:text-5xl font-semibold mb-2">
-                                <span className="font-serif">{fieldName}</span>
-                            </h1>
-                            <div className="flex justify-center lg:justify-start items-center gap-3">
-                                <h2 className="text-2xl lg:text-3xl font-semibold">
-                                    {cropName}
-                                </h2>
-                                <span className="px-2 py-0.5 bg-amber-50 text-amber-700 rounded-full text-sm font-semibold border border-amber-400">
-                                    Crop
-                                </span>
-                            </div>
-                        </div>
+                <div className="text-center mb-12 md:mb-16">
+                    <h1 className="text-3xl lg:text-5xl font-semibold mb-4">
+                        <span className="font-serif">{fieldName}</span>
+                    </h1>
+                    <div className="flex flex-row justify-center items-center-safe gap-3">
+                        <h2 className="text-2xl lg:text-3xl font-semibold">
+                            {cropName}
+                        </h2>
+                        <span className="flex items-center px-2 py-0.5 bg-amber-50 text-amber-700 rounded-full text-sm font-semibold border border-amber-400">
+                            Crop
+                        </span>
                     </div>
                 </div>
 

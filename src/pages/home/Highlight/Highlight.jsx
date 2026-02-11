@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next';
-import img from "../../../assets/img/fresh-orange-fruit.jpg";
+import { Link } from 'react-router';
+import img from "../../../assets/about/img2.jpg";
 
 // const projects = [
 //     {
@@ -49,18 +48,10 @@ import img from "../../../assets/img/fresh-orange-fruit.jpg";
 // ];
 
 const Highlight = () => {
-    const navigate = useNavigate();
     const { t } = useTranslation();
 
-    const handleSeeMore = () => {
-        navigate('/highlight');
-    };
-
-    const handleCardClick = (id) => {
-        navigate(`/highlight/${id}`);
-    };
-
-    const projects = t('highlight_showcase.projects', { returnObjects: true }) || [];
+    const allProjects = t('highlight_showcase.projects', { returnObjects: true }) || [];
+    const projects = allProjects.slice(0, 6);
 
     return (
         <div className="container mx-auto pb-24 lg:pb-30 px-4">
@@ -79,7 +70,6 @@ const Highlight = () => {
                 {projects.map((project) => (
                     <div
                         key={project.id}
-                        // onClick={() => handleCardClick(project.id)}
                         className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-200 hover:ring-green-400 transition-all duration-300 hover:shadow-xl"
                     >
                         {/* Project Image - Fixed height */}
@@ -103,35 +93,32 @@ const Highlight = () => {
                                 <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors line-clamp-1">
                                     {project.title}
                                 </h3>
-                                <div className="text-2xl font-bold text-gray-300 group-hover:text-green-400 transition-colors">0{project.id}</div>
+                                <div className="text-2xl font-bold text-gray-300 group-hover:text-green-400 transition-colors">
+                                    {project.id}
+                                </div>
                             </div>
                             <p className="leading-relaxed line-clamp-3 grow">
                                 {project.description}
                             </p>
-                            {/* View Details Button */}
-                            {/* <div className="flex items-center text-green-600 font-medium group-hover:underline mt-4">
-                                View Details
-                                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </div> */}
                         </div>
                     </div>
                 ))}
             </div>
 
             {/* See More Button */}
-            <div className="mt-10 text-end">
-                <Link
-                    to={"/highlight"}
-                    className="inline-flex items-center px-4 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:cursor-pointer"
-                >
-                    {t('highlight.viewAll')}
-                    <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </Link>
-            </div>
+            {allProjects.length > 6 && (
+                <div className="mt-10 text-end">
+                    <Link
+                        to="/highlight"
+                        className="inline-flex items-center px-4 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:cursor-pointer"
+                    >
+                        {t('highlight.viewAll')}
+                        <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };

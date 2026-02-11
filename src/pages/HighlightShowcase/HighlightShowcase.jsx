@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next';
-import img from "../../assets/img/fresh-orange-fruit.jpg";
+import img from "../../assets/about/img2.jpg";
 
 const HighlightShowcase = () => {
     const navigate = useNavigate();
@@ -54,7 +54,7 @@ const HighlightShowcase = () => {
                                 <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors line-clamp-1">
                                     {project.title}
                                 </h3>
-                                <div className="text-2xl font-bold text-green-100 group-hover:text-green-400 transition-colors">0{project.id}</div>
+                                <div className="text-2xl font-bold text-gray-300 group-hover:text-green-400 transition-colors">{project.id}</div>
                             </div>
                             <p className="leading-relaxed line-clamp-2 grow">
                                 {project.description}
