@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { UserPlus, Eye, Zap, Target, ChevronRight, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
-const AUTO_SLIDE_INTERVAL = 2000;
+const AUTO_SLIDE_INTERVAL = 3000;
 const MOBILE_BREAKPOINT = 1024;
 
 const HowItWorks = () => {
@@ -108,6 +108,7 @@ const HowItWorks = () => {
                         onStepClick={handleStepClick}
                         onNextStep={handleNextStep}
                         onPrevStep={handlePrevStep}
+                        isAutoPlay={isAutoPlay}
                     />
                 )}
             </div>
@@ -144,13 +145,13 @@ const Header = ({ title, subtitle, isAutoPlay, onToggleMode }) => {
                     <button
                         onClick={onToggleMode}
                         className={`relative ml-2 inline-flex h-5 w-9 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2
-                ${isAutoPlay ? 'bg-green-500' : 'bg-gray-300'}`}
+                        ${isAutoPlay ? 'bg-green-500' : 'bg-gray-300'}`}
                         role="switch"
                         aria-checked={isAutoPlay}
                     >
                         <span
                             className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform duration-300 shadow-sm 
-                    ${isAutoPlay ? 'translate-x-5' : 'translate-x-0.5'}`}
+                            ${isAutoPlay ? 'translate-x-5' : 'translate-x-0.5'}`}
                         />
                     </button>
                 </div>
@@ -163,8 +164,17 @@ const Header = ({ title, subtitle, isAutoPlay, onToggleMode }) => {
 const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
     return (
         <div className="relative lg:hidden">
-            {/* Vertical Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-green-200 via-green-200 to-transparent" />
+            {/* Vertical Line Background (gray) */}
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-gray-200 to-gray-200" />
+
+            {/* Vertical Line Progress (green) - height based on active step */}
+            <div
+                className="absolute left-6 top-0 w-0.5 bg-linear-to-b from-green-500 via-green-400 to-green-500 transition-all duration-700 ease-in-out"
+                style={{
+                    height: `${((activeStep + 1) / steps.length) * 103}%`,
+                    maxHeight: '100%'
+                }}
+            />
 
             <div className="space-y-8">
                 {steps.map((step, index) => {
@@ -175,7 +185,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                     return (
                         <div
                             key={index}
-                            className={`relative flex items-start gap-4 transition-all duration-700 ease-in-out ${isActive ? 'scale-y-[1.02]' : 'opacity-80'}`}
+                            className={`relative flex items-start gap-4 transition-all duration-700 ease-in-out ${isActive ? 'scale-y-[1.02]' : 'opacity-100'}`}
                         >
                             {/* Timeline Node */}
                             <div className="relative z-10">
@@ -184,7 +194,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                         ${isActive
                                             ? 'bg-linear-to-br from-green-500 to-green-600 shadow-lg shadow-green-200 scale-110 border-none'
                                             : isCompleted
-                                                ? 'bg-linear-to-br from-green-400 to-green-500'
+                                                ? 'bg-linear-to-br from-green-500 to-green-600'
                                                 : 'bg-white border-2 border-gray-200 hover:border-green-300'
                                         }`}
                                     onClick={() => onStepClick(index)}
@@ -215,20 +225,38 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                     <span className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-700 ease-in-out
                                         ${isActive
                                             ? 'bg-green-100 text-green-700 scale-105'
-                                            : 'bg-gray-100 text-gray-600'
-                                        }`}>
+                                            : isCompleted
+                                                ? 'bg-green-100 text-green-700'
+                                                : 'bg-gray-100 text-gray-600'
+                                        }`}
+                                    >
                                         {step.number}
                                     </span>
-                                    <h3 className={`font-bold transition-all duration-700 ease-in-out ${isActive ? 'text-gray-900' : 'text-gray-700'}`}>
+                                    <h3 className={`font-bold transition-all duration-700 ease-in-out 
+                                    ${isActive
+                                            ? 'text-gray-900'
+                                            : isCompleted
+                                                ? 'text-gray-900'
+                                                : 'text-gray-500'
+                                        }
+                                    `}
+                                    >
                                         {step.title}
                                     </h3>
                                 </div>
 
-                                <p className={`text-sm leading-relaxed transition-all duration-700 ease-in-out ${isActive ? 'block text-gray-800' : 'text-gray-600 line-clamp-2'}`}>
+                                <p className={`text-sm leading-relaxed transition-all duration-700 ease-in-out 
+                                    ${isActive
+                                        ? 'text-gray-900'
+                                        : isCompleted
+                                            ? 'text-gray-900'
+                                            : 'text-gray-500'
+                                    }`}
+                                >
                                     {step.description}
                                 </p>
 
-                                {!isActive && (
+                                {(!isActive && !isCompleted) && (
                                     <button
                                         className="mt-3 text-sm font-medium text-green-600 flex items-center justify-center gap-1 transition-all duration-300 hover:gap-2 hover:text-green-700 outline-none ring-0 focus:outline-none focus:ring-0"
                                         onClick={(e) => {
@@ -250,7 +278,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
 };
 
 // Desktop: Carousel
-const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, onStepClick, onNextStep, onPrevStep }) => {
+const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, onStepClick, onNextStep, onPrevStep, isAutoPlay }) => {
 
     // Get middle card is always active
     const getVisibleSteps = () => {
@@ -271,22 +299,26 @@ const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, o
     return (
         <div className="hidden lg:block relative">
             {/* Main Container with Carousel */}
-            <div className="relative px-16">
-                {/* Navigation Arrows */}
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 z-30">
-                    <NavButton
-                        direction="prev"
-                        onClick={onPrevStep}
-                        disabled={isAnimating}
-                    />
-                </div>
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 z-30">
-                    <NavButton
-                        direction="next"
-                        onClick={onNextStep}
-                        disabled={isAnimating}
-                    />
-                </div>
+            <div className={`relative ${!isAutoPlay ? 'px-16' : '-mx-3'}`}>
+                {/* Navigation Arrows - Conditional visibility */}
+                {!isAutoPlay && (
+                    <>
+                        <div className="absolute top-1/2 left-0 -translate-y-1/2 z-30">
+                            <NavButton
+                                direction="prev"
+                                onClick={onPrevStep}
+                                disabled={isAnimating}
+                            />
+                        </div>
+                        <div className="absolute top-1/2 right-0 -translate-y-1/2 z-30">
+                            <NavButton
+                                direction="next"
+                                onClick={onNextStep}
+                                disabled={isAnimating}
+                            />
+                        </div>
+                    </>
+                )}
 
                 {/* Cards Grid - 3 columns */}
                 <div className="grid grid-cols-3 gap-6">
@@ -350,7 +382,7 @@ const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, o
 
                                     {/* Step Number */}
                                     <div className="flex justify-center mb-4">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-semibold
+                                        <span className={`px-3 py-1 rounded-full text-sm font-semibold
                                             ${isActive
                                                 ? 'bg-green-100 text-green-700 border'
                                                 : 'bg-gray-100 text-gray-600'
@@ -369,7 +401,7 @@ const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, o
                                     </h3>
 
                                     {/* Description */}
-                                    <p className={`text-sm text-center leading-relaxed ${isActive ? '' : 'text-gray-600'}`}>
+                                    <p className={`text-center leading-relaxed ${isActive ? '' : 'text-gray-600'}`}>
                                         {step.description}
                                     </p>
 
