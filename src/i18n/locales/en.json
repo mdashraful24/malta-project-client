@@ -13,8 +13,6 @@
   },
   "about": {
     "title": "About Us",
-    "p1": "We blend creativity with cutting-edge technology to build solutions that deliver measurable results. Our approach combines strategic thinking with meticulous craftsmanship.",
-    "p2": "Each project represents an opportunity to create something meaningful—elegant, modern, and purpose-driven solutions designed to make a lasting impact.",
     "cta": "Learn more"
   },
   "highlight": {
@@ -63,6 +61,7 @@
   "misc": {
     "backToHome": "Back to Home"
   },
+  "__comment-faq__": "🔴 FAQ SECTION",
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Everything you need to know about our smart irrigation system",
@@ -129,12 +128,14 @@
     "goBack": "Go Back",
     "code": "404"
   },
+  "__comment-aboutDetails__": "🔴 ABOUT DETAILS PAGE",
   "aboutDetails": {
     "title": "About Us",
-    "lead": "Where passion meets precision, creating meaningful impact through innovative solutions and unwavering dedication to quality.",
+    "lead": "Where passion meets precision to create innovative solutions that make a meaningful impact, all while upholding the highest standards of quality.",
     "journeyTitle": "Our Journey of Innovation",
-    "journeyP1": "Founded on principles of excellence and integrity, we have evolved into a beacon of innovation, serving discerning clients who value both quality and purpose.",
-    "journeyP2": "Our commitment to sustainable practices and transparent operations sets new industry standards, while our focus on continuous improvement ensures we remain at the forefront of our field.",
+    "journeyP1": "The Smart Irrigation System represents a major technological advancement for **DIU Agro**, developed under the leadership of **Prof. Dr. M. A. Rahim** and guided by **Prof. Dr. M. R. Kabir**, Honorable Vice-Chancellor of **Daffodil International University (DIU)**. Successfully deployed at **Field Laboratory-1 (Malta Garden)**, the system integrates the Divoo Water Timer with a conventional sprinkler mechanism to create a real-time, moisture-dependent irrigation framework. It combines research, innovation, and student involvement to promote sustainable and data-driven agricultural practices.",
+    "journeyP2": "In Bangladesh, agriculture consumes nearly **85–88% of national freshwater resources**, while traditional manual irrigation methods often lead to excessive water use and groundwater depletion. To address these challenges, the system uses multiple soil moisture sensors distributed across the field to continuously monitor real-time soil conditions. Operating through a dynamic threshold-based mechanism, irrigation automatically starts when moisture falls below a predefined lower limit and stops once the optimal upper threshold is reached. This closed-loop control ensures precise water application while preventing both waterlogging and moisture stress.",
+    "journeyP3": "The system employs **SX1278 LoRa (433 MHz)** communication for reliable long-range data transmission, even through dense vegetation and rural structures. Sensor data are transmitted to a central server via a gateway and Wi-Fi network, where they are stored and analyzed using a web-based monitoring dashboard. Users can remotely observe soil moisture, temperature, and humidity, and control irrigation components through smartphones or computers. Additionally, solar power integration enhances sustainability by reducing grid dependency, achieving an average reduction of approximately 28% in water and energy consumption compared to conventional irrigation methods.",
     "stats": {
       "years": "Years Experience",
       "clients": "Global Clients",
@@ -143,19 +144,19 @@
     "teamTitle": "Meet Our Expert Team",
     "teamLead": "A dedicated team of visionaries committed to excellence and innovation.",
     "missionTitle": "Our Core Mission",
-    "missionDesc": "To redefine industry standards through exceptional craftsmanship, innovative thinking, and unwavering commitment to building lasting relationships based on trust and mutual success.",
+    "missionDesc": "To create innovative solutions that drive measurable results, while maintaining the highest standards of quality, sustainability, and customer satisfaction.",
     "values": [
       {
-        "title": "Innovation",
-        "desc": "Pushing boundaries through continuous research and development."
+        "title": "Reduce Carbon Emission",
+        "desc": "Committed to sustainability by minimizing our carbon footprint and promoting eco-friendly practices in all aspects of our operations."
       },
       {
-        "title": "Integrity",
-        "desc": "Building trust through transparency and ethical practices."
+        "title": "Enhance Agriculture with Technology",
+        "desc": "Leveraging cutting-edge technology to revolutionize agricultural practices, increase efficiency, and promote sustainable farming methods."
       },
       {
-        "title": "Excellence",
-        "desc": "Delivering superior quality in every aspect of our work."
+        "title": "Ensure Quality and Safety",
+        "desc": "Dedicated to maintaining the highest standards of quality and safety in all our products and services, ensuring customer satisfaction and trust."
       }
     ]
   },
@@ -410,32 +411,32 @@
     "items": [
       {
         "title": "Real-Time Field Monitoring",
-        "description": "Track soil moisture, temperature, and humidity across all field zones with IoT sensors and live dashboards",
+        "description": "Track soil moisture, temperature, and humidity across all field zones with IoT sensors and live dashboards.",
         "icon": "Activity"
       },
       {
         "title": "Weather Integration",
-        "description": "Intelligent weather forecasting and rain detection to optimize irrigation schedules automatically",
+        "description": "Intelligent weather forecasting and rain detection to optimize irrigation schedules automatically.",
         "icon": "Cloud"
       },
       {
-        "title": "Crop Management",
-        "description": "Complete lifecycle tracking from planting to harvest with growth monitoring and yield predictions",
+        "title": "LoRa Based Communication",
+        "description": "Can Communicate simultaneously without any sort of WiFi and GSM network so no network delay.",
         "icon": "Sprout"
       },
       {
         "title": "Mobile App Control",
-        "description": "Manage your farm operations from anywhere with our intuitive mobile and web applications",
+        "description": "Manage your farm operations from anywhere with our intuitive mobile and web applications.",
         "icon": "Smartphone"
       },
       {
         "title": "Data Analytics",
-        "description": "Advanced analytics and machine learning insights to maximize yield and resource efficiency",
+        "description": "Advanced analytics and machine learning insights to maximize yield and resource efficiency.",
         "icon": "BarChart3"
       },
       {
         "title": "Smart Alerts",
-        "description": "Instant notifications for critical events, anomalies, and system status changes"
+        "description": "Instant notifications for critical events, anomalies, and system status changes."
       }
     ]
   },
@@ -482,7 +483,7 @@
       }
     ],
     "autoMode": "Auto-slide mode",
-    "hoverMode": "Hover mode"
+    "hoverMode": "Click mode"
   },
   "cta": {
     "title": "Ready to Transform Your Farm?",

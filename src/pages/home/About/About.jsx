@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import ReactMarkdown from "react-markdown";
 import img from "../../../assets/about/img3.png";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from 'react-i18next';
@@ -8,15 +9,19 @@ const About = () => {
 
     return (
         <div className="container mx-auto px-4 py-24 lg:py-30">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Heading */}
+            <h2 className="block lg:hidden text-4xl md:text-5xl text-center font-bold mb-10">
+                {t('about.title')}
+            </h2>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 {/* Image Side - Premium styling */}
                 <div className="relative group">
-                    <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl before:absolute before:inset-0 before:bg-linear-to-br before:from-transparent before:via-transparent before:to-black/5 before:z-10">
+                    <div className="relative overflow-hidden rounded-2xl before:absolute before:inset-0 before:bg-linear-to-br before:from-transparent before:via-transparent before:to-black/5 before:z-10">
                         <img
                             src={img}
                             alt="Fresh orange fruit"
-                            className="w-full h-100 object-cover object-center transform transition-all duration-700 group-hover:scale-105"
+                            className="w-full h-full lg:h-120 object-cover object-center transform transition-all duration-700 group-hover:scale-105"
                         />
                         {/* Subtle gradient overlay */}
                         <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent"></div>
@@ -27,26 +32,26 @@ const About = () => {
                 </div>
 
                 {/* Content Side - Elegant typography */}
-                <div className="lg:pl-8 text-center lg:text-left">
+                <div className="text-center lg:text-left">
                     {/* Heading */}
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12">
+                    <h2 className="hidden lg:block text-4xl md:text-5xl font-bold mb-10">
                         {t('about.title')}
                     </h2>
 
                     {/* Content */}
-                    <div className="space-y-6 mb-7 lg:mb-12">
+                    <div className="space-y-5 mb-3 lg:mb-5">
                         <p className="text-lg lg:text-xl leading-relaxed">
-                            {t('about.p1')}
+                            <ReactMarkdown>{t('aboutDetails.journeyP1')}</ReactMarkdown>
                         </p>
-                        <p className="text-lg lg:text-xl leading-relaxed">
-                            {t('about.p2')}
+                        <p className="text-lg lg:text-xl leading-relaxed line-clamp-4 lg:line-clamp-2">
+                            <ReactMarkdown>{t('aboutDetails.journeyP2')}</ReactMarkdown>
                         </p>
                     </div>
 
                     {/* CTA Button */}
                     <Link
                         to="/about"
-                        className="group inline-flex items-center gap-4 font-medium text-lg hover:text-green-600 transition-colors duration-300"
+                        className="group inline-flex items-center gap-4 font-semibold text-lg hover:text-green-600 transition-colors duration-300"
                     >
                         <span className="relative">
                             {t('about.cta')}

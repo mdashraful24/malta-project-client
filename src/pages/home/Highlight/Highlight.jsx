@@ -70,7 +70,7 @@ const Highlight = () => {
                 {projects.map((project) => (
                     <div
                         key={project.id}
-                        className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-gray-200 hover:ring-green-400 transition-all duration-300 hover:shadow-xl"
+                        className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-md ring-2 ring-gray-200 hover:ring-green-400 transition-all duration-300 hover:shadow-lg"
                     >
                         {/* Project Image - Fixed height */}
                         <div className="relative h-48 md:h-56 overflow-hidden">

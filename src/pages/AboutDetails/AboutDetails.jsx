@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 import { useTranslation } from 'react-i18next';
 import CountUp from "react-countup";
 import img from "../../assets/about/img3.png";
@@ -49,11 +50,11 @@ const AboutDetails = () => {
     return (
         <section className="container mx-auto px-4 py-16 mt-10">
             {/* Hero Header */}
-            <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
+            <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12 lg:mb-16">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-5 tracking-tight leading-tight">
                     {t('aboutDetails.title')}
                 </h1>
-                <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+                <p className="text-lg sm:text-xl leading-relaxed px-4 sm:px-0">
                     {t('aboutDetails.lead')}
                 </p>
             </div>
@@ -70,15 +71,15 @@ const AboutDetails = () => {
                         </div>
                             <div className="space-y-4 md:space-y-6">
                             <p className="md:text-lg leading-relaxed">
-                                {t('aboutDetails.journeyP1')}
+                                <ReactMarkdown>{t('aboutDetails.journeyP1')}</ReactMarkdown>
                             </p>
                             <p className="md:text-lg leading-relaxed">
-                                {t('aboutDetails.journeyP2')}
+                                <ReactMarkdown>{t('aboutDetails.journeyP2')}</ReactMarkdown>
                             </p>
                         </div>
 
                         {/* CountUp Statistics */}
-                        <div ref={ref} className="mt-8 pt-6 md:pt-8">
+                        {/* <div ref={ref} className="mt-8 pt-6 md:pt-8">
                             <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 justify-center lg:justify-start">
                                 <div className="text-center lg:text-left">
                                     <p className="text-2xl sm:text-3xl font-bold text-green-600">
@@ -120,19 +121,22 @@ const AboutDetails = () => {
                                     <p className="text-xs sm:text-sm uppercase tracking-widest mt-1">{t('aboutDetails.stats.satisfaction')}</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="lg:col-span-5 relative order-1 lg:order-2">
-                        <div className="overflow-hidden rounded-3xl shadow-xl transform -translate-y-4">
+                        <div className="overflow-hidden rounded-3xl">
                             <img
                                 src={img}
                                 alt="Our story"
-                                className="w-full h-64 sm:h-80 md:h-96 object-cover transform transition-transform duration-700 lg:hover:scale-105"
+                                className="w-full h-full lg:h-110 object-cover transform transition-transform duration-700 lg:hover:scale-105"
                             />
                             <div className="block lg:hidden absolute inset-0 bg-linear-to-t from-black/20 to-transparent rounded-2xl"></div>
                         </div>
                     </div>
                 </div>
+                <p className="md:text-lg leading-relaxed pt-4 md:pt-6">
+                    <ReactMarkdown>{t('aboutDetails.journeyP3')}</ReactMarkdown>
+                </p>
             </div>
 
             {/* Team Section */}
@@ -146,7 +150,7 @@ const AboutDetails = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {[
                         {
                             name: "Johnathan Doe",
@@ -266,7 +270,7 @@ const AboutDetails = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {t('aboutDetails.values', { returnObjects: true }).map((value, index) => (
                             <div key={index} className="bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl p-6 md:p-8 border border-white/10 hover:border-green-400/30 transition-all duration-300">
                                 <div className="text-3xl md:text-4xl font-bold text-green-600 mb-3 md:mb-4">0{index + 1}</div>

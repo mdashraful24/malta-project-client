@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { UserPlus, Eye, Zap, Target, ChevronRight, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
-const AUTO_SLIDE_INTERVAL = 3000;
+const AUTO_SLIDE_INTERVAL = 2000;
 const MOBILE_BREAKPOINT = 1024;
 
 const HowItWorks = () => {
@@ -171,7 +171,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
             <div
                 className="absolute left-6 top-0 w-0.5 bg-linear-to-b from-green-500 via-green-400 to-green-500 transition-all duration-700 ease-in-out"
                 style={{
-                    height: `${((activeStep + 1) / steps.length) * 103}%`,
+                    height: `${((activeStep + 1) / steps.length) * 100}%`,
                     maxHeight: '100%'
                 }}
             />
@@ -250,7 +250,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                         ? 'text-gray-900'
                                         : isCompleted
                                             ? 'text-gray-900'
-                                            : 'text-gray-500'
+                                            : 'text-gray-500 line-clamp-2'
                                     }`}
                                 >
                                     {step.description}
@@ -321,7 +321,7 @@ const DesktopShowcase = ({ steps, iconMap, activeStep, direction, isAnimating, o
                 )}
 
                 {/* Cards Grid - 3 columns */}
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-3 gap-8">
                     {getVisibleSteps().map((step, idx) => {
                         const StepIcon = iconMap[step.icon] || UserPlus;
                         const isActive = step.position === 0;

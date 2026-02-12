@@ -27,13 +27,13 @@ const FeaturesOverview = () => {
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map((feature, index) => {
                     const IconComponent = iconMap[feature.icon] || Activity;
                     return (
                         <div
                             key={index}
-                            className="group relative flex flex-col rounded-2xl hover:rounded-t-2xl hover:rounded-b-none p-6 bg-white shadow-sm ring-1 ring-gray-200 hover:ring-green-300 hover:shadow-2xl transition-all duration-300"
+                            className="group relative flex flex-col rounded-2xl hover:rounded-t-2xl hover:rounded-b-none p-6 bg-white shadow-sm border border-gray-200 hover:border-b-green-500 hover:shadow-xl transition-all duration-300"
                         >
                             {/* Icon Container */}
                             <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-linear-to-br from-green-500 to-green-600 text-white mb-6 group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
