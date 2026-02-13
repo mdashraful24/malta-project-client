@@ -50,7 +50,7 @@ const AboutDetails = () => {
     return (
         <section className="container mx-auto px-4 py-16 mt-10">
             {/* Hero Header */}
-            <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12 lg:mb-16">
+            <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 lg:mb-20">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-5 tracking-tight leading-tight">
                     {t('aboutDetails.title')}
                 </h1>
@@ -60,10 +60,10 @@ const AboutDetails = () => {
             </div>
 
             {/* Story Section with Elegant Design */}
-            <div className="relative mb-24 lg:mb-32">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="relative mb-16 md:mb-24 lg:mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-12">
                     <div className="lg:col-span-7 order-2 lg:order-1">
-                        <div className="mb-6 md:mb-8">
+                        <div className="text-center lg:text-left mb-6 md:mb-8">
                             <h2 className="text-3xl md:text-5xl">
                                 {t('aboutDetails.journeyTitle')}
                             </h2>
@@ -140,7 +140,7 @@ const AboutDetails = () => {
             </div>
 
             {/* Team Section */}
-            <div className="mb-24 lg:mb-32">
+            <div className="mb-20 md:mb-24 lg:mb-32">
                 <div className="text-center mb-12 lg:mb-16">
                     <h2 className="text-3xl md:text-5xl mb-4 md:mb-6">
                         {t('aboutDetails.teamTitle')}
@@ -251,6 +251,95 @@ const AboutDetails = () => {
                             {/* Corner Accent */}
                             <div className="absolute top-0 right-0 w-16 h-16">
                                 <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Working Progress Section */}
+            <div className="mb-20 md:mb-24 lg:mb-32">
+                <div className="text-center mb-12 lg:mb-16">
+                    <h2 className="text-3xl md:text-5xl mb-4 md:mb-6">
+                        {t('aboutDetails.workingProgressTitle') || 'Our Working Progress'}
+                    </h2>
+                    <p className="max-w-3xl mx-auto md:text-lg leading-relaxed">
+                        {t('aboutDetails.workingProgressLead')}
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    {[
+                        {
+                            title: "AI-Powered Analytics",
+                            description: "Developing advanced AI algorithms to analyze agricultural data and provide actionable insights for farmers.",
+                            progress: 75,
+                            status: "In Progress",
+                        },
+                        {
+                            title: "Web App Development",
+                            description: "Building a user-friendly web application for farmers to access real-time insights and recommendations.",
+                            progress: 60,
+                            status: "In Progress",
+                        },
+                        {
+                            title: "Real-time IoT Integration",
+                            description: "Integrating IoT sensors for real-time soil moisture and weather data collection.",
+                            progress: 85,
+                            status: "In Progress",
+                        },
+                        {
+                            title: "Sustainability Research",
+                            description: "Conducting research on sustainable farming practices and environmental impact reduction.",
+                            progress: 40,
+                            status: "Planning",
+                        }
+                    ].map((project, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col h-full bg-linear-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 shadow-md hover:border-green-400 hover:shadow-lg transition-all duration-300"
+                        >
+                            {/* Top Section */}
+                            <div className="flex justify-between items-start mb-3">
+                                <div className="grow pr-4">
+                                    <h3 className="text-xl md:text-2xl font-bold">
+                                        {project.title}
+                                    </h3>
+                                </div>
+                                <span
+                                    className={`px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${project.status === 'In Progress'
+                                        ? 'bg-blue-100 text-blue-700'
+                                        : 'bg-yellow-100 text-yellow-700'
+                                        }`}
+                                >
+                                    {project.status}
+                                </span>
+                            </div>
+
+                            {/* Description */}
+                            <div className="mb-4">
+                                <p className="leading-relaxed">
+                                    {project.description}
+                                </p>
+                            </div>
+
+                            {/* Push Progress Section to Bottom */}
+                            <div className="mt-auto">
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="text-sm font-semibold">
+                                        Progress
+                                    </span>
+                                    <span className="text-sm font-bold text-green-600">
+                                        {project.progress}%
+                                    </span>
+                                </div>
+
+                                <div className="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full bg-linear-to-r from-green-500 to-green-400 rounded-full transition-all duration-700 ease-out"
+                                        style={{ width: `${project.progress}%` }}
+                                    />
+                                </div>
                             </div>
                         </div>
                     ))}

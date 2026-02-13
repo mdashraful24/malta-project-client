@@ -158,7 +158,11 @@
         "title": "Ensure Quality and Safety",
         "desc": "Dedicated to maintaining the highest standards of quality and safety in all our products and services, ensuring customer satisfaction and trust."
       }
-    ]
+    ],
+    "workingProgressTitle": "Our Working Progress",
+    "workingProgressLead": "Track our ongoing initiatives and upcoming features designed to improve your farming experience.",
+    "progressNote": "Continuous Innovation",
+    "progressNoteDesc": "We are committed to continuous improvement and innovation. Our team is actively working on new features to enhance your farming experience."
   },
   "crops": {
     "title": "Crops",
