@@ -7,9 +7,54 @@
   },
   "brand": "Smart Irrigation",
   "footer": {
-    "company": "ACME Industries Ltd.",
-    "tagline": "Providing reliable tech since 1992",
-    "copyright": "Copyright © {{year}} - All rights reserved"
+    "description": "Intelligent water management solutions for modern agriculture. Optimize your irrigation with our smart technology for healthier crops and water savings.",
+    "tagline": "Sustainable irrigation for a greener future",
+    "copyright": "Copyright © {{year}} - All rights reserved",
+    "navigationLabel": "Navigation",
+    "contactLabel": "Contact",
+    "legalLabel": "Legal",
+    "navigation":[
+      {
+        "title": "Home",
+        "link": "/"
+      },
+      {
+        "title": "About Us",
+        "link": "/about"
+      },
+      {
+        "title": "Highlight",
+        "link": "/highlight"
+      },
+      {
+        "title": "Contact",
+        "link": "/contact"
+      }
+    ],
+    "contact":[
+      {
+        "type": "email",
+        "value": "contact@smartirrigation.com"
+      },
+      {
+        "type": "phone",
+        "value": "+1 (555) 123-4567"
+      },
+      {
+        "type": "address",
+        "value": "123 Tech Park, Silicon Valley"
+      }
+    ],
+    "legal": [
+      {
+        "title": "Privacy Policy",
+        "link": "/privacy"
+      },
+      {
+        "title": "Terms of Service",
+        "link": "/terms"
+      }
+    ]
   },
   "about": {
     "title": "About Us",
