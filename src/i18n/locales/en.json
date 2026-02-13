@@ -22,7 +22,7 @@
   },
   "login": {
     "welcome": "Welcome to Smart Irrigation",
-    "signin": "Sign in",
+    "signin": "Sign in to your account",
     "signinButton": "Sign in",
     "signing": "Signing in...",
     "email": "Email Address",
@@ -44,7 +44,7 @@
   },
   "signup": {
     "title": "Create Your Irrigation Account",
-    "subtitle": "Get started with smart water management",
+    "subtitle": "Join us to optimize your water usage and boost your crop yield with smart irrigation technology.",
     "fullName": "Full Name",
     "createButton": "Create Account",
     "creating": "Creating Account...",

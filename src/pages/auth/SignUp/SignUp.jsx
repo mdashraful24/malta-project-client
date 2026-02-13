@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Eye, EyeOff, Droplets, CheckCircle } from "lucide-react";
+import { Eye, EyeOff, Droplets, CheckCircle, Mail, Lock, User } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const SignUp = () => {
@@ -95,7 +95,7 @@ const SignUp = () => {
             console.log("Form submitted:", formData);
 
             // Simulate API call delay
-                setTimeout(() => {
+            setTimeout(() => {
                 alert(t('signup.created', 'Account created successfully!'));
                 setIsSubmitting(false);
                 // Reset form after successful signup
@@ -116,13 +116,13 @@ const SignUp = () => {
         <div className="md:min-h-screen flex items-center justify-center p-4">
             <div className="max-w-lg w-full">
                 {/* Logo/Brand */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                     <Link to="/" className="inline-flex items-center gap-2">
                         <Droplets className="w-8 h-8 text-green-600" />
                         <span className="text-3xl font-bold text-green-600">{t('brand')}</span>
                     </Link>
                     <h1 className="mt-4 text-2xl font-bold">{t('signup.title')}</h1>
-                    <p className="mt-2">{t('signup.subtitle')}</p>
+                    <p className="mt-2 leading-relaxed">{t('signup.subtitle')}</p>
                 </div>
 
                 {/* Sign Up Form */}
@@ -131,19 +131,24 @@ const SignUp = () => {
                         {/* Full Name Field */}
                         <div>
                             <label htmlFor="fullName" className="block text-sm font-medium mb-1">
-                                    {t('signup.fullName')}
-                                </label>
-                            <input
-                                type="text"
-                                id="fullName"
-                                name="fullName"
-                                value={formData.fullName}
-                                onChange={handleChange}
-                                placeholder="John Doe"
-                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.fullName ? 'border-red-500' : 'border-gray-300'
-                                    }`}
-                                disabled={isSubmitting}
-                            />
+                                {t('signup.fullName')}
+                            </label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <User className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
+                                    placeholder="John Doe"
+                                    className={`w-full pl-10 pr-4 py-1.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.fullName ? 'border-red-500' : 'border-gray-300'
+                                        }`}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
                             {errors.fullName && (
                                 <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>
                             )}
@@ -154,17 +159,22 @@ const SignUp = () => {
                             <label htmlFor="email" className="block text-sm font-medium mb-1">
                                 {t('login.email')}
                             </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="farmer@example.com"
-                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-500' : 'border-gray-300'
-                                    }`}
-                                disabled={isSubmitting}
-                            />
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Mail className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="farmer@example.com"
+                                    className={`w-full pl-10 pr-4 py-1.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                                        }`}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
                             {errors.email && (
                                 <p className="mt-1 text-sm text-red-600">{errors.email}</p>
                             )}
@@ -176,6 +186,9 @@ const SignUp = () => {
                                 {t('login.password')}
                             </label>
                             <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Lock className="h-5 w-5 text-gray-400" />
+                                </div>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     id="password"
@@ -183,7 +196,7 @@ const SignUp = () => {
                                     value={formData.password}
                                     onChange={handleChange}
                                     placeholder="••••••••"
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.password ? 'border-red-500' : 'border-gray-300'
+                                    className={`w-full pl-10 pr-12 py-1.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.password ? 'border-red-500' : 'border-gray-300'
                                         }`}
                                     disabled={isSubmitting}
                                 />
@@ -239,6 +252,9 @@ const SignUp = () => {
                                 {t('signup.confirmPassword')}
                             </label>
                             <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Lock className="h-5 w-5 text-gray-400" />
+                                </div>
                                 <input
                                     type={showConfirmPassword ? "text" : "password"}
                                     id="confirmPassword"
@@ -246,7 +262,7 @@ const SignUp = () => {
                                     value={formData.confirmPassword}
                                     onChange={handleChange}
                                     placeholder="••••••••"
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+                                    className={`w-full pl-10 pr-12 py-1.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
                                         }`}
                                     disabled={isSubmitting}
                                 />

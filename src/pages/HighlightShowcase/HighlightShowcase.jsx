@@ -81,7 +81,7 @@ const HighlightShowcase = () => {
                                     <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <div className="text-2xl font-bold text-gray-300 group-hover:text-green-400 transition-colors">{project.id}</div>
+                                    <div className="text-2xl font-bold text-gray-300 group-hover:text-green-500 transition-colors">{project.id}</div>
                                 </div>
                                 <p className="leading-relaxed grow">
                                     {project.description}
