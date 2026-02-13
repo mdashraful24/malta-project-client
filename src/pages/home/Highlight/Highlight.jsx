@@ -1,6 +1,28 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
-import img from "../../../assets/about/img2.jpg";
+import img1 from "../../../assets/highlights/h1.jpg";
+import img2 from "../../../assets/highlights/h2.jpg";
+import img3 from "../../../assets/highlights/h3.jpg";
+import img4 from "../../../assets/highlights/h4.jpg";
+import img5 from "../../../assets/highlights/h5.jpg";
+import img6 from "../../../assets/highlights/h6.jpg";
+import img7 from "../../../assets/highlights/h7.jpg";
+import img8 from "../../../assets/highlights/h8.jpg";
+import img9 from "../../../assets/highlights/h9.jpg";
+
+const imageMap = {
+    "h1.jpg": img1,
+    "h2.jpg": img2,
+    "h3.jpg": img3,
+    "h4.jpg": img4,
+    "h5.jpg": img5,
+    "h6.jpg": img6,
+    "h7.jpg": img7,
+    "h8.jpg": img8,
+    "h9.jpg": img9,
+};
+
+const imageList = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 // const projects = [
 //     {
@@ -67,15 +89,20 @@ const Highlight = () => {
 
             {/* Project Cards Grid - All cards same height */}
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project) => (
+                {projects.map((project, idx) => {
+                    const imageSrc = typeof project.image === 'string'
+                        ? (imageMap[project.image] || project.image)
+                        : (project.image || imageList[idx] || img1);
+
+                    return (
                     <div
                         key={project.id}
                         className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden shadow-md ring-2 ring-gray-200 hover:ring-green-400 transition-all duration-300 hover:shadow-lg"
                     >
                         {/* Project Image - Fixed height */}
-                        <div className="relative h-48 md:h-56 overflow-hidden">
+                        <div className="relative h-60 md:h-72 overflow-hidden">
                             <img
-                                src={project.image || img}
+                                src={imageSrc}
                                 alt={project.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
@@ -90,19 +117,19 @@ const Highlight = () => {
                         {/* Project Content - Flex grow for consistent height */}
                         <div className="flex flex-col grow p-6">
                             <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors line-clamp-1">
+                                <h3 className="text-xl font-semibold group-hover:text-green-600 transition-colors">
                                     {project.title}
                                 </h3>
                                 <div className="text-2xl font-bold text-gray-300 group-hover:text-green-400 transition-colors">
                                     {project.id}
                                 </div>
                             </div>
-                            <p className="leading-relaxed line-clamp-3 grow">
+                            <p className="leading-relaxed grow">
                                 {project.description}
                             </p>
                         </div>
                     </div>
-                ))}
+                )})}
             </div>
 
             {/* See More Button */}

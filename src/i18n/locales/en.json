@@ -260,102 +260,57 @@
     "projects": [
       {
         "id": "01",
-        "title": "Fresh Orange Delivery",
-        "description": "Premium quality oranges delivered fresh to your doorstep with guaranteed same-day delivery",
-        "category": "Food & Beverage",
-        "features": [
-          "24-hour delivery",
-          "Organic certification",
-          "Farm-direct pricing"
-        ]
+        "title": "Field Demonstration of Smart Irrigation Systems with DIU Leadership",
+        "description": "A student at Daffodil International University (DIU) presents a technical blueprint for a Smart Irrigation System to the Chairman, Dr. Md. Sabur Khan, and university officials during a field demonstration of agricultural innovation.",
+        "category": "Agro-Tech Innovation"
       },
       {
         "id": "02",
         "title": "Eco Farming Solutions",
         "description": "Sustainable farming practices for modern agriculture",
-        "category": "Agriculture",
-        "features": [
-          "Water conservation",
-          "Natural pest control",
-          "Soil monitoring"
-        ]
+        "category": "Agriculture"
       },
       {
         "id": "03",
         "title": "Urban Garden Design",
         "description": "Transforming urban spaces into green havens with innovative vertical gardening solutions",
-        "category": "Design",
-        "features": [
-          "Vertical gardens",
-          "Space optimization",
-          "Maintenance plans"
-        ]
+        "category": "Design"
       },
       {
         "id": "04",
         "title": "Organic Produce Market",
         "description": "Connecting organic farmers with local communities through our innovative platform",
-        "category": "Retail",
-        "features": [
-          "Direct farmer access",
-          "Quality assurance",
-          "Transparent pricing"
-        ]
+        "category": "Retail"
       },
       {
         "id": "05",
         "title": "Farm to Table Initiative",
         "description": "Reducing food miles, increasing freshness for restaurants and hotels",
-        "category": "Sustainability",
-        "features": [
-          "Local sourcing",
-          "Waste reduction",
-          "Quality tracking"
-        ]
+        "category": "Sustainability"
       },
       {
         "id": "06",
         "title": "Agricultural Tech Hub",
         "description": "Innovative technology solutions for modern farmers",
-        "category": "Technology",
-        "features": [
-          "IoT sensors",
-          "AI analytics",
-          "Automated systems"
-        ]
+        "category": "Technology"
       },
       {
         "id": "07",
         "title": "Hydroponic Systems",
         "description": "Advanced soil-less farming systems for urban agriculture",
-        "category": "Technology",
-        "features": [
-          "Water efficient",
-          "Year-round production",
-          "Space saving"
-        ]
+        "category": "Technology"
       },
       {
         "id": "08",
         "title": "Food Waste Reduction",
         "description": "Technology solutions to minimize food waste in supply chains",
-        "category": "Sustainability",
-        "features": [
-          "AI prediction",
-          "Inventory optimization",
-          "Community redistribution"
-        ]
+        "category": "Sustainability"
       },
       {
         "id": "09",
         "title": "Farm Equipment Rental",
         "description": "Modern farming equipment rental service for small farmers",
-        "category": "Agriculture",
-        "features": [
-          "Affordable access",
-          "Modern equipment",
-          "Maintenance included"
-        ]
+        "category": "Agriculture"
       }
     ]
   },
