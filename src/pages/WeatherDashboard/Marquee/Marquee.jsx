@@ -5,10 +5,10 @@ const Marquee = () => {
     const notices = t('marquee.notices', { returnObjects: true }) || [];
 
     return (
-        <div className="w-full border border-gray-200 rounded-2xl shadow-lg p-5">
+        <div className="w-full border border-gray-200 rounded-2xl shadow-md p-5">
             <marquee
                 direction="up"
-                className="h-94"
+                className="h-100 lg:h-128"
                 scrollamount="4"
                 onMouseOver={(e) => e.currentTarget.stop()}
                 onMouseOut={(e) => e.currentTarget.start()}

@@ -126,8 +126,66 @@ const Header = ({ title, subtitle, isAutoPlay, onToggleMode }) => {
     );
 };
 
-// Mobile: Vertical Timeline Style
-const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
+// Mobile: Vertical Timeline Style with Auto-play
+const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick, isAutoPlay }) => {
+    const [isPaused, setIsPaused] = useState(false);
+    const timeoutRef = useRef(null);
+    const pauseTimeoutRef = useRef(null);
+
+    // Auto-advance steps on mobile
+    useEffect(() => {
+        // Clear any existing timeout
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+
+        // Only auto-advance if auto-play is enabled and not paused
+        if (isAutoPlay && !isPaused) {
+            timeoutRef.current = setTimeout(() => {
+                // Calculate next step (with loop)
+                const nextStep = (activeStep + 1) % steps.length;
+                onStepClick(nextStep);
+            }, AUTO_SLIDE_INTERVAL);
+        }
+
+        // Cleanup
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, [activeStep, isAutoPlay, isPaused, steps.length, onStepClick]);
+
+    // Pause auto-play when user interacts
+    const handleStepInteraction = (index) => {
+        // Don't do anything if it's the same step
+        if (index === activeStep) return;
+
+        // Clear any existing pause timeout
+        if (pauseTimeoutRef.current) {
+            clearTimeout(pauseTimeoutRef.current);
+        }
+
+        setIsPaused(true);
+        onStepClick(index);
+
+        // Resume auto-play after a delay if still in auto-play mode
+        if (isAutoPlay) {
+            pauseTimeoutRef.current = setTimeout(() => {
+                setIsPaused(false);
+            }, AUTO_SLIDE_INTERVAL * 2); // Pause for 2x interval
+        }
+    };
+
+    // Cleanup pause timeout on unmount
+    useEffect(() => {
+        return () => {
+            if (pauseTimeoutRef.current) {
+                clearTimeout(pauseTimeoutRef.current);
+            }
+        };
+    }, []);
+
     return (
         <div className="relative lg:hidden">
             {/* Vertical Line Background (gray) */}
@@ -163,10 +221,10 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                                 ? 'bg-linear-to-br from-green-500 to-green-600'
                                                 : 'bg-white border-2 border-gray-200 hover:border-green-300'
                                         }`}
-                                    onClick={() => onStepClick(index)}
+                                    onClick={() => handleStepInteraction(index)}
                                 >
                                     <IconComponent
-                                        className={`w-5 h-5 transition-all duration-700 ease-in-out ${isActive || isCompleted ? 'text-white' : 'text-gray-400 group-hover:text-green-600'}`}
+                                        className={`w-5 h-5 transition-all duration-300 ease-in-out ${isActive || isCompleted ? 'text-white' : 'text-gray-400 group-hover:text-green-600'}`}
                                     />
                                 </div>
 
@@ -180,15 +238,15 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
 
                             {/* Content Card */}
                             <div
-                                className={`flex-1 bg-white/80 backdrop-blur-sm rounded-2xl p-5 border transition-all duration-700 ease-in-out cursor-pointer
+                                className={`flex-1 bg-white/80 backdrop-blur-sm rounded-2xl p-5 border transition-all duration-300 ease-in-out cursor-pointer
                                     ${isActive
                                         ? 'border-green-200 shadow-xl bg-white scale-[1.02]'
                                         : 'border-gray-100 hover:border-green-200 shadow hover:shadow-md'
                                     }`}
-                                onClick={() => onStepClick(index)}
+                                onClick={() => handleStepInteraction(index)}
                             >
                                 <div className="flex items-center gap-2 mb-2">
-                                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-700 ease-in-out
+                                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-300 ease-in-out
                                         ${isActive
                                             ? 'bg-green-100 text-green-700 scale-105'
                                             : isCompleted
@@ -198,7 +256,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                     >
                                         {step.number}
                                     </span>
-                                    <h3 className={`font-bold transition-all duration-700 ease-in-out 
+                                    <h3 className={`font-bold transition-all duration-300 ease-in-out 
                                     ${isActive
                                             ? 'text-gray-900'
                                             : isCompleted
@@ -211,7 +269,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                     </h3>
                                 </div>
 
-                                <p className={`text-sm leading-relaxed transition-all duration-700 ease-in-out 
+                                <p className={`text-sm leading-relaxed transition-all duration-300 ease-in-out 
                                     ${isActive
                                         ? 'text-gray-900'
                                         : isCompleted
@@ -227,7 +285,7 @@ const MobileTimeline = ({ steps, iconMap, activeStep, onStepClick }) => {
                                         className="mt-3 text-sm font-medium text-green-600 flex items-center gap-1 transition-all duration-300 hover:gap-2 hover:text-green-700 outline-none ring-0 focus:outline-none focus:ring-0"
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            onStepClick(index);
+                                            handleStepInteraction(index);
                                         }}
                                     >
                                         <span>Read more</span>

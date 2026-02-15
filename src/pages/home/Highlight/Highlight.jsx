@@ -80,9 +80,9 @@ const Highlight = () => {
                                         {project.id}
                                     </div>
                                 </div>
-                                <p className="leading-relaxed grow">
+                                <div className="leading-relaxed grow">
                                     <ReactMarkdown>{project.description}</ReactMarkdown>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     )

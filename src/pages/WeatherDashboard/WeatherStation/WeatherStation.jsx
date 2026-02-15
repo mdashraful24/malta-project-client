@@ -112,14 +112,12 @@ const WeatherStation = () => {
             {/* Header */}
             <header className="mb-4 sm:mb-6 md:mb-8">
                 <div>
-                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{t('weather.station')}</h1>
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
-                        <div className="flex items-center">
-                            <span className="inline-block w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse mr-1.5 sm:mr-2"></span>
-                            <span className="text-xs sm:text-sm md:text-base font-medium text-gray-600">
-                                {t('weather.refresh')}
-                            </span>
-                        </div>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3">{t('weather.station')}</h1>
+                    <div className="flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse"></span>
+                        <span className="text-xs sm:text-sm md:text-base">
+                            {t('weather.refresh')}
+                        </span>
                     </div>
                 </div>
             </header>
@@ -131,8 +129,7 @@ const WeatherStation = () => {
                         key={stat.id}
                         className={`relative backdrop-blur-md sm:backdrop-blur-lg md:backdrop-blur-xl ${stat.bgColor} 
                                     rounded-xl sm:rounded-2xl p-3 sm:p-4 border ${stat.borderColor} 
-                                    shadow-sm hover:shadow-md sm:shadow-md sm:hover:shadow-lg
-                                    md:shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] md:hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] 
+                                    shadow-sm md:hover:shadow-[0_8px_12px_0_rgba(31,38,135,0.15)] 
                                     transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] group overflow-hidden`}
                     >
                         {/* Gradient glow overlay */}
@@ -141,7 +138,7 @@ const WeatherStation = () => {
 
                         <div className="relative z-10">
                             <div className="flex items-center justify-between mb-1">
-                                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800">{stat.title}</h3>
+                                <h3 className="text-sm sm:text-base md:text-lg font-semibold">{stat.title}</h3>
                                 <div className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 drop-shadow rounded-full flex items-center justify-center 
                                         text-lg sm:text-xl md:text-2xl backdrop-blur-sm bg-white/40 border border-white/50 shadow-sm`}>
                                     {stat.icon}
@@ -150,7 +147,7 @@ const WeatherStation = () => {
 
                             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between">
                                 <div>
-                                    <div className="text-2xl sm:text-2xl md:text-3xl font-bold mb-1 text-gray-900">
+                                    <div className="text-2xl sm:text-2xl md:text-3xl font-bold mb-1">
                                         {isInView ? (
                                             <CountUp
                                                 start={0}

@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
+import { LineChart, BarChart } from '@mui/x-charts';
+import { axisClasses } from '@mui/x-charts/ChartsAxis';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 
 const Chart = () => {
     const { t } = useTranslation();
+
     // Chart data
     const chartData = [
         { month: 'Jan', soil: 45, rain: 1200, temp: 22, hum: 68 },
@@ -20,208 +29,435 @@ const Chart = () => {
         { month: 'Dec', soil: 44, rain: 1100, temp: 22, hum: 66 },
     ];
 
-    const [chartType, setChartType] = useState('composed');
+    const [chartType, setChartType] = useState('line');
+    const [series, setSeries] = useState(['temp', 'soil', 'hum']);
 
-    // Custom tooltip
-    const CustomTooltip = ({ active, payload, label }) => {
-        if (active && payload && payload.length) {
-            return (
-                <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
-                    <p className="font-bold text-gray-800">{label}</p>
-                    {payload.map((entry, index) => (
-                        <p key={index} className="flex items-center gap-2" style={{ color: entry.color }}>
-                            <span className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }}></span>
-                            {entry.dataKey}: <span className="font-semibold">{entry.value}
-                                {entry.dataKey === 'temp' ? '°C' : entry.dataKey === 'hum' ? '%' : entry.dataKey === 'soil' ? '%' : 'mm'}</span>
-                        </p>
-                    ))}
-                </div>
-            );
+    // Series configuration
+    const seriesConfig = {
+        temp: {
+            label: 'Temperature (°C)',
+            color: '#ef4444',
+            dataKey: 'temp',
+            valueFormatter: (v) => `${v}°C`,
+        },
+        soil: {
+            label: 'Soil Moisture (%)',
+            color: '#22c55e',
+            dataKey: 'soil',
+            valueFormatter: (v) => `${v}%`,
+        },
+        hum: {
+            label: 'Humidity (%)',
+            color: '#8b5cf6',
+            dataKey: 'hum',
+            valueFormatter: (v) => `${v}%`,
+        },
+        rain: {
+            label: 'Rainfall (mm)',
+            color: '#0ea5e9',
+            dataKey: 'rain',
+            valueFormatter: (v) => `${v}mm`,
+        },
+    };
+
+    const toggleSeries = (key) => {
+        setSeries(prev =>
+            prev.includes(key)
+                ? prev.filter(s => s !== key)
+                : [...prev, key]
+        );
+    };
+
+    // For Line Chart with dual axes
+    const lineChartSetting = {
+        dataset: chartData,
+        xAxis: [{
+            scaleType: 'band',
+            dataKey: 'month',
+            label: 'Month',
+        }],
+        series: series.map(key => ({
+            dataKey: seriesConfig[key].dataKey,
+            label: seriesConfig[key].label,
+            color: seriesConfig[key].color,
+            valueFormatter: seriesConfig[key].valueFormatter,
+            yAxisKey: key === 'rain' ? 'rain-axis' : 'main-axis',
+        })),
+        yAxis: [
+            {
+                id: 'main-axis',
+                scaleType: 'linear',
+                label: 'Temperature / Humidity / Moisture / Rainfall',
+                valueFormatter: (v) => `${v}%`,
+            }
+        ],
+        height: 380,
+        slotProps: {
+            legend: {
+                direction: 'row',
+                position: { vertical: 'top', horizontal: 'middle' },
+                padding: 20,
+            },
+        },
+        sx: {
+            [`.${axisClasses.left}`]: {
+                [`.${axisClasses.label}`]: {
+                    transform: 'translateX(-10px)',
+                },
+            },
+        },
+    };
+
+    // For Bar Chart
+    const barChartSetting = {
+        dataset: chartData,
+        xAxis: [{
+            scaleType: 'band',
+            dataKey: 'month',
+            label: 'Month',
+        }],
+        series: series.map(key => ({
+            dataKey: seriesConfig[key].dataKey,
+            label: seriesConfig[key].label,
+            color: seriesConfig[key].color,
+            valueFormatter: seriesConfig[key].valueFormatter,
+        })),
+        yAxis: [{
+            label: 'Values',
+        }],
+        height: 400,
+        slotProps: {
+            legend: {
+                direction: 'row',
+                position: { vertical: 'top', horizontal: 'middle' },
+                padding: 20,
+            },
+        },
+        layout: 'vertical',
+        barLabel: 'value',
+    };
+
+    const renderChart = () => {
+        switch (chartType) {
+            case 'line':
+                return <LineChart {...lineChartSetting} />;
+            case 'bar':
+                return <BarChart {...barChartSetting} />;
+            default:
+                return null;
         }
-        return null;
+    };
+
+    // Calculate statistics
+    const statistics = {
+        avgTemp: (chartData.reduce((acc, d) => acc + d.temp, 0) / chartData.length).toFixed(1),
+        avgSoil: (chartData.reduce((acc, d) => acc + d.soil, 0) / chartData.length).toFixed(1),
+        avgHum: (chartData.reduce((acc, d) => acc + d.hum, 0) / chartData.length).toFixed(1),
+        totalRain: chartData.reduce((acc, d) => acc + d.rain, 0),
+        maxTemp: Math.max(...chartData.map(d => d.temp)),
+        minTemp: Math.min(...chartData.map(d => d.temp)),
+        trend: chartData[chartData.length - 1].temp > chartData[0].temp ? 'up' : 'down',
     };
 
     return (
-        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                <h2 className="text-xl font-bold">Analytics</h2>
+        <Paper
+            elevation={3}
+            sx={{
+                p: 3,
+                borderRadius: 2,
+                bgcolor: 'background.paper',
+            }}
+        >
+            <Stack spacing={3}>
+                {/* Header */}
+                <Stack
+                    direction={{ xs: 'column', md: 'row' }}
+                    justifyContent="space-between"
+                    alignItems={{ xs: 'stretch', md: 'center' }}
+                    spacing={2}
+                >
+                    <Typography variant="h5" fontWeight="bold">
+                        Analytics
+                    </Typography>
 
-                {/* Chart Type Selector */}
-                <div className="flex gap-2">
-                    {['composed', 'line', 'bar', 'area'].map((type) => (
-                        <button
-                            key={type}
-                            onClick={() => setChartType(type)}
-                            className={`px-2 py-1 text-sm rounded-full capitalize transition-all backdrop-blur-sm ${chartType === type
-                                ? 'bg-linear-to-r from-blue-500/30 to-purple-500/30 text-gray-800 border border-white/40'
-                                : 'bg-white/20 text-gray-700 hover:bg-white/30 border border-white/30'
-                                }`}
-                        >
-                            {type}
-                        </button>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        {/* Chart Type Selector */}
+                        <ButtonGroup variant="outlined" size="small">
+                            {['line', 'bar'].map((type) => (
+                                <Button
+                                    key={type}
+                                    onClick={() => setChartType(type)}
+                                    variant={chartType === type ? 'contained' : 'outlined'}
+                                    sx={{
+                                        textTransform: 'capitalize',
+                                        bgcolor: chartType === type ? 'primary.main' : 'transparent',
+                                        color: chartType === type ? 'white' : 'text.primary',
+                                    }}
+                                >
+                                    {type}
+                                </Button>
+                            ))}
+                        </ButtonGroup>
+                    </Stack>
+                </Stack>
+
+                {/* Series Toggle */}
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                    {Object.entries(seriesConfig).map(([key, config]) => (
+                        <Chip
+                            key={key}
+                            label={config.label}
+                            onClick={() => toggleSeries(key)}
+                            sx={{
+                                bgcolor: series.includes(key) ? config.color : 'transparent',
+                                color: series.includes(key) ? 'white' : 'text.primary',
+                                borderColor: config.color,
+                                '&:hover': {
+                                    bgcolor: series.includes(key) ? config.color : `${config.color}20`,
+                                },
+                            }}
+                            variant={series.includes(key) ? 'filled' : 'outlined'}
+                        />
                     ))}
-                </div>
-            </div>
+                </Stack>
 
-            <div className="h-80">
-                <ResponsiveContainer width="100%" height="100%">
-                    {chartType === 'composed' ? (
-                        <ComposedChart
-                            data={chartData}
-                            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                            <XAxis dataKey="month" />
-                            <YAxis yAxisId="left" />
-                            <YAxis yAxisId="right" orientation="right" />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Legend />
-                            <Bar
-                                yAxisId="left"
-                                dataKey="rain"
-                                name={t('chart.rainfall')}
-                                fill="#0ea5e9"
-                                opacity={0.8}
-                            />
-                            <Line
-                                yAxisId="right"
-                                type="monotone"
-                                dataKey="temp"
-                                name={`${t('chart.temperature')} (°C)`}
-                                stroke="#ef4444"
-                                strokeWidth={2}
-                                dot={{ r: 4 }}
-                                activeDot={{ r: 6 }}
-                            />
-                            <Line
-                                yAxisId="right"
-                                type="monotone"
-                                dataKey="soil"
-                                name={`${t('chart.moisture')} (%)`}
-                                stroke="#22c55e"
-                                strokeWidth={2}
-                                strokeDasharray="5 5"
-                                dot={{ r: 4 }}
-                            />
-                            <Area
-                                yAxisId="right"
-                                type="monotone"
-                                dataKey="hum"
-                                name={`${t('chart.humidity')} (%)`}
-                                stroke="#8b5cf6"
-                                fill="#8b5cf6"
-                                fillOpacity={0.2}
-                                strokeWidth={1}
-                            />
-                        </ComposedChart>
-                    ) : chartType === 'line' ? (
-                        <LineChart
-                            data={chartData}
-                            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Legend />
-                            <Line
-                                type="monotone"
-                                dataKey="temp"
-                                name="Temperature (°C)"
-                                stroke="#ef4444"
-                                strokeWidth={3}
-                                dot={{ r: 4 }}
-                                activeDot={{ r: 8 }}
-                            />
-                            <Line
-                                type="monotone"
-                                dataKey="soil"
-                                name="Soil Moisture (%)"
-                                stroke="#22c55e"
-                                strokeWidth={3}
-                                dot={{ r: 4 }}
-                            />
-                            <Line
-                                type="monotone"
-                                dataKey="hum"
-                                name="Humidity (%)"
-                                stroke="#8b5cf6"
-                                strokeWidth={3}
-                                dot={{ r: 4 }}
-                            />
-                        </LineChart>
-                    ) : chartType === 'bar' ? (
-                        <BarChart
-                            data={chartData}
-                            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Legend />
-                            <Bar
-                                dataKey="temp"
-                                name="Temperature (°C)"
-                                fill="#ef4444"
-                                radius={[4, 4, 0, 0]}
-                            />
-                            <Bar
-                                dataKey="soil"
-                                name="Soil Moisture (%)"
-                                fill="#22c55e"
-                                radius={[4, 4, 0, 0]}
-                            />
-                            <Bar
-                                dataKey="hum"
-                                name="Humidity (%)"
-                                fill="#8b5cf6"
-                                radius={[4, 4, 0, 0]}
-                            />
-                        </BarChart>
-                    ) : chartType === 'area' ? (
-                        <AreaChart
-                            data={chartData}
-                            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Legend />
-                            <Area
-                                type="monotone"
-                                dataKey="temp"
-                                name="Temperature (°C)"
-                                stroke="#ef4444"
-                                fill="#ef4444"
-                                fillOpacity={0.3}
-                                strokeWidth={2}
-                            />
-                            <Area
-                                type="monotone"
-                                dataKey="soil"
-                                name="Soil Moisture (%)"
-                                stroke="#22c55e"
-                                fill="#22c55e"
-                                fillOpacity={0.3}
-                                strokeWidth={2}
-                            />
-                            <Area
-                                type="monotone"
-                                dataKey="hum"
-                                name="Humidity (%)"
-                                stroke="#8b5cf6"
-                                fill="#8b5cf6"
-                                fillOpacity={0.3}
-                                strokeWidth={2}
-                            />
-                        </AreaChart>
-                    ) : null}
-                </ResponsiveContainer>
-            </div>
-        </div>
+                {/* Chart Container */}
+                <Box sx={{ width: '100%', height: 400 }}>
+                    {renderChart()}
+                </Box>
+            </Stack>
+        </Paper>
     );
 };
 
 export default Chart;
+
+
+
+// import { useState } from 'react';
+// import { useTranslation } from 'react-i18next';
+// import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
+
+// const Chart = () => {
+//     const { t } = useTranslation();
+//     // Chart data
+//     const chartData = [
+//         { month: 'Jan', soil: 45, rain: 1200, temp: 22, hum: 68 },
+//         { month: 'Feb', soil: 42, rain: 1100, temp: 24, hum: 65 },
+//         { month: 'Mar', soil: 48, rain: 1300, temp: 26, hum: 70 },
+//         { month: 'Apr', soil: 50, rain: 1400, temp: 28, hum: 72 },
+//         { month: 'May', soil: 52, rain: 1500, temp: 30, hum: 75 },
+//         { month: 'Jun', soil: 55, rain: 1600, temp: 32, hum: 78 },
+//         { month: 'Jul', soil: 58, rain: 1800, temp: 31, hum: 80 },
+//         { month: 'Aug', soil: 56, rain: 1700, temp: 30, hum: 78 },
+//         { month: 'Sep', soil: 53, rain: 1500, temp: 29, hum: 75 },
+//         { month: 'Oct', soil: 49, rain: 1300, temp: 27, hum: 70 },
+//         { month: 'Nov', soil: 46, rain: 1200, temp: 24, hum: 68 },
+//         { month: 'Dec', soil: 44, rain: 1100, temp: 22, hum: 66 },
+//     ];
+
+//     const [chartType, setChartType] = useState('composed');
+
+//     // Custom tooltip
+//     const CustomTooltip = ({ active, payload, label }) => {
+//         if (active && payload && payload.length) {
+//             return (
+//                 <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
+//                     <p className="font-bold text-gray-800">{label}</p>
+//                     {payload.map((entry, index) => (
+//                         <p key={index} className="flex items-center gap-2" style={{ color: entry.color }}>
+//                             <span className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }}></span>
+//                             {entry.dataKey}: <span className="font-semibold">{entry.value}
+//                                 {entry.dataKey === 'temp' ? '°C' : entry.dataKey === 'hum' ? '%' : entry.dataKey === 'soil' ? '%' : 'mm'}</span>
+//                         </p>
+//                     ))}
+//                 </div>
+//             );
+//         }
+//         return null;
+//     };
+
+//     return (
+//         <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+//             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+//                 <h2 className="text-xl font-bold">Analytics</h2>
+
+//                 {/* Chart Type Selector */}
+//                 <div className="flex gap-2">
+//                     {['composed', 'line', 'bar', 'area'].map((type) => (
+//                         <button
+//                             key={type}
+//                             onClick={() => setChartType(type)}
+//                             className={`px-2 py-1 text-sm rounded-full capitalize transition-all backdrop-blur-sm ${chartType === type
+//                                 ? 'bg-linear-to-r from-blue-500/30 to-purple-500/30 text-gray-800 border border-white/40'
+//                                 : 'bg-white/20 text-gray-700 hover:bg-white/30 border border-white/30'
+//                                 }`}
+//                         >
+//                             {type}
+//                         </button>
+//                     ))}
+//                 </div>
+//             </div>
+
+//             <div className="h-80">
+//                 <ResponsiveContainer width="100%" height="100%">
+//                     {chartType === 'composed' ? (
+//                         <ComposedChart
+//                             data={chartData}
+//                             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+//                         >
+//                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+//                             <XAxis dataKey="month" />
+//                             <YAxis yAxisId="left" />
+//                             <YAxis yAxisId="right" orientation="right" />
+//                             <Tooltip content={<CustomTooltip />} />
+//                             <Legend />
+//                             <Bar
+//                                 yAxisId="left"
+//                                 dataKey="rain"
+//                                 name={t('chart.rainfall')}
+//                                 fill="#0ea5e9"
+//                                 opacity={0.8}
+//                             />
+//                             <Line
+//                                 yAxisId="right"
+//                                 type="monotone"
+//                                 dataKey="temp"
+//                                 name={`${t('chart.temperature')} (°C)`}
+//                                 stroke="#ef4444"
+//                                 strokeWidth={2}
+//                                 dot={{ r: 4 }}
+//                                 activeDot={{ r: 6 }}
+//                             />
+//                             <Line
+//                                 yAxisId="right"
+//                                 type="monotone"
+//                                 dataKey="soil"
+//                                 name={`${t('chart.moisture')} (%)`}
+//                                 stroke="#22c55e"
+//                                 strokeWidth={2}
+//                                 strokeDasharray="5 5"
+//                                 dot={{ r: 4 }}
+//                             />
+//                             <Area
+//                                 yAxisId="right"
+//                                 type="monotone"
+//                                 dataKey="hum"
+//                                 name={`${t('chart.humidity')} (%)`}
+//                                 stroke="#8b5cf6"
+//                                 fill="#8b5cf6"
+//                                 fillOpacity={0.2}
+//                                 strokeWidth={1}
+//                             />
+//                         </ComposedChart>
+//                     ) : chartType === 'line' ? (
+//                         <LineChart
+//                             data={chartData}
+//                             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+//                         >
+//                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+//                             <XAxis dataKey="month" />
+//                             <YAxis />
+//                             <Tooltip content={<CustomTooltip />} />
+//                             <Legend />
+//                             <Line
+//                                 type="monotone"
+//                                 dataKey="temp"
+//                                 name="Temperature (°C)"
+//                                 stroke="#ef4444"
+//                                 strokeWidth={3}
+//                                 dot={{ r: 4 }}
+//                                 activeDot={{ r: 8 }}
+//                             />
+//                             <Line
+//                                 type="monotone"
+//                                 dataKey="soil"
+//                                 name="Soil Moisture (%)"
+//                                 stroke="#22c55e"
+//                                 strokeWidth={3}
+//                                 dot={{ r: 4 }}
+//                             />
+//                             <Line
+//                                 type="monotone"
+//                                 dataKey="hum"
+//                                 name="Humidity (%)"
+//                                 stroke="#8b5cf6"
+//                                 strokeWidth={3}
+//                                 dot={{ r: 4 }}
+//                             />
+//                         </LineChart>
+//                     ) : chartType === 'bar' ? (
+//                         <BarChart
+//                             data={chartData}
+//                             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+//                         >
+//                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+//                             <XAxis dataKey="month" />
+//                             <YAxis />
+//                             <Tooltip content={<CustomTooltip />} />
+//                             <Legend />
+//                             <Bar
+//                                 dataKey="temp"
+//                                 name="Temperature (°C)"
+//                                 fill="#ef4444"
+//                                 radius={[4, 4, 0, 0]}
+//                             />
+//                             <Bar
+//                                 dataKey="soil"
+//                                 name="Soil Moisture (%)"
+//                                 fill="#22c55e"
+//                                 radius={[4, 4, 0, 0]}
+//                             />
+//                             <Bar
+//                                 dataKey="hum"
+//                                 name="Humidity (%)"
+//                                 fill="#8b5cf6"
+//                                 radius={[4, 4, 0, 0]}
+//                             />
+//                         </BarChart>
+//                     ) : chartType === 'area' ? (
+//                         <AreaChart
+//                             data={chartData}
+//                             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+//                         >
+//                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+//                             <XAxis dataKey="month" />
+//                             <YAxis />
+//                             <Tooltip content={<CustomTooltip />} />
+//                             <Legend />
+//                             <Area
+//                                 type="monotone"
+//                                 dataKey="temp"
+//                                 name="Temperature (°C)"
+//                                 stroke="#ef4444"
+//                                 fill="#ef4444"
+//                                 fillOpacity={0.3}
+//                                 strokeWidth={2}
+//                             />
+//                             <Area
+//                                 type="monotone"
+//                                 dataKey="soil"
+//                                 name="Soil Moisture (%)"
+//                                 stroke="#22c55e"
+//                                 fill="#22c55e"
+//                                 fillOpacity={0.3}
+//                                 strokeWidth={2}
+//                             />
+//                             <Area
+//                                 type="monotone"
+//                                 dataKey="hum"
+//                                 name="Humidity (%)"
+//                                 stroke="#8b5cf6"
+//                                 fill="#8b5cf6"
+//                                 fillOpacity={0.3}
+//                                 strokeWidth={2}
+//                             />
+//                         </AreaChart>
+//                     ) : null}
+//                 </ResponsiveContainer>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Chart;
